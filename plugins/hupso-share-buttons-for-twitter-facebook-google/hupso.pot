@@ -1,0 +1,418 @@
+# Copyright (C) 2013 
+# This file is distributed under the same license as the  package.
+msgid ""
+msgstr ""
+"Project-Id-Version:  \n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/hupso-share-buttons-for-"
+"twitter-facebook-google\n"
+"POT-Creation-Date: 2013-12-10 08:40:27+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2013-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+
+#: share-buttons-hupso-meta.php:20
+msgid "Hupso"
+msgstr ""
+
+#: share-buttons-hupso-meta.php:35 share-buttons-hupso-meta.php:38
+#: share-buttons-hupso-meta.php:95
+msgid "Default"
+msgstr ""
+
+#: share-buttons-hupso-meta.php:41 share-buttons-hupso-meta.php:96
+msgid "Enabled"
+msgstr ""
+
+#: share-buttons-hupso-meta.php:44 share-buttons-hupso-meta.php:97
+msgid "Disabled"
+msgstr ""
+
+#: share-buttons-hupso-meta.php:95 share-buttons-hupso-widget.php:76
+#: share-buttons-hupso.php:1893
+msgid "Settings"
+msgstr ""
+
+#: share-buttons-hupso-widget.php:15
+msgid ""
+"Help visitors share your posts on the most popular social networks: Twitter, "
+"Facebook, Google Plus, Linkedin, StumbleUpon, Digg, Reddit and others"
+msgstr ""
+
+#: share-buttons-hupso-widget.php:68 share-buttons-hupso.php:282
+msgid "Share"
+msgstr ""
+
+#: share-buttons-hupso-widget.php:72
+msgid "Title"
+msgstr ""
+
+#: share-buttons-hupso.php:280
+msgid "en_US"
+msgstr ""
+
+#: share-buttons-hupso.php:281
+msgid "English"
+msgstr ""
+
+#: share-buttons-hupso.php:283 share-buttons-hupso.php:732
+msgid "Excerpts"
+msgstr ""
+
+#: share-buttons-hupso.php:287
+msgid "You do not have sufficient permissions to access this page."
+msgstr ""
+
+#: share-buttons-hupso.php:297
+msgid "Hupso Share Buttons for Twitter, Facebook & Google+ (Settings)"
+msgstr ""
+
+#: share-buttons-hupso.php:301
+msgid "Preview"
+msgstr ""
+
+#: share-buttons-hupso.php:301
+msgid "Update"
+msgstr ""
+
+#: share-buttons-hupso.php:304 share-buttons-hupso.php:974
+msgid "Save Settings"
+msgstr ""
+
+#: share-buttons-hupso.php:308
+msgid "Shortcodes"
+msgstr ""
+
+#: share-buttons-hupso.php:371
+msgid "Button type"
+msgstr ""
+
+#: share-buttons-hupso.php:399
+msgid "Button size"
+msgstr ""
+
+#: share-buttons-hupso.php:407 share-buttons-hupso.php:497
+#: share-buttons-hupso.php:884
+msgid "Custom image from URL"
+msgstr ""
+
+#: share-buttons-hupso.php:418
+msgid "Toolbar size"
+msgstr ""
+
+#: share-buttons-hupso.php:433
+msgid "Big"
+msgstr ""
+
+#: share-buttons-hupso.php:434
+msgid "Medium"
+msgstr ""
+
+#: share-buttons-hupso.php:435
+msgid "Small"
+msgstr ""
+
+#: share-buttons-hupso.php:446
+msgid "Share image"
+msgstr ""
+
+#: share-buttons-hupso.php:469
+msgid "Show in language"
+msgstr ""
+
+#: share-buttons-hupso.php:496
+msgid "Hide"
+msgstr ""
+
+#: share-buttons-hupso.php:497
+msgid "Optimal image height: 32px - big, 24px - medium, 16px - small/counters"
+msgstr ""
+
+#: share-buttons-hupso.php:511
+msgid "Background color"
+msgstr ""
+
+#: share-buttons-hupso.php:512
+msgid "Border color"
+msgstr ""
+
+#: share-buttons-hupso.php:521 share-buttons-hupso.php:564
+msgid "Social networks"
+msgstr ""
+
+#: share-buttons-hupso.php:610
+msgid "Show counters in language"
+msgstr ""
+
+#: share-buttons-hupso.php:614
+msgid "Language changes will not show in preview"
+msgstr ""
+
+#: share-buttons-hupso.php:615
+msgid ""
+"Select which language to use for Counters (Tweet, Facebook Like, Facebook "
+"Share...)"
+msgstr ""
+
+#: share-buttons-hupso.php:615
+msgid ""
+"Some social networks support more languages than others, so some buttons "
+"might get translated, while some might stay in English"
+msgstr ""
+
+#: share-buttons-hupso.php:627
+msgid "Type of menu"
+msgstr ""
+
+#: share-buttons-hupso.php:640
+msgid "Show icons and service names"
+msgstr ""
+
+#: share-buttons-hupso.php:641
+msgid "Show icons only"
+msgstr ""
+
+#: share-buttons-hupso.php:648
+msgid "Button position"
+msgstr ""
+
+#: share-buttons-hupso.php:663
+msgid "Above the post"
+msgstr ""
+
+#: share-buttons-hupso.php:664
+msgid "Below the post"
+msgstr ""
+
+#: share-buttons-hupso.php:665
+msgid "Above and below the post"
+msgstr ""
+
+#: share-buttons-hupso.php:668
+msgid "Show buttons on"
+msgstr ""
+
+#: share-buttons-hupso.php:728
+msgid "Posts"
+msgstr ""
+
+#: share-buttons-hupso.php:729
+msgid "Pages"
+msgstr ""
+
+#: share-buttons-hupso.php:730
+msgid "Front page"
+msgstr ""
+
+#: share-buttons-hupso.php:731
+msgid "Archive pages (categories, tags, dates, authors)"
+msgstr ""
+
+#: share-buttons-hupso.php:733
+msgid "Search pages"
+msgstr ""
+
+#: share-buttons-hupso.php:734
+msgid "Password protected posts"
+msgstr ""
+
+#: share-buttons-hupso.php:747
+msgid "Custom post types:"
+msgstr ""
+
+#: share-buttons-hupso.php:764
+msgid "If you want to show share buttons just on some posts/pages do this:"
+msgstr ""
+
+#: share-buttons-hupso.php:764
+msgid "1. Clear options for posts/pages above"
+msgstr ""
+
+#: share-buttons-hupso.php:764
+msgid "2. Enable Add share buttons option to \"Edit Post\" screen - below"
+msgstr ""
+
+#: share-buttons-hupso.php:764
+msgid ""
+"3. Edit any post or page and configure display of share buttons at the "
+"bottom of right sidebar (on \"Edit Post\" screen)"
+msgstr ""
+
+#: share-buttons-hupso.php:773
+msgid "Add share buttons option to \"Edit Post\" screen"
+msgstr ""
+
+#: share-buttons-hupso.php:777
+msgid "Hide buttons for specific categories"
+msgstr ""
+
+#: share-buttons-hupso.php:798
+msgid "Always show"
+msgstr ""
+
+#: share-buttons-hupso.php:800
+msgid "Select categories where you want to hide share buttons."
+msgstr ""
+
+#: share-buttons-hupso.php:801
+msgid ""
+"To select multiple categories, you need to hold down the Control Key for "
+"each selected category after the first one."
+msgstr ""
+
+#: share-buttons-hupso.php:802
+msgid ""
+"Leave all options unselected or select just the last option to show buttons "
+"inside every category."
+msgstr ""
+
+#: share-buttons-hupso.php:807
+msgid "Get share text from"
+msgstr ""
+
+#: share-buttons-hupso.php:821
+msgid "Title of post in Wordpress"
+msgstr ""
+
+#: share-buttons-hupso.php:822
+msgid "Title of current web page"
+msgstr ""
+
+#: share-buttons-hupso.php:827
+msgid "Twitter via"
+msgstr ""
+
+#: share-buttons-hupso.php:835
+msgid "Add \"via @yourprofile\" to tweets"
+msgstr ""
+
+#: share-buttons-hupso.php:840
+msgid "Image for Facebook thumbnail"
+msgstr ""
+
+#: share-buttons-hupso.php:880
+msgid ""
+"All images for Facebook should be at least 200px in both dimensions "
+"(Facebook limitation)"
+msgstr ""
+
+#: share-buttons-hupso.php:880
+msgid ""
+"After you change settings here, please wait 24 hours (or more) for Facebook "
+"to fetch new thumbnails"
+msgstr ""
+
+#: share-buttons-hupso.php:880
+msgid ""
+"\"og:image\" meta tag with image url will be added to head of HTML. Select "
+"\"None\" to disable this feature"
+msgstr ""
+
+#: share-buttons-hupso.php:882
+msgid "Header image"
+msgstr ""
+
+#: share-buttons-hupso.php:882
+msgid "Click here to see full header image"
+msgstr ""
+
+#: share-buttons-hupso.php:882
+msgid "preview"
+msgstr ""
+
+#: share-buttons-hupso.php:883
+msgid "Featured image of post"
+msgstr ""
+
+#: share-buttons-hupso.php:885
+msgid "None"
+msgstr ""
+
+#: share-buttons-hupso.php:886
+msgid ""
+"FCH  - use Featured image of post (if available), then use Custom image (if "
+"available), then use Header image (if available)"
+msgstr ""
+
+#: share-buttons-hupso.php:891
+msgid "CSS style"
+msgstr ""
+
+#: share-buttons-hupso.php:899
+msgid ""
+"Use CSS to style share buttons. For example: you can increase padding to "
+"have more free space above or below the buttons"
+msgstr ""
+
+#: share-buttons-hupso.php:904
+msgid "Widget Text"
+msgstr ""
+
+#: share-buttons-hupso.php:917
+msgid "Use shortcodes in text widgets"
+msgstr ""
+
+#: share-buttons-hupso.php:917
+msgid ""
+"If this is checked, you can use [hupso] shortcode inside text widgets and it "
+"will be replaced by share buttons"
+msgstr ""
+
+#: share-buttons-hupso.php:922
+msgid "Custom title"
+msgstr ""
+
+#: share-buttons-hupso.php:930
+msgid "Enter custom text that will always be used for sharing."
+msgstr ""
+
+#: share-buttons-hupso.php:930
+msgid ""
+"Leave this blank to use title of current page as text for sharing. [Default]"
+msgstr ""
+
+#: share-buttons-hupso.php:935
+msgid "Custom url"
+msgstr ""
+
+#: share-buttons-hupso.php:942
+msgid ""
+"Enter custom url that will always be used for sharing. You can enter your "
+"root website here (e.g.: http://www.example.com or http://example.blogspot."
+"com), so counters will show statistics for your whole website, not for each "
+"page individually."
+msgstr ""
+
+#: share-buttons-hupso.php:942
+msgid "Leave this blank to use url of current page for sharing. [Default]"
+msgstr ""
+
+#: share-buttons-hupso.php:947
+msgid "Use custom social share icons"
+msgstr ""
+
+#: share-buttons-hupso.php:964
+msgid "No. [Default. Do not change this unless you know what you are doing.]"
+msgstr ""
+
+#: share-buttons-hupso.php:965
+msgid "Yes, serve images from local Wordpress folder. "
+msgstr ""
+
+#: share-buttons-hupso.php:967
+msgid "Yes, serve images from remote URL: "
+msgstr ""
+
+#: share-buttons-hupso.php:968
+msgid ""
+"Enter URL to folder with custom social images.  Include \"/\" at the end of "
+"the URL. If you would like to use custom icons, make sure you <a href="
+"\"http://www.hupso.com/share/custom-social-icons.php\" target=\"_blank"
+"\">read instructions</a>."
+msgstr ""
+
+#: share-buttons-hupso.php:968
+msgid "This setting has no effect when using Counters."
+msgstr ""
