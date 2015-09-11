@@ -1,3 +1,5 @@
 *.mo
 languages/admin-network-pt_BR.po
 *.po
+*.jpg
+*.png
