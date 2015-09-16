@@ -42,6 +42,11 @@
 				return (new DateTime(get_user_meta($user->ID,MyUsersClass::USER_BIRTHDAY,true)))->diff(new DateTime())->y;
 			}
 			
+			function getUserProfilePhoto($user){
+			    $avatar_url = get_avatar($user->ID);
+			    return explode("'", explode("src", $avatar_url)[1])[1];
+			}
+
 			//My functions
 			function listaUsuarios($users){
 				if(!is_array($users))
@@ -50,11 +55,69 @@
 					foreach($users as $user){
 						$idade = MyUsersClass::getIdade($user);
 						?>
-						<div class="users_block" style="background-image:url('<?php echo esc_url($user->get(MyUsersClass::USER_PROFILE_PHOTO)); ?>')">
+						<!--<div class="users_block" style="background-image:url('<?php echo esc_url($user->get(MyUsersClass::USER_PROFILE_PHOTO)); ?>')">
 							<h3 class="users_title"><?php echo ($user->first_name);?></h3>
 								<p class="description"><?php echo ($idade ? "$idade anos." : "Idade desconhecida").'<br>';  echo (strlen(@$description)) ? $description : "Sem descri&ccedil;&atilde;o.";?></p>
 							<span class="users_see_more"><?php echo "Cargo: ".$user->get(MyUsersClass::USER_FUNCTION)?></span>
-						</div>
+						</div>-->
+						<div class="col-lg-3 col-sm-3 team-box">
+
+
+				            <div class="team-member">
+
+								
+								<figure class="profile-pic">
+
+
+									<img src="<?php echo MyUsersClass::getUserProfilePhoto($user); ?>" alt="<?php echo $user->first_name . " " . $user->last_name;?>">
+
+
+								</figure>
+								
+								<div class="member-details">
+
+									<h5 class="dark-text red-border-bottom"><?php echo $user->first_name . " " . $user->last_name;?></h5>
+									
+									<div class="position"><?php echo $user->get(MyUsersClass::USER_FUNCTION); ?><?php echo ($idade ? ", $idade": "");?></div>
+
+				                </div>
+
+
+				                <div class="social-icons">
+
+
+				                    <ul>
+
+
+				                        <?php if ( !empty(($fb_link = $user->get(MyUsersClass::USER_FACEBOOK))  )): ?>
+				                            <li><a href="<?php echo $fb_link; ?>"><i
+				                                        class="fa fa-facebook"></i></a></li>
+				                        <?php endif; ?>
+
+				                        
+
+
+				                    </ul>
+
+
+				                </div>
+
+
+								<?php if( !empty(@$instance['description']) ): ?>
+				                <div class="details">
+
+
+				                    <?php echo htmlspecialchars_decode(apply_filters('widget_title', $instance['description'])); ?>
+
+
+				                </div>
+								<?php endif; ?>
+
+
+				            </div>
+
+
+				        </div>
 						<!-- Formato de exibição dos usuários aqui -->
 						<?php
 					}

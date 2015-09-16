@@ -388,20 +388,9 @@ jQuery(".skill2").knob({
 /* ======================================
 
 ============ MOBILE NAV =============== */
-var start = false;
 
-function navActive(el){
-  el = el || $("#main-nav");
-  if(start){
-    el.css("background-color","white");
-    setTimeout(100, navActive);
-  }else{
-    el.css("background-color","transparent");
-  }
-}
 jQuery('.navbar-toggle').on('click', function () {
-  start = !start;
-  navActive($("#main-nav"));
+  
   jQuery(this).toggleClass('active');
 
 });
