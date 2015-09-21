@@ -205,7 +205,7 @@
 		}
 		add_action('admin_enqueue_scripts','load_admin_projects_plugin_scripts');
 		
-		add_action( 'transition_post_status', array(MyProjectsClass, 'novoProjetoListener'), 10, 3 );
+		add_action( 'transition_post_status', array(MyProjectClass, 'novoProjetoListener'), 10, 3 );
 		// PROJETOS
 		add_action('wp_footer', 'configAjaxUrl');
 
