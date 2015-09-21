@@ -1,7 +1,7 @@
 	=== Custom Login Page Customizer ===
 Version: 1.0.1
 Requires at least: 4.0
-Tested up to: 4.2.2
+Tested up to: 4.3
 Contributors: codeinwp, hardeepasrani,marius_codeinwp
 Author URI: https://themeisle.com
 Tags: login, customizer, logo, login logo, login customizer, login page,admin, branding, customization, custom login, error, login error, custom login pro
@@ -12,7 +12,7 @@ Custom Login Customizer allows you to easily customize your admin login page, st
 
 == Description ==
 
-><a href="https://themeisle.com/plugins/login-customizer/" target="_blank" rel="friend">Custom Login Page Customizer</a> plugin allows you to easily customize your login page straight from your WordPress Customizer! You can preview your changes before you save them! Awesome, right?
+><a href="https://themeisle.com/plugins/login-customizer/" target="_blank" rel="friend">Custom Login Page Customizer</a> plugin allows you to easily customize your login page straight from your WordPress Customizer! You can preview your custom login changes before you save them! Awesome, right?
 
 In your WordPress Dashboard, navigate to Appearance > Custom Login Page Customizer to get started.
 
@@ -20,7 +20,7 @@ In your WordPress Dashboard, navigate to Appearance > Custom Login Page Customiz
 
 Using the <a rel="friend" href="http://themeisle.com/plugins/custom-login-customizer-security-addon/">SECURITY ADDON</a> of the plugin you will prevents robots and brute force attacks to your website using reCAPTCHA integration and limit login feature.
 
-Upcoming features:
+Upcoming Custom Login Page Customizer features:
 
 - Templates
 - Advanced authentification
@@ -41,7 +41,7 @@ In your WordPress Dashboard, navigate to Appearance > Custom Login Customizer to
 
 = How to donate or contribute? =
 
-Please visit <a target="_blank" rel="nofollow" href="https://themeisle.com">this link</a> for more info.
+Please visit <a target="_blank" rel="friend" href="http://themeisle.com">this link</a> for more info.
 
 == Screenshots ==
 
