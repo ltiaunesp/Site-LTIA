@@ -5165,11 +5165,16 @@ img.ver-mais{
 
 /*SOBRE*/
 
-.img-right{
+ 	display:inline-block;
+ 	float:none !important;	
+ 	margin-right: -4px;
+	vertical-align: top;
+	margin-bottom: 25px;
+/*.img-right{
 	margin-top:-100px;
 	height:100%;
 
-}
+}*/
 
 /*PARCEIROS*/
 
