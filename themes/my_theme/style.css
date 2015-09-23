@@ -5060,37 +5060,55 @@ a.navbar-brand img{
 	position:relative;
 	width:25vw;
 	height:25vw;
-	background-size:100% 100%;
 	display:block;
 	float:left;
 	cursor:pointer;
 	overflow: hidden;
-
 }
-.projeto *{
-	transition:0.4s;
+
+.projeto .projectBackground{
+	filter: blur(1px) contrast(1) brightness(0.2);
+	-webkit-filter:  contrast(1) brightness(0.2);
+	width:25vw;
+	background-size:100% 100%;
+	height:25vw;
+	position: absolute;
+	width:25vw;
+	height:25vw;
+}
+
+.projeto:hover .projectBackground{
+	filter: blur(0px) contrast(1) brightness(0.4);
+	-webkit-filter: blur(0px) contrast(1) brightness(0.4);
+	/*-webkit-filter:none;*/
+	/*margin-top:0;*/
+}
+
+.projeto *, .projeto * *{
+	transition: all 400ms !important;
 	position:absolute;
 }
 
+
 .projeto-titulo{
 	width:20vw;
-	font-size: 2rem;
+	font-size: 1.5rem;
 	color:white;
 	margin-left:2.5vw;
-	margin-top: -25vw;
-	text-shadow:0 3px 3px black;
+	margin-top: 2.5vw;
 	font-weight: 800;
-	
+	top: 0;
 }
 
-.projeto:hover .projeto-titulo{
-	margin-top:0;
+.projeto:nth-child(even) .projeto-titulo{
+	bottom:0;
 }
+
 
 .projeto-descricao{
 	width:20vw;
-	margin-top:18vw;
-	margin-left:30vw;
+	/*margin-top:18vw;
+	margin-left:30vw;*/
 	background-color:rgba(0,0,0,4) !important;
 	color:white;
 	font-weight: lighter;
@@ -5116,12 +5134,7 @@ a.navbar-brand img{
    	box-shadow:         inset 0 0 10px #000000;*/
 }
 
-.overlay-black{
-	width:25vw;
-	height:25vw;
-	position: absolute;
-	background:rgba(0,0,0,0.4);
-}
+
 
 p.section-header-description{
 	font-size:2rem;
