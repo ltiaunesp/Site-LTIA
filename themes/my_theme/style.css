@@ -5190,6 +5190,17 @@ img.ver-mais{
 .container-parceiros h2{
 	margin-top:80px;
 }
+
+/*EQUIPE*/
+
+.our-team{
+	min-height: 600px;
+}
+
+.our-team a img{
+	margin-top:300px;
+}
+
 .team-member .social-icons ul li a:hover{
 	color: inherit !important;
 }
@@ -5197,7 +5208,7 @@ img.ver-mais{
 	color: #3b5998;
 }
 
-
+/*BLOG HOMEPAGE*/
 .latest-news{
 	padding-bottom:40px;
 }
