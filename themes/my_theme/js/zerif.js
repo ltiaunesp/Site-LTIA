@@ -214,7 +214,7 @@ jQuery(document).ready(function(){
       console.debug(target.offset().top);
       if (target.length) {
         jQuery('html,body').animate({
-          scrollTop: window.location.hash == "#inicio" ? 0 : (target.offset().top - (window.location.hash == "#sobre" ? 0 : 55))
+          scrollTop: window.location.hash == "#inicio" ? 0 : (target.offset().top - (window.location.hash == "#sobre" ? 0 : -5))
         }, 1200);
         return false;
       }
