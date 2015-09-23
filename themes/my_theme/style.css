@@ -1822,6 +1822,11 @@ ul.nav > li.currentItem > a:before {
 .focus-box p {
 	font-size: 14px;
 	color: #D3D3D3;
+	padding-top:0px;
+	padding-right:15px;
+	padding-bottom:0px;
+	padding-left:15px;
+	text-align:justify;
 }
 /*----OTHER FOCUSES ----*/
 .other-focuses {
