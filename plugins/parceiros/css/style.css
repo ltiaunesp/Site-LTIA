@@ -1,0 +1,55 @@
+﻿/*USERS_BLOCKS*/
+
+
+div.users_block{
+	float:none !important;
+	display:inline-block;
+	text-align:center;
+	color: white;
+	width:300px;
+	height:300px;
+	margin:20px;
+	background: black;
+	padding:50px 20px 50px 20px;
+	background-size: 100% 100%;
+	text-shadow:0 0px 5px black;
+	overflow:display;
+	box-shadow: 0 0 3px black;
+}
+
+h3.users_title{
+	font-weight:bolder;
+	font-size:1.2em;
+	color: white;
+	margin-bottom:60px;
+}
+
+p.users_description{
+	font-size:1em;
+}
+
+span.users_see_more{
+	
+	cursor:pointer;
+	text-decoration:underline;
+}
+
+div.users_selectable{
+	float:none !important;
+	display:inline-block;
+	width:150px;
+	height:150px;
+	padding:0;
+	cursor:pointer;
+}
+
+div.users_selectable[selecionado="true"]{
+	border: 5px solid yellow;
+}
+
+@media (max-width: 330px) {
+	div.users_block{
+		width: 250px;
+		height: 250px;
+	}
+}
