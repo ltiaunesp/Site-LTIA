@@ -185,10 +185,11 @@ jQuery(document).ready(function(){
     if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
       var target = jQuery(this.hash);
       target = target.length ? target : jQuery('[name=' + this.hash.slice(1) +']');
+      console.debug(target.offset().top);
       if (target.length) {
         movimentando = true;
         jQuery('html,body').animate({
-          scrollTop: target.offset().top + 1
+          scrollTop: target.offset().top + 15
         }, 1200, function(){
 					location.hash = hash;
           movimentando = false;
@@ -210,9 +211,10 @@ jQuery(document).ready(function(){
     // }
     if (location.pathname.replace(/^\//,'') == window.location.pathname.replace(/^\//,'') && location.hostname == window.location.hostname) {
       var target = jQuery(window.location.hash);
+      console.debug(target.offset().top);
       if (target.length) {
         jQuery('html,body').animate({
-          scrollTop: target.offset().top + 15 + headerHeight
+          scrollTop: window.location.hash == "#inicio" ? 0 : (target.offset().top - (window.location.hash == "#sobre" ? 0 : 55))
         }, 1200);
         return false;
       }
