@@ -4955,7 +4955,14 @@ div.myCarousel{
 /* LOCAL */
 
 
-section.local, div#map{ 
+.local{
+	background:white;
+	padding: 100px 0 40px 0 !important; 
+}
+
+
+
+/*section.local, div#map{ 
 	min-height:300px;
 	height: auto;
 	width: 100vw;
@@ -4970,7 +4977,7 @@ div#map{
 	padding: 25px 0 25px 0;
 	position:absolute;
 	width: 100vw;
-	/*background:rgba(192, 46, 7, 0.44);*/
+	background:rgba(192, 46, 7, 0.44);
 	background: rgba(97, 191, 143, 0.65);
 }
 .local .section-header h2{
@@ -4985,7 +4992,7 @@ div#map{
 .content-left-wrap #map{
 	height: 70vh;
 }
-
+*/
 /* MAIN PAGE */
 
 .intro-paragraph{
