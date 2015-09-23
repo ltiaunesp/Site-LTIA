@@ -52,6 +52,8 @@
 
 	        $instance['link'] = strip_tags($new_instance['link']);
 
+	        $instance['titulo'] = strip_tags($new_instance['titulo']);
+
 	        $instance['image_uri'] = strip_tags($new_instance['image_uri']);
 
 	        return $instance;
