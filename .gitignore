@@ -1,7 +1,6 @@
 *.mo
 languages/admin-network-pt_BR.po
 *.po
-*.jpg
 *.png
 
 # OS generated files #
