@@ -5230,6 +5230,31 @@ body.custom-background{
 	background-size: 100% 100%!important;
 }
 
+
+/*MAPA*/
+
+.map, .map-desc{
+	margin:0 auto;
+}
+.map{
+	width:50vw;
+	height:50vw;
+	max-height:60vh;
+	max-width:60vh;
+	background-size:auto 100%;
+	border-radius:50%;
+	margin-top:-20px ;
+	box-shadow: 0 0  3px black;
+}
+
+.map-desc{
+	margin-top:30px;
+	font-weight: lighter; 
+}
+.local{
+	
+}
+
 @media (max-width: 1200px) {
 }
 @media (max-width: 992px) {
@@ -5238,7 +5263,9 @@ body.custom-background{
 	}
 }
 @media (max-width: 767px) {
-
+	.map{
+		margin-top:0px !important;
+	}
 }
 @media (max-width: 600px) {
 
