@@ -103,7 +103,9 @@ function buscaProjeto(slug){
 }
 
 jQuery(window).load(function() {
-
+	if(paginaInicial){
+		$(".navbar").addClass("normal");
+	}
   /*jQuery("#projetos .carousel-inner a").click(
 		function(e){
 			e.preventDefault();

@@ -204,8 +204,8 @@ var ParallaxScroll = {
 					alpha = 0;
 				this._log(cssTransform);			
                 $el.attr("style", "filter: "+ filter + " -webkit-filter: "+ filter + " transform:" + cssTransform + " -webkit-transform:" + cssTransform + " " + style + "background-color: rgba(255,255,255, " + alpha + ");" + "box-shadow: 0px 5px 11px 0px rgba(60,60,60, " + (alpha * 0.5) + ");" + "-webkit-box-shadow: 0px 5px 11px 0px rgba(60,60,60, " + (alpha * 0.5) + ");" + "color: rgb(" + Math.max(60, 255 * ( 1- alpha ) ) + ", " + Math.max(60, 255 * ( 1- alpha ) ) + "," + Math.max(60, 255 * ( 1- alpha ) ) + ");" + (opacity !== undefined ? opacity : ""));
-                if(properties["prop"] !== undefined){ 
-                    properties["prop"].call();     
+                if(properties["callback"] !== undefined ){ 
+                    properties["callback"].call();     
                 }
             }
         }, this));

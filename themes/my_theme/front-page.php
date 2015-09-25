@@ -504,13 +504,16 @@ if ( get_option( 'show_on_front' ) == 'page' ) {
 
 			</div> <!-- / END CONTAINER -->
 			<script language='javascript'>
+				var checandoPos = false;
+
 				$ = jQuery.noConflict();
 				function criaAnimacao(){
 					$("#logoLtia").attr("data-parallax","");
 					$("#logoLtia").attr("style","opacity: 0");
 					$("#logoLtia").data("parallax", {
-						'from-scroll' : $("#inicio").outerHeight() / 2,
-						'to-scroll' : $("#inicio").outerHeight() ,
+						// 'from-scroll' : $("#inicio").outerHeight() / 2,
+						'from-scroll' : 0,
+						'to-scroll' : $("#inicio").outerHeight()/2 ,
 						'smoothness' : 15,
 						'opacity-in': 1
 					});
@@ -518,11 +521,19 @@ if ( get_option( 'show_on_front' ) == 'page' ) {
 					// $("#main-nav").attr("style", "-webkit-box-shadow:0 0 0 0 transparent; box-shadow:0 0 0 0 transparent;");
 					$("#main-nav").attr("data-parallax","");
 					$("#main-nav").data("parallax", {
-						'from-scroll' : $("#inicio").outerHeight() / 2,
-						'to-scroll' : $("#inicio").outerHeight() ,
+						// 'from-scroll' : $("#inicio").outerHeight() / 2,
+						'from-scroll' : 0,
+						'to-scroll' : $("#inicio").outerHeight()/2,
 						'smoothness' : 15,
 						'alpha' : 1,
-						'callback' : undefined
+						'callback' : function(){
+
+							if($(window).scrollTop() <= $("#inicio").outerHeight() / 2 ){
+								$("#main-nav").addClass("fonteBranca");
+							}else{
+								$("#main-nav").removeClass("fonteBranca");
+							}
+						}
 					});
 
 					$("#mainLogo").attr("data-parallax","");

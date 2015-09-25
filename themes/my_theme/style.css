@@ -1441,7 +1441,7 @@ object {
 
 }
 .navbar {
-	background: rgba(255,255,255,0);
+	background: rgba(255,255,255,1);
 	border: 0;
 	border-radius: 0 !important;
 	text-align: left;
@@ -5036,7 +5036,16 @@ a.navbar-brand img{
 .pixeden:hover{
 	background-size: 140%;
 }
+/*MENU*/
 
+.navbar.fonteBranca * *{
+	/*color:white !important;*/
+	color:rgb(167, 208, 176) !important;
+}
+
+.navbar.normal{
+	background: rgba(255,255,255,0);
+}
 .navbar-toggle.collapsed{
 	background:transparent !important;
 }
@@ -5175,7 +5184,7 @@ img.ver-mais{
 }
 
 /*SOBRE*/
-
+/*
  	display:inline-block;
  	float:none !important;	
  	margin-right: -4px;
@@ -5206,6 +5215,13 @@ img.ver-mais{
 
 .our-team{
 	min-height: 600px;
+	background-image: url('images/team.jpg');
+	background-size:cover;
+	background-position:20% center;
+}
+
+.our-team h6, .our-team h2{
+	color: white !important;
 }
 
 .our-team a img{
@@ -5264,7 +5280,7 @@ body.custom-background{
 }
 @media (max-width: 767px) {
 	.map{
-		margin-top:0px !important;
+		margin-top:70px !important;
 	}
 }
 @media (max-width: 600px) {
