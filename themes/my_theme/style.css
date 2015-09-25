@@ -5170,6 +5170,10 @@ img.ver-mais{
 	overflow: hidden;
 }
 
+.pixeden{
+	background-size:cover !important;
+}
+
 /*SOBRE*/
 
  	display:inline-block;
