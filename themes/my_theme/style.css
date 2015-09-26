@@ -5092,6 +5092,8 @@ a.navbar-brand img{
 	position: absolute;
 	width:25vw;
 	height:25vw;
+	-webkit-transition: -webkit-filter 1s linear;
+	transition: filter 1s linear;
 }
 
 .projeto:hover .projectBackground{
@@ -5115,30 +5117,6 @@ a.navbar-brand img{
 	margin-top: 2.5vw;
 	font-weight: 800;
 	top: 0;
-}
-
-.projeto:nth-child(even) .projeto-titulo{
-	bottom:0;
-}
-
-
-.projeto-descricao{
-	width:20vw;
-	/*margin-top:18vw;
-	margin-left:30vw;*/
-	background-color:rgba(0,0,0,4) !important;
-	color:white;
-	font-weight: lighter;
-	text-shadow:0 3px 3px black;
-}
-
-.projeto-descricao p{
-	text-align: center;
-	width: 20vw;
-}
-
-.projeto:hover .projeto-descricao{
-	margin-left:5vw;
 }
 
 
@@ -5277,26 +5255,80 @@ body.custom-background{
 	.container-parceiros h2{
 		margin-top:20px ;
 	}
+
+
+
 }
 @media (max-width: 767px) {
+	.projeto{
+		margin:0 0 0 0 !important;
+		padding:0 0 0 0 !important;
+		position:relative;
+		width:50vw;
+		height:50vw;
+		display:block;
+		float:left;
+		cursor:pointer;
+		overflow: hidden;
+	}
+
+	.projeto .projectBackground{
+		filter: blur(1px) contrast(1) brightness(0.2);
+		-webkit-filter:  contrast(1) brightness(0.2);
+		width:50vw;
+		height:50vw;
+		background-size:100% 100%;
+		position: absolute;
+		-webkit-transition: -webkit-filter 1s linear;
+		transition: filter 1s linear;
+	}
+
+	.projeto-titulo{
+		width:40vw;
+		font-size: 1.5rem;
+		color:white;
+		margin-left:5vw;
+		margin-top: 5vw;
+		font-weight: 800;
+		top: 0;
+	}
 	.map{
 		margin-top:70px !important;
 	}
 }
 @media (max-width: 600px) {
+	.projeto{
+		margin:0 0 0 0 !important;
+		padding:0 0 0 0 !important;
+		position:relative;
+		width:100vw;
+		height:100vw;
+		display:block;
+		float:left;
+		cursor:pointer;
+		overflow: hidden;
+	}
 
-}
-@media (max-width: 480px) {
+	.projeto .projectBackground{
+		filter: blur(1px) contrast(1) brightness(0.2);
+		-webkit-filter:  contrast(1) brightness(0.2);
+		width:100vw;
+		height:100vw;
+		background-size:100% 100%;
+		position: absolute;
+		-webkit-transition: -webkit-filter 1s linear;
+		transition: filter 1s linear;
+	}
 
-}
-@media (max-width: 1200px) {
-
-}
-@media (max-width: 992px) {
-
-}
-@media (max-width: 767px) {
-
+	.projeto-titulo{
+		width:80vw;
+		font-size: 1.5rem;
+		color:white;
+		margin-left:10vw;
+		margin-top: 10vw;
+		font-weight: 800;
+		top: 0;
+	}
 }
 @media (max-width: 480px) {
 	.section-header h2{
