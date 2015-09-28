@@ -185,7 +185,6 @@ jQuery(document).ready(function(){
     if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
       var target = jQuery(this.hash);
       target = target.length ? target : jQuery('[name=' + this.hash.slice(1) +']');
-      console.debug(target.offset().top);
       if (target.length) {
         movimentando = true;
         jQuery('html,body').animate({
