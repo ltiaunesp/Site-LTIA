@@ -116,11 +116,11 @@ jQuery(window).load(function() {
 	);*/
 	
 });
-// jQuery(document).ready(function(){
-// 	if(paginaInicial){
-// 		jQuery("#down-button").click(function(){
-// 			jQuery("#site-navigation > ul > li > a")[1].click();
-// 		});
+jQuery(document).ready(function(){
+	if(paginaInicial){
+		jQuery("#down-button").click(function(){
+			jQuery("#site-navigation > ul > li > a")[1].click();
+		});
 // 		lastScrollPos = jQuery(window).scrollTop();
 // 		jQuery(window).scroll(function(){
 // 			if(lastScrollPos < jQuery(window).scrollTop())
@@ -235,8 +235,8 @@ jQuery(window).load(function() {
 // 			});
 // 			lastScrollPos = jQuery(window).scrollTop();
 // 		});
-// 	}
-// });
+	}
+});
 
 var request;
 var post;
