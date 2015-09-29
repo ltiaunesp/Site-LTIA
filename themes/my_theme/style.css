@@ -5282,6 +5282,27 @@ body.custom-background{
 }
 
 
+/*OUTRAS PAGINAS COMEÇAM AQUI*/
+
+/*PROJETOS*/
+
+.white-block{
+	width:100vw;
+	height:auto;
+}
+.white-block,.containter,article, #comments{
+	background:white;
+}
+
+.white-block .entry-content{
+	margin-left: 8vw;
+	margin-right: 8vw;
+}
+
+.white-block .entry-content img{
+	margin:20px;
+}
+
 /*PROPRIEDADES PARA OUTROS TAMANHOS*/
 
 @media (max-width: 1200px) {
