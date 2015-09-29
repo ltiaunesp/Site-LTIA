@@ -190,10 +190,11 @@ jQuery(document).ready(function(){
         jQuery('html,body').animate({
           scrollTop: target.offset().top + 15
         }, 1200, function(){
-					location.hash = hash;
+				 location.hash = hash;
           movimentando = false;
-				});
+			  });
         return false;
+        
       }
     }
   });
@@ -397,6 +398,8 @@ jQuery('.navbar-toggle').on('click', function () {
   jQuery(this).toggleClass('active');
   jQuery("#main-nav").toggleClass("active");
 });
+
+
 
 
 /* SETS THE HEADER HEIGHT */

@@ -1581,7 +1581,7 @@ object {
 }
 .navbar-inverse .navbar-nav>li>a:hover, 
 .navbar-inverse .navbar-nav>li>a:focus {
-	color: #61BF8F;
+	color: #61BF8F !important;
 }
 .navbar-inverse .navbar-nav>li.current>a {
 	position: relative;
