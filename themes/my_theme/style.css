@@ -5245,13 +5245,54 @@ body.custom-background{
 	
 }
 
+
+/*FOOTER*/
+
+#footer{
+	padding-top:40px;
+	padding-bottom:40px;
+}
+
+#footer .container{
+
+}
+
+#footer .container *{
+	vertical-align: middle;
+}
+
+#footer #logoFooter{
+	
+}
+
+#footer #dataFooter{
+	color:white;
+	margin-bottom:5px;
+}
+#footer #dataFooter a{
+	color: #62BF90;
+}
+
+#footer #dataFooter p{
+	margin-bottom: 0;
+}
+
+#footer #socialFooter a{
+	margin: 0 2px 0 2px;
+}
+
+
+/*PROPRIEDADES PARA OUTROS TAMANHOS*/
+
 @media (max-width: 1200px) {
 }
 @media (max-width: 992px) {
 	.container-parceiros h2{
 		margin-top:20px ;
 	}
-
+	#logoFooter{
+		display:none;
+	}
 
 
 }
