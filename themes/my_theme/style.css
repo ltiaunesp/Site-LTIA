@@ -4690,6 +4690,11 @@ body.custom-background {
 		padding-bottom: 0;
 		padding-top: 0;
 	}
+
+	#main-nav ul li a{
+		font-weight: lighter !important;
+	}
+
 	.dropdownmenu {
 		display: block;
 		position: absolute;
@@ -4707,6 +4712,8 @@ body.custom-background {
 		margin-right: 0;
 		padding-right: 0;
 	}
+
+
 	.navbar-inverse .navbar-nav > li > a:hover {
 		color: #404040 !important;
 	}
@@ -5038,9 +5045,13 @@ a.navbar-brand img{
 }
 /*MENU*/
 
+.navbar * *{
+	font-weight: lighter !important;
+}
+
 .navbar.fonteBranca * *{
-	/*color:white !important;*/
-	color:rgb(167, 208, 176) !important;
+	color:white !important;
+	/*color:#fff !important;*/
 }
 
 .navbar.normal{

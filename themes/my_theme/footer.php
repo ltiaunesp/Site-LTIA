@@ -169,6 +169,12 @@
 			menuItens[2].querySelector("a").setAttribute("href", pathWordpress + "#projetos");
 			menuItens[3].querySelector("a").setAttribute("href", pathWordpress + "#equipe");
 			//menuItens[5].querySelector("a").setAttribute("href", pathWordpress + "#blog");
+			if(jQuery(window).scrollTop() < jQuery("#inicio").height() / 2){
+				jQuery("#main-nav").addClass("fonteBranca");
+				jQuery("#main-nav").css("-webkit-box-shadow", "0px 5px 11px 0px rgba(60,60,60, 0)");
+				jQuery("#main-nav").css("box-shadow", "0px 5px 11px 0px rgba(60,60,60, 0)");
+			}
+
 			jQuery(window).scroll(scrolled);
 		}
 		else{
