@@ -395,7 +395,7 @@ jQuery(".skill2").knob({
 jQuery('.navbar-toggle').on('click', function () {
   
   jQuery(this).toggleClass('active');
-
+  jQuery("#main-nav").toggleClass("active");
 });
 
 

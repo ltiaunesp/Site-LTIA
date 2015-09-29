@@ -1545,10 +1545,10 @@ object {
 	box-shadow: none;
 }
 .navbar-toggle.active{
-    background-color: #e96656 !important;
+    background-color: transparent !important;
 }
 .navbar-toggle.collapsed{
-    background-color: #808080 !important;
+    background-color: transparent !important;
 }
 .menu-align-center #site-navigation {
 	width: 100%;
@@ -5316,6 +5316,18 @@ body.custom-background{
 
 .white-block .entry-content img{
 	margin:20px;
+}
+
+#main-nav.active{
+	background-color: white !important;
+}
+
+#main-nav.active a{
+	color: black !important;
+}
+
+#main-nav.active #logoLtia{
+	opacity: 1 !important;
 }
 
 /*PROPRIEDADES PARA OUTROS TAMANHOS*/
