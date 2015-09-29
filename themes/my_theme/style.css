@@ -5231,13 +5231,9 @@ body.custom-background{
 	margin:0 auto;
 }
 .map{
-	width:50vw;
-	height:50vw;
-	max-height:60vh;
-	max-width:60vh;
-	background-size:auto 100%;
-	border-radius:50%;
+	margin: 0 auto;
 	margin-top:-20px ;
+	width:60vw;
 	box-shadow: 0 0  3px black;
 }
 
