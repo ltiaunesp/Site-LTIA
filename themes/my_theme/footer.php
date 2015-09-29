@@ -27,9 +27,9 @@
 		<span>Todos os direitos reservados | <a href="mailto:contato@ltia.fc.unesp.br">Contato</a></span>
 	</div>
 	<div class="col-md-2" id="socialFooter">
-		<a><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/rede1.png"></a>
-		<a><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/rede2.png"></a>
-		<a><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/rede3.png"></a>
+		<a href="http://fb.com/LTIA.UNESP"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/facebook_rod.png"></a>
+		<a href="http://instagram.com/ltiaunesp"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/instagram_rod.png"></a>
+		<a href="<?php echo admin_url();?>"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/cadeado_rod.png"></a>
 	</div>
 
 
