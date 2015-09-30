@@ -16,7 +16,8 @@
  // var_dump($_SERVER); exit;
  // var_dump(explode('/', $_SERVER["REDIRECT_URL"])[1]); exit;
  
- $pathWordpress = $_SERVER['REQUEST_SCHEME'] . "://" . $_SERVER['SERVER_ADDR'] . ":" . $_SERVER['SERVER_PORT'] . $_SERVER["REQUEST_URI"];
+ // $pathWordpress = $_SERVER['REQUEST_SCHEME'] . "://" . $_SERVER['SERVER_ADDR'] . ":" . $_SERVER['SERVER_PORT'] . $_SERVER["REQUEST_URI"];
+$pathWordpress = get_site_url();
 ?><!DOCTYPE html>
 
 <html <?php language_attributes(); ?>>
