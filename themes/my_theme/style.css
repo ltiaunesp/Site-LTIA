@@ -5141,22 +5141,30 @@ a.navbar-brand img{
 }
 
 
-
 p.section-header-description{
 	font-weight: lighter;
 	margin-top:-15px;
 	margin-bottom: 50px;
 }
 
-.parceiroImg{
-	margin:30px 50px 0 50px;
-	max-width:200px;
-	max-height:150px;
-}
 
 img.ver-mais{
 	width:50px;
 }
+
+/*PROJETOS UNICA PAGINA*/
+
+.projs-full-width{
+	
+	height:;
+}
+
+.projetoEmBranco{
+	background:black !important;
+}
+
+
+
 
 /*MISSAO VISAO VALORES*/
 
@@ -5185,8 +5193,16 @@ img.ver-mais{
 
 }*/
 
+
+
+
 /*PARCEIROS*/
 
+.parceiroImg{
+	margin:30px 50px 0 50px;
+	max-width:200px;
+	max-height:150px;
+}
 .container-parceiros{
 	width:100vw;
 	height:auto;
