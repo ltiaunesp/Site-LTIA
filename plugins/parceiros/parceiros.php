@@ -32,8 +32,8 @@
 
 	        ?>
 
-	        <a href="<?php if( !empty($instance['link']) ): echo apply_filters('widget_title', $instance['link']); endif; ?>"><img
-	                src="<?php if( !empty($instance['image_uri']) ): echo esc_url($instance['image_uri']); endif; ?>" alt="Client"></a>
+	        <a href="<?php if( !empty($instance['link']) ): echo apply_filters('widget_title', $instance['link']); endif; ?>"><img class="parceiroImg"
+	                src="<?php if( !empty($instance['image_uri']) ): echo esc_url($instance['image_uri']); endif; ?>" alt="<?php echo !empty(@$instance['titulo']) ? $instance['titulo'] : '' ; ?>"></a>
 
 
 
@@ -135,6 +135,11 @@
 
 	class Parceiros{
 		function init(){
+			register_sidebar(array(
+				'id' => 'parceiros_sidebar',
+				'name' => 'Seção de Parceiros',
+				'description' => 'Sidebar da seção de parceiros, abaixo dos projetos'
+				));
 			register_widget("Parceiros_Widget");
 		}
 	}

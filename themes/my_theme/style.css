@@ -5198,6 +5198,11 @@ img.ver-mais{
 
 /*PARCEIROS*/
 
+.Parceiros_Widget{
+	list-style: none;
+	display:inline;
+}
+
 .parceiroImg{
 	margin:30px 50px 0 50px;
 	max-width:200px;
@@ -5247,9 +5252,22 @@ img.ver-mais{
 
 /*BACKGROUND IMAGE*/
 
-body.custom-background{
-	background-size: 100% 100%!important;
+@media screen and ( orientation: landscape ){
+	
+	body.custom-background{
+		background-size: 100% auto !important;
+	}
+	
 }
+
+@media screen and ( orientation: portrait ){
+	
+	body.custom-background{
+		background-size: auto 100% !important;
+	}
+	
+}
+
 
 
 /*MAPA*/
