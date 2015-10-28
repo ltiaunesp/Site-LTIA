@@ -32,7 +32,7 @@
 
 	        ?>
 
-	        <a href="<?php if( !empty($instance['link']) ): echo apply_filters('widget_title', $instance['link']); endif; ?>"><img class="parceiroImg"
+	        <a href="<?php if( !empty($instance['link']) ): echo apply_filters('widget_title', $instance['link']); endif; ?>"><img class="parceiroImg" data-scrollreveal="enter left after 0s over 1s"
 	                src="<?php if( !empty($instance['image_uri']) ): echo esc_url($instance['image_uri']); endif; ?>" alt="<?php echo !empty(@$instance['titulo']) ? $instance['titulo'] : '' ; ?>"></a>
 
 
