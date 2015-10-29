@@ -4,7 +4,7 @@ Site para o LTIA - Laboratório de Tecnologia da Informação Aplicada. Foi dese
 ##Colaboradores
 | Nome | Usuário GitHub |
 | ---- | -------------- |
-| Vinicius Figueiredo | [vinifig](https://github.com/vinifig) |
+| Alessandra Sasaki | [alessandrasasaki](https://github.com/alessandrasasaki) |
 | Vinicius Figueiredo | [vinifig](https://github.com/vinifig) |
 | Karoline Setoue | [ksetoue](https://github.com/ksetoue) |
 | Gabriel Oliveira | [gabrielboliveira](https://github.com/gabrielboliveira) |
