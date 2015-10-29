@@ -66,10 +66,15 @@ get_header();
 			<h2 class="dark-text">Parceiros</h2>
 			<h6 class="dark-text">Lorem ipsum solem dolor sit amet. bacon dedeise solem</h6>
 		</div>
-		<p class="section-header-description">
-			<img src="http://127.0.0.1/wordpress/wp-content/uploads/2015/09/samsung.png" class="parceiroImg">
-			<img src="http://127.0.0.1/wordpress/wp-content/uploads/2015/09/android.png" class="parceiroImg">
+		<p class="section-header-description" style="margin-bottom:2px;">
+			<?php
+				if(!is_active_sidebar('parceiros_sidebar')){
+			?>
 			<img src="http://127.0.0.1/wordpress/wp-content/uploads/2015/09/microsoft.png" class="parceiroImg">
+			<?php
+				}
+				else dynamic_sidebar('parceiros_sidebar');	
+			?>
 		</p>
 		<p style="font-size:0.6rem;margin-bottom:20;font-style:italic">Todas as logos e marcas são propriedade de suas respectivas empresas</p>
 	</div>
