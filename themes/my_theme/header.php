@@ -113,13 +113,13 @@ endif; ?>
 
 						echo '<a href="'.esc_url( home_url( '/' ) ).'" class="navbar-brand">';
 						
-							if( file_exists(get_stylesheet_directory()."/images/logo.png")):
+							if( file_exists(get_stylesheet_directory()."/images/logoCinza.png")):
 							
-								echo '<img id="logoLtia" src="'.get_stylesheet_directory_uri().'/images/logo.png" alt="'.get_bloginfo('title').'">';
+								echo '<img id="logoLtia" src="'.get_stylesheet_directory_uri().'/images/logoCinza.png" alt="'.get_bloginfo('title').'">';
 							
 							else:
 								
-								echo '<img id="logoLtia" src="'.get_template_directory_uri().'/images/logo.png" alt="'.get_bloginfo('title').'">';
+								echo '<img id="logoLtia" src="'.get_template_directory_uri().'/images/logoCinza.png" alt="'.get_bloginfo('title').'">';
 								
 							endif;
 

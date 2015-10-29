@@ -1,13 +1,13 @@
 /*
-Theme Name: My Theme
+Theme Name: Tema LTIA
 Theme URI: 
-Author: Ltia
-Author URI: http://ltia.fc.unesp.br
-Description: Template do ltia baseado blablabla
+Author: LTIA
+Author URI: http://www.ltia.fc.unesp.br/
+Description: Template do ltia baseado no tema Zerif Lite
 Version: 1
 License: GNU General Public License version 3
 License URI: license.txt
-Text Domain: my_theme
+Text Domain: Tema LTIA
 Domain Path: /languages/
 Tags: black, gray, red, white, one-column, two-columns, right-sidebar,fixed-layout,light,front-page-post-form,full-width-template,rtl-language-support,sticky-post,theme-options,responsive-layout, custom-background, custom-menu, editor-style, featured-images, threaded-comments, translation-ready,photoblogging
 */
@@ -4750,7 +4750,7 @@ body.custom-background {
         margin-bottom: 75px;
     }
     .section-header {
-        float: left;
+        /*float: left;*/
         width: 100%;
     }
 
@@ -5263,7 +5263,7 @@ img.ver-mais{
 @media screen and ( orientation: portrait ){
 	
 	body.custom-background{
-		background-size: auto 100% !important;
+		background-size: auto 100vh !important;
 	}
 	
 }
@@ -5457,6 +5457,9 @@ img.ver-mais{
 	.latest-news p.section-header-description{
 		font-size: 1.25rem !important;	
 	}
+	.header-content-wrap .intro-paragraph{
+		font-size:1rem;
+	}
 }
 @media (max-width: 320px) {
 
@@ -5466,7 +5469,20 @@ img.ver-mais{
 
 }
 
-.blockSection p{
+.focus p{
 	text-align: justify !important;
-	padding: 0 60px 0 60px;
+	padding: 0 3vw 0 3vw;
+}
+
+
+.projectBackground{
+	background-size: 120% auto !important;
+	background-position: center center;
+}
+.projeto:hover .projectBackground{
+	background-size:110% auto !important;
+}
+
+.page-template-template-usuarios .content-left-wrap .section-header{
+	float:none;
 }
