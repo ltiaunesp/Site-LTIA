@@ -24,7 +24,7 @@
 	<img class="col-md-2" id="logoFooter" src="<?php echo get_stylesheet_directory_uri(); ?>/images/logo.png">
 	<div class="col-md-8" id="dataFooter">
 		<p><a href="<?php echo get_site_url();?>">LTIA - Laboratório de Tecnologia da Informação Aplicada</a></p>
-		<span>Todos os direitos reservados | <a href="mailto:contato@ltia.fc.unesp.br">Contato</a></span>
+		<span>Todos os direitos reservados</span>
 	</div>
 	<div class="col-md-2" id="socialFooter">
 		<a href="http://fb.com/LTIA.UNESP"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/facebook_rod.png"></a>

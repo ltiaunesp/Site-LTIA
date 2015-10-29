@@ -459,7 +459,7 @@ if ( get_option( 'show_on_front' ) == 'page' ) {
 
 						<div class="col-lg-4 col-sm-4" data-scrollreveal="enter left after 0s over 1s">
 
-							<input required="required" type="email" name="myemail" placeholder="Email" class="form-control input-box" value="<?php if(isset($_POST['myemail'])) echo is_email($_POST['myemail']) ? $_POST['myemail'] : ""; ?>">
+							<input required="required" type="email" name="myemail" placeholder="E-mail" class="form-control input-box" value="<?php if(isset($_POST['myemail'])) echo is_email($_POST['myemail']) ? $_POST['myemail'] : ""; ?>">
 
 						</div>
 

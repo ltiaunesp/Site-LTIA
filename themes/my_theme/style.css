@@ -1803,7 +1803,7 @@ ul.nav > li.currentItem > a:before {
 	border: 10px solid #61BF8F;
 }
 
-.focus-box .red-border-bottom:before {
+.red-border-bottom:before {
 	background: #61BF8F;
 }
 
@@ -5464,4 +5464,8 @@ img.ver-mais{
 @media (max-width: 320px) {
 
 
+}
+
+.blockSection p{
+	text-align: justify !important;
 }
