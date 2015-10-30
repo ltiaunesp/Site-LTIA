@@ -1351,6 +1351,15 @@ object {
 .focus,.works,.about-us,.features,.packages,.products,.testimonial,.contact-us {
 	padding-top: 100px;
 }
+
+.focus > .container, .latest-news > .container, .local > .container{
+	padding-bottom:80px !important;
+}
+
+.white-block > #content > .container{
+	padding-bottom: 30px !important;
+}
+
 .section-header {
 	text-align: center;
 	padding-bottom: 75px;
@@ -5470,13 +5479,13 @@ img.ver-mais{
 }
 
 .focus p{
-	text-align: justify !important;
+	text-align: center !important;
 	padding: 0 3vw 0 3vw;
 }
 
 
 .projectBackground{
-	background-size: 120% auto !important;
+	background-size: 120% 100% !important;
 	background-position: center center;
 }
 .projeto:hover .projectBackground{
