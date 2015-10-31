@@ -5409,7 +5409,7 @@ img.ver-mais{
 		-webkit-filter:  contrast(1) brightness(0.2);
 		width:50vw;
 		height:50vw;
-		background-size:100% 100%;
+		/*background-size:100% 100%;*/
 		position: absolute;
 		-webkit-transition: -webkit-filter 1s linear;
 		transition: filter 1s linear;
@@ -5446,7 +5446,7 @@ img.ver-mais{
 		-webkit-filter:  contrast(1) brightness(0.2);
 		width:100vw;
 		height:100vw;
-		background-size:100% 100%;
+		/*background-size:100% 100%;*/
 		position: absolute;
 		-webkit-transition: -webkit-filter 1s linear;
 		transition: filter 1s linear;
@@ -5489,11 +5489,11 @@ img.ver-mais{
 
 
 .projectBackground{
-	background-size: 120% 100% !important;
+	background-size: cover !important;
 	background-position: center center;
 }
 .projeto:hover .projectBackground{
-	background-size:110% auto !important;
+	background-size: cover !important;
 }
 
 .page-template-template-usuarios .content-left-wrap .section-header{
@@ -5505,4 +5505,4 @@ img.ver-mais{
 	shape-outside: url('http://127.0.0.1/wordpress/wp-content/themes/ltia/images/logo.png');
   shape-image-threshold: 0.5;
   float: left;
-}*/
+}*
