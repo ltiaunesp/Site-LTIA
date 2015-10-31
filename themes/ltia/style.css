@@ -1348,12 +1348,12 @@ object {
  **   Header               -----
 -----------------------------------------*/
 /*** SECTION HEADERS ***/
-.focus,.works,.about-us,.features,.packages,.products,.testimonial,.contact-us {
+.focus,.works,.about-us,.features,.packages,.products,.testimonial,.contact-us, .latest-news, .local, .our-team{
 	padding-top: 100px;
 }
 
 .focus > .container, .latest-news > .container, .local > .container{
-	padding-bottom:80px !important;
+	padding-bottom:100px;
 }
 
 .white-block > #content > .container{
@@ -1663,7 +1663,7 @@ ul.nav > li.currentItem > a:before {
 }
 /*----  SECTION:  HOME > LATEST NEWS   ----*/
 .latest-news {
-	padding-top: 100px;
+	/*padding-top: 100px;*/
 	background: #FFFFFF;
 }
 .carousel-inner {
@@ -2241,8 +2241,8 @@ width: -webkit-calc(100% / 4);
  **   Section: Our team;              -----
 -----------------------------------------*/
 .our-team {
-	padding-top: 80px;
-	padding-bottom: 66px;
+	/*padding-top: 80px;*/
+	padding-bottom: 100px;
 	background: #CACACA;
 }
 .team-member {
@@ -4603,7 +4603,7 @@ body.custom-background {
     }
 
     .latest-news{
-    	padding-top:20px;
+    	/*padding-top:20px;*/
     	padding-bottom:40px;
     }
     .latest-news p.section-header-description{
@@ -4614,12 +4614,12 @@ body.custom-background {
         padding-bottom: 20px;
     }
     .focus, .works, .about-us, .features, .packages, .products, .testimonial, .contact-us {
-        padding-top: 60px;
+        /*padding-top: 60px;*/
         /*padding-bottom: 60px;*/
     }
     .header-content-wrap{
-		padding: 225px 0 150px;
-	}
+			padding: 225px 0 150px;
+		}
 
 }
 @media (max-width: 767px) {
@@ -5156,6 +5156,10 @@ p.section-header-description{
 	margin-bottom: 50px;
 }
 
+p.section-header-description:last-child{
+	margin-bottom:0;
+}
+
 
 img.ver-mais{
 	width:50px;
@@ -5495,3 +5499,10 @@ img.ver-mais{
 .page-template-template-usuarios .content-left-wrap .section-header{
 	float:none;
 }
+
+
+/*#mainLogo{
+	shape-outside: url('http://127.0.0.1/wordpress/wp-content/themes/ltia/images/logo.png');
+  shape-image-threshold: 0.5;
+  float: left;
+}*/
