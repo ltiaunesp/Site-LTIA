@@ -37,9 +37,9 @@ get_header();
 				<main id="main" class="site-main" role="main">
 					<div class="section-header">
 						<h2 class="dark-text">Projetos</h2>
-						<h6 class="dark-text">Lorem ipsum solem dolor sit amet. bacon dedeise solem</h6>
+						<h6 class="dark-text">O que fazemos?</h6>
 					</div>
-					<p class="section-header-description">Nulla facilisi. Vestibulum vestibulum magna consequat nisi bibendum ullamcorper. Sed iaculis id nibh eget tincidunt. Nam laoreet lectus at dui ornare, ultricies euismod lacus porttitor. Nullam fringilla volutpat tortor, in iaculis purus gravida id. </p>
+					<p class="section-header-description">Nossos projetos tem como foco o aprofundamento técnico, profissional e/ou acadêmico de nossos integrantes, por meio de parcerias com empresas e organizações locais ou multinacionais, como Microsoft e Motorola. À seguir, alguns de nossos projetos e parceiros:</p>
 				</main><!-- #main -->
 
 			</div><!-- #primary -->
@@ -62,10 +62,6 @@ get_header();
 		?>
 	</div>
 	<div class="container-parceiros">
-		<div class="section-header">
-			<h2 class="dark-text">Parceiros</h2>
-			<h6 class="dark-text">Lorem ipsum solem dolor sit amet. bacon dedeise solem</h6>
-		</div>
 		<p class="section-header-description" style="margin-bottom:2px;">
 			<?php
 				if(!is_active_sidebar('parceiros_sidebar')){

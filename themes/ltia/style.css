@@ -1772,6 +1772,7 @@ ul.nav > li.currentItem > a:before {
  	margin-right: -4px;
 	vertical-align: top;
 	margin-bottom: 25px;
+	margin-top: 25px;
 }
 /* FOCUS BOX */
 .focus-box .service-icon {
@@ -5182,7 +5183,7 @@ img.ver-mais{
 /*MISSAO VISAO VALORES*/
 
 .blockSection.missao{
-	padding-top:15vh;
+	padding-top:40px;
 	padding-bottom:40px;
 	background:#060B11;
 	color:white;
@@ -5505,4 +5506,8 @@ img.ver-mais{
 	shape-outside: url('http://127.0.0.1/wordpress/wp-content/themes/ltia/images/logo.png');
   shape-image-threshold: 0.5;
   float: left;
-}*
+}*/
+
+.page-template-template-projetos .white-block > #content > .container{
+	padding-bottom: 75px !important;
+}

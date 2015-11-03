@@ -37,7 +37,7 @@ get_header();
 				<main id="main" class="site-main" role="main">
 					<div class="section-header">
 						<h2 class="dark-text">Equipe</h2>
-						<h6 class="dark-text">Lorem ipsum solem dolor sit amet. bacon dedeise solem</h6>
+						<h6 class="dark-text">Quem faz parte do LTIA?</h6>
 					</div>
 					<div class="section-header-description"><?php
 					MyUsersClass::listaUsuarios((new WP_User_Query( array( 'meta_key' => MyUsersClass::USER_IS_ACTIVE, 'meta_value' => 'on' , "orderby" => 'name' ) ))->results);
