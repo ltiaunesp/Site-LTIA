@@ -78,3 +78,10 @@ div.users_selectable[selecionado="true"]{
 	color:white;
 	display: inline-block;
 }
+
+.profile-pic-image{
+	width:100%;
+	height:100%;
+	background-size: 100% auto !important;
+	background-position: center center;
+}

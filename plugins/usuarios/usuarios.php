@@ -68,8 +68,8 @@
 								
 								<figure class="profile-pic">
 
-
-									<img src="<?php echo MyUsersClass::getUserProfilePhoto($user); ?>" alt="<?php echo $user->first_name . " " . $user->last_name;?>">
+								<div class="profile-pic-image" style="background-image: url('<?php echo MyUsersClass::getUserProfilePhoto($user); ?>')"></div>
+									<!-- <img src="<?php echo MyUsersClass::getUserProfilePhoto($user); ?>" alt="<?php echo $user->first_name . " " . $user->last_name;?>"> -->
 
 
 								</figure>
