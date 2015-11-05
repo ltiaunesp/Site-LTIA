@@ -33,6 +33,15 @@
 		<a href="<?php echo admin_url();?>"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/cadeado_rod.png"></a>
 	</div>
 </div> <!-- / END CONTAINER -->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v2.5&appId=165669613620052";
+  fjs.parentNode.insertBefore(js, fjs);
+  console.log("carregando");
+}(document, 'script', 'facebook-jssdk'));</script>
 <script language="javascript" class="remove">
 	jQuery(document).ready(function(){
 		var menuItens, itemHREF;

@@ -47,6 +47,17 @@
 			    return explode("'", explode("src", $avatar_url)[1])[1];
 			}
 
+			function getUsersNames($users_id){
+				if(!is_array($users_id))
+					$users_id = array($users_id);
+				$users = (new WP_User_Query( array( "include" => $users_id) ))->get_results();
+				$nomes = array();
+				foreach($users as $user)
+					array_push($nomes, $user->data->display_name);
+				return $nomes;
+			}
+
+
 			//My functions
 			function listaUsuarios($users){
 				if(!is_array($users))
