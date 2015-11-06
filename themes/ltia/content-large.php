@@ -97,76 +97,7 @@
 
 	</div><!-- .list-post-top -->
 
-	<footer class="entry-footer-large">
-
-
-		<?php if ( 'post' == get_post_type() ) : ?>
-
-		<div class="entry-meta-large">
-
-			<?php zerif_posted_on(); ?>
-
-		</div><!-- .entry-meta -->
-
-		<?php endif; ?>
-
-
-		<div class="entry-footer-large-left">
-
-			<?php if ( 'post' == get_post_type() ) : /* Hide category and tag text for pages on Search */ ?>
-
-				<?php
-
-					/* translators: used between list items, there is a space after the comma */
-
-					$categories_list = get_the_category_list( __( ', ', 'zerif' ) );
-
-					if ( $categories_list && zerif_categorized_blog() ) :
-
-				?>
-
-				<span class="cat-links">
-
-					<?php printf( __( 'Posted in %1$s', 'zerif' ), $categories_list ); ?>
-
-				</span>
-
-				<?php endif; ?>
-
-
-
-				<?php
-
-					/* translators: used between list items, there is a space after the comma */
-
-					$tags_list = get_the_tag_list( '', __( ', ', 'zerif' ) );
-
-					if ( $tags_list ) :
-
-				?>
-
-				<span class="tags-links">
-
-					<?php printf( __( 'Tagged %1$s', 'zerif' ), $tags_list ); ?>
-
-				</span>
-
-				<?php endif; /* End if $tags_list */ ?>
-
-			<?php endif; /* End if 'post' == get_post_type() */ ?>
-			
-			
-			<?php if ( ! post_password_required() && ( comments_open() || '0' != get_comments_number() ) ) : ?>
-
-			<span class="comments-link"><?php comments_popup_link( __( 'Leave a comment', 'zerif' ), __( '1 Comment', 'zerif' ), __( '% Comments', 'zerif' ) ); ?></span>
-
-			<?php endif; ?>
-		
-			<?php edit_post_link( __( 'Edit', 'zerif' ), '<span class="edit-link">', '</span>' ); ?>
-			
-		</div>
-
-	</footer><!-- .entry-footer -->
+	
 
 </div><!-- .listpost-content-wrap -->
 

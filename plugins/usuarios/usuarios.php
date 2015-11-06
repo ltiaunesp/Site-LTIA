@@ -31,11 +31,13 @@
 			const USER_PROFILE_PHOTO = 'user_profile_photo';
 			const USER_FUNCTION = "user_function";
 			const USER_BIRTHDAY = "user_birthday";
+			
 			const USER_FACEBOOK = "user_facebook";
 			const USER_GITHUB = "user_git_hub";
 			const USER_BEHANCE = "user_behance";
 			const USER_LINKEDIN = "user_linkedin";
 			const USER_TWITTER = "user_twitter";
+
 			const SLACK_URL_JSONP = 'url_slack_jsonp';
 			
 			function getIdade($user){
@@ -51,12 +53,55 @@
 				if(!is_array($users_id))
 					$users_id = array($users_id);
 				$users = (new WP_User_Query( array( "include" => $users_id) ))->get_results();
-				$nomes = array();
-				foreach($users as $user)
-					array_push($nomes, $user->data->display_name);
+				$nomes = array( "names" => array(), "urls" => array());
+				foreach($users as $user){
+					array_push($nomes["names"], $user->data->display_name);
+					array_push($nomes["urls"], get_author_posts_url($user->ID));
+				}
 				return $nomes;
 			}
 
+			function listaRedesSociais($user){
+				if ( !empty(($fb_link = $user->get(MyUsersClass::USER_FACEBOOK))  )): ?>
+            <li>
+            	<a href="<?php echo $fb_link; ?>">
+            		<i class="fa fa-facebook"></i>
+          		</a>
+        		</li>
+				<?php endif;
+
+				if ( !empty(($fb_link = $user->get(MyUsersClass::USER_TWITTER))  )): ?>
+            <li>
+            	<a href="<?php echo $fb_link; ?>">
+            		<i class="fa fa-twitter"></i>
+          		</a>
+        		</li>
+				<?php endif;
+
+				if ( !empty(($fb_link = $user->get(MyUsersClass::USER_GITHUB))  )): ?>
+            <li>
+            	<a href="<?php echo $fb_link; ?>">
+            		<i class="fa fa-github"></i>
+          		</a>
+        		</li>
+				<?php endif;
+
+				if ( !empty(($fb_link = $user->get(MyUsersClass::USER_LINKEDIN))  )): ?>
+            <li>
+            	<a href="<?php echo $fb_link; ?>">
+            		<i class="fa fa-linkedin"></i>
+          		</a>
+        		</li>
+				<?php endif;
+
+				if ( !empty(($fb_link = $user->get(MyUsersClass::USER_BEHANCE))  )): ?>
+            <li>
+            	<a href="<?php echo $fb_link; ?>">
+            		<i class="fa fa-behance"></i>
+          		</a>
+        		</li>
+				<?php endif;
+			}
 
 			//My functions
 			function listaUsuarios($users){
@@ -74,21 +119,21 @@
 						<div class="col-lg-3 col-sm-3 team-box">
 
 
-				            <div class="team-member">
+	            <div class="team-member">
 
-								
-								<figure class="profile-pic">
+								<a href="<?php echo get_author_posts_url($user->ID); ?>">
+									<figure class="profile-pic">
 
-								<div class="profile-pic-image" style="background-image: url('<?php echo MyUsersClass::getUserProfilePhoto($user); ?>')"></div>
-									<!-- <img src="<?php echo MyUsersClass::getUserProfilePhoto($user); ?>" alt="<?php echo $user->first_name . " " . $user->last_name;?>"> -->
+									<div class="profile-pic-image" style="background-image: url('<?php echo MyUsersClass::getUserProfilePhoto($user); ?>')"></div>
+										<!-- <img src="<?php echo MyUsersClass::getUserProfilePhoto($user); ?>" alt="<?php echo $user->first_name . " " . $user->last_name;?>"> -->
 
 
-								</figure>
-								
+									</figure>
+								</a>
 								<div class="member-details">
-
+								<a href="<?php echo get_author_posts_url($user->ID); ?>">
 									<h5 class="dark-text red-border-bottom"><?php echo $user->first_name . " " . $user->last_name;?></h5>
-									
+								</a>	
 									<div class="position"><?php echo $user->get(MyUsersClass::USER_FUNCTION); ?><?php echo ($idade ? ", $idade": "");?></div>
 
 				                </div>
@@ -100,10 +145,7 @@
 				                    <ul>
 
 
-				                        <?php if ( !empty(($fb_link = $user->get(MyUsersClass::USER_FACEBOOK))  )): ?>
-				                            <li><a href="<?php echo $fb_link; ?>"><i
-				                                        class="fa fa-facebook"></i></a></li>
-				                        <?php endif; ?>
+				                        <?php MyUsersClass::listaRedesSociais($user); ?>
 
 				                        
 
@@ -125,7 +167,7 @@
 								<?php endif; ?>
 
 
-				            </div>
+		            </div>
 
 
 				        </div>

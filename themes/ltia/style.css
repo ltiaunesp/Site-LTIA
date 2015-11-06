@@ -2996,7 +2996,7 @@ article .posted-on a:hover{
 	content: "";
 	width: 35%;
 	height: 2px;
-	background: #e96656;
+	background: #ABD25F;
 	bottom: -9px;
 	left: 0;
 	width: 50px;
@@ -5255,9 +5255,6 @@ img.ver-mais{
 .team-member .social-icons ul li a:hover{
 	color: inherit !important;
 }
-.fa-facebook:hover{
-	color: #3b5998;
-}
 
 /*BLOG HOMEPAGE*/
 .latest-news{
@@ -5510,4 +5507,100 @@ img.ver-mais{
 
 .page-template-template-projetos .white-block > #content > .container{
 	padding-bottom: 75px !important;
+}
+
+.author h1.entry-title, .author div.entry-meta, .author div.entry-content{
+	text-align: left;
+}
+
+.author .fotoUser{
+	width:200px;
+	height:200px;
+	margin: 0 auto;
+	background-size:cover;
+	background-position: center center;
+	border-radius:100%;
+	margin-bottom:20px;
+	box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+}
+
+.author .sidebar-wrap{
+	border-left: none;
+	border-right: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.author .username{
+	padding-bottom: 4px;
+	border-bottom: 2px solid #ABD25F;
+}
+
+.author p.user_desc{
+	text-align: left;
+	text-indent: 1rem;
+	font-size: 1.2rem;
+	font-weight: lighter;
+	padding-bottom: 6px;
+}
+
+.author .user_socials ul{
+	list-style: none;
+	text-align:center;
+	margin: 0 auto;
+}
+
+.author .user_socials ul li{
+	display: inline;
+	margin-right:15px;
+}
+
+.author .user_socials ul li i{
+	color:#404040;
+}
+
+.author .user_socials ul li:last-child{
+	margin-right: 0;
+}
+
+.author .sidebar-wrap.col-md-3.content-left-wrap{
+	margin-bottom:60px;
+}
+
+article.hentry:last-child{
+	border-bottom: 0px solid transparent;
+}
+
+
+article .entry-title{
+	margin-bottom: 0;
+}
+
+article .entry-meta h1{
+}
+
+article .entry-meta h2, article .entry-meta h2 a{
+	margin-bottom: 0.5rem;
+	line-height: 1.4rem;
+	font-size:1.4rem !important;
+}
+
+article .entry-meta h2 a{
+	color: #2FA2B4;
+	font-style: normal;
+	font-weight: 200 !important;
+	font-size:1.2rem !important;
+}
+
+article .entry-meta h2 a:hover{
+	transition: 0s;
+	text-decoration: underline;
+}
+
+article .entry-meta h3{
+	line-height: 1.2rem;
+	font-size: 1.2rem !important;
+	margin-bottom:0;
+}
+
+article .fb-like{
+	margin-top:1rem;
 }
