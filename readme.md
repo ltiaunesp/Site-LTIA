@@ -1,6 +1,9 @@
 #Site do LTIA
 Site responsivo para o LTIA - Laborátorio de Tecnologia da Informação Aplicada.
 
+##Contéudo
+O repositório contém apenas a pasta wp-content do wordpress. Ou seja, apenas o tema e os plugins desenvolvido para o Site.
+
 ##Desenvolvimento
 Todo o projeto foi desenvolvido utilizando o Wordpress e baseado no tema [Zerif Lite](https://wordpress.org/themes/zerif-lite/). O foco do projeto foi um site que pudesse ser exibido em qualquer smartphone, tablet ou computador. Desenvolvido no [LTIA - Laboratório de Tecnologia da Informação Aplicada](http://www.ltia.fc.unesp.br) pelos colaboradores descritos no arquivo [COLAB.md](COLAB.md).
 
