@@ -99,7 +99,9 @@ get_header(); ?>
 
 
 </div><!-- .container -->
-
+<script>
+	paginaInicial = "blog";
+</script>
 
 
 <?php get_footer(); ?>
