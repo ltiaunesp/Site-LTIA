@@ -64,7 +64,9 @@ $imageURL = explode("'",get_avatar($user_id, 300))[3];
 	<div id="primary" class="content-area">
 
 		<main id="main" class="site-main" role="main">
-
+		<header class="page-header">
+			<h1 class="page-title">Projetos</h1>
+		</header>
 
 
 		<?php if ( have_posts() ) : ?>

@@ -44,7 +44,7 @@ get_header(); ?>
 
 			<header class="page-header">
 
-				<h1 class="page-title"><?php printf( __( 'Search Results for: %s', 'zerif-lite' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
+				<h1 class="page-title">Resultados para: <?php echo get_search_query(); ?></h1>
 
 			</header><!-- .page-header -->
 

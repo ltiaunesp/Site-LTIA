@@ -1,35 +1,1 @@
-<?php
-/**
- * The template for displaying 404 pages (Not Found).
- *
- * @package zerif
- */
-
-get_header(); ?>
-<div class="clear"></div>
-</header> <!-- / END HOME SECTION  -->
-
-<div id="content" class="site-content">
-<div class="container">
-
-<div class="content-left-wrap">
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
-
-		<article class="page404">
-			<header class="entry-header">
-				<h1 class="entry-title"><?php _e( 'Oops! That page can&rsquo;t be found.', 'zerif-lite' ); ?></h1>
-			</header><!-- .entry-header -->
-
-			<div class="entry-content">
-				<p><?php _e( 'It looks like nothing was found at this location. Maybe try one of the links below or a search?', 'zerif-lite' ); ?></p>
-				
-			</div><!-- .entry-content -->
-		</article><!-- #post-## -->
-
-		</main><!-- #main -->
-	</div><!-- #primary -->
-</div>
-</div>
-
-<?php get_footer(); ?>
+<?php/** * The template for displaying 404 pages (Not Found). * * @package zerif */get_header(); ?><div class="clear"></div></header> <!-- / END HOME SECTION  --><div id="content" class="site-content"><div class="container"><div class="content-left-wrap">	<div id="primary" class="content-area">		<main id="main" class="site-main" role="main">		<article class="page404" style="padding-top:15vh;padding-bottom:20vh">			<header class="entry-header">				<h1 class="entry-title">Opa!</h1>				<h2 class="entry-title">Parece que estamos perdidos!</h2>			</header><!-- .entry-header -->			<div class="entry-content">				<p>Você tentou acessar uma página que não existe. Por favor, volte para a <a style="text-decoration:underline;" href="<?php echo get_site_url();?>">Página Inicial</a></p>							</div><!-- .entry-content -->		</article><!-- #post-## -->		</main><!-- #main -->	</div><!-- #primary --></div></div><script>	paginaInicial = "blog";</script><?php get_footer(); ?>

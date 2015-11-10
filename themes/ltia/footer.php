@@ -76,8 +76,8 @@
 				case 'equipe' :
 					jQuery(".menu-item:nth-child(4)").addClass("currentItem");
 					break;
-				case 'ideastream' :
-					jQuery(".menu-item:nth-child(8)").addClass("currentItem");
+				case 'blog' :
+					jQuery(".menu-item:nth-child(7)").addClass("currentItem");
 					break;
 				default :
 					jQuery(".menu-item:nth-child(6)").addClass("currentItem");
