@@ -1,7 +1,7 @@
 #Site do LTIA
 Site responsivo para o LTIA - Laborátorio de Tecnologia da Informação Aplicada.
 
-##Contéudo
+##Conteúdo
 O repositório contém apenas a pasta wp-content do wordpress. Ou seja, apenas o tema e os plugins desenvolvido para o Site.
 
 ##Desenvolvimento
