@@ -5604,3 +5604,11 @@ article .entry-meta h3{
 article .fb-like{
 	margin-top:1rem;
 }
+
+#socialFooter .fa:before{
+	color: #575757 !important;
+	font-size: x-large;
+}
+#socialFooter{
+	padding: 0 !important;
+}
