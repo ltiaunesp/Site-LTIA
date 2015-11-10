@@ -64,12 +64,8 @@ get_header();
 	<div class="container-parceiros">
 		<p class="section-header-description" style="margin-bottom:2px;">
 			<?php
-				if(!is_active_sidebar('parceiros_sidebar')){
-			?>
-			<img src="http://127.0.0.1/wordpress/wp-content/uploads/2015/09/microsoft.png" class="parceiroImg">
-			<?php
-				}
-				else dynamic_sidebar('parceiros_sidebar');	
+				if(is_active_sidebar('parceiros_sidebar'))
+					dynamic_sidebar('parceiros_sidebar');	
 			?>
 		</p>
 		<p style="font-size:0.6rem;margin-bottom:20;font-style:italic">Todas as logos e marcas são propriedade de suas respectivas empresas</p>
