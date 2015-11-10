@@ -189,7 +189,6 @@
 		
 		function startClass(){
 			new MyProjectsUsersClass();
-			//new PostProjectsClass();
 			new MyProjectClass();
 		}
 
