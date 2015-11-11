@@ -41,7 +41,9 @@
 			const SLACK_URL_JSONP = 'url_slack_jsonp';
 			
 			function getIdade($user){
-				return (new DateTime(get_user_meta($user->ID,MyUsersClass::USER_BIRTHDAY,true)))->diff(new DateTime())->y;
+				if(empty($idade = get_user_meta($user->ID,MyUsersClass::USER_BIRTHDAY,true)))
+					return false;
+				return (new DateTime($idade))->diff(new DateTime())->y;
 			}
 			
 			function getUserProfilePhoto($user){
@@ -62,6 +64,8 @@
 			}
 
 			function listaRedesSociais($user){
+				if($user == false)
+					return;
 				if ( !empty(($fb_link = $user->get(MyUsersClass::USER_FACEBOOK))  )): ?>
             <li>
             	<a href="<?php echo $fb_link; ?>">

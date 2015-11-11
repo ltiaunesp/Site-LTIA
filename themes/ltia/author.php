@@ -17,10 +17,15 @@
 
 
 get_header();
-$user_id = get_the_author_meta( "ID" );
+$username = get_query_var("author_name");
+
+$user = (new WP_User_Query(array( 'search' => $username )))->results[0];
+
+$user_id = $user->ID;
 $user = get_user_by('id',$user_id);
 $user_meta = get_user_meta( $user_id );
 $imageURL = explode("'",get_avatar($user_id, 300))[3];
+$cont = 0;
  ?>
 
 <div class="clear"></div>
@@ -39,16 +44,16 @@ $imageURL = explode("'",get_avatar($user_id, 300))[3];
 <div class="sidebar-wrap col-md-3 content-left-wrap">
 	<div class="fotoUser" style="background-image: url('<?php echo $imageURL;?>');">
 	</div>
-	<h2 class="username"><?php echo $user_meta["first_name"][0]." ".$user_meta["last_name"][0];?>, <?php echo MyUsersClass::getIdade($user);?></h2>
+	<h2 class="username"><?php echo @$user_meta["first_name"][0]." ".@$user_meta["last_name"][0];?>, <?php echo MyUsersClass::getIdade($user);?></h2>
 	<?php 
-		if(!empty($user_meta['user_function'][0])){?>
-		<h4 class="user_cargo"><?php echo ($user_meta['user_function'][0]);?></h4>
+		if(!empty(@$user_meta['user_function'][0])){?>
+		<h4 class="user_cargo"><?php echo (@$user_meta['user_function'][0]);?></h4>
 	<?php
 		}
 	?>
 	<?php 
-		if(!empty($user_meta['description'][0])){?>
-		<p class="user_desc"><?php echo ($user_meta['description'][0]);?></p>
+		if(!empty(@$user_meta['description'][0])){?>
+		<p class="user_desc"><?php echo (@$user_meta['description'][0]);?></p>
 	<?php
 		}
 	?>
@@ -69,14 +74,26 @@ $imageURL = explode("'",get_avatar($user_id, 300))[3];
 		</header>
 
 
-		<?php if ( have_posts() ) : ?>
+		<?php
+			$args = array( 'post_type' => 'post', 'cat' => get_category_by_slug('projetos')->term_id, 'order' => 'DESC');
+			$loop = new WP_Query( $args );
+			if ( $loop->have_posts() ) : 
+		?>
 
 
 
 			<?php /* Start the Loop */ ?>
 
-			<?php while ( have_posts() ) : the_post(); ?>
+			<?php
 
+				while ( $loop->have_posts() ) : $loop->the_post(); 
+				$participantes = explode(";", get_post_meta(get_the_ID(),'users')[0]);
+				if(!in_array($user_id,$participantes))
+					continue;
+				$cont++;
+				// exit;
+			?>
+				
 
 
 				<?php
@@ -103,16 +120,20 @@ $imageURL = explode("'",get_avatar($user_id, 300))[3];
 
 
 
-		<?php else : ?>
+		<?php else : 
+			$cont = 1;
+		?>
 
 
 
-			<?php get_template_part( 'content', 'none' ); ?>
+			<h3>Não foi encontrado nenhum projeto</h3>
 
 
 
 		<?php endif; ?>
-
+		<?php if($cont == 0) : ?>
+			<h3>Não foi encontrado nenhum projeto</h3>
+		<?php endif;?>
 
 
 		</main><!-- #main -->

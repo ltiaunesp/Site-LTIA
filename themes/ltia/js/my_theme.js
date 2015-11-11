@@ -114,7 +114,9 @@ jQuery(window).load(function() {
 			buscaProjeto(slug);
 		}
 	);*/
-	
+	$("a.projeto").animate({
+		
+	 }, 200, "linear", function(){})
 });
 jQuery(document).ready(function(){
 	if(paginaInicial){
