@@ -5690,3 +5690,7 @@ article .fb-like{
 .fa-lock{
 	margin-top:30px;
 }
+
+.single-post .entry-content p{
+	text-align: left !important;
+}
