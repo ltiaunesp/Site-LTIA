@@ -5090,6 +5090,20 @@ a.navbar-brand img{
 	cursor: pointer;
 }
 
+#down-button img{
+	filter: opacity(0.5);
+	-webkit-filter: opacity(0.5);
+	-moz-filter: opacity(0.5);
+	-ms-filter: opacity(0.5);
+	transition:500ms !important;
+}
+
+#down-button:hover img{
+	filter: opacity(1);
+	-webkit-filter: opacity(1);
+	-moz-filter: opacity(1);
+	-ms-filter: opacity(1);
+}
 
 
 /* PROJETOS */
