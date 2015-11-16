@@ -5616,7 +5616,13 @@ article .fb-like{
 
 #socialFooter .fa:before{
 	color: #575757 !important;
+	transition:500ms !important;
 	font-size: x-large;
+}
+
+
+#socialFooter .fa:hover:before{
+	color: #747474 !important;
 }
 
 #socialFooter{
