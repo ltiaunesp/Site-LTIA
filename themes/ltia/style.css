@@ -5106,10 +5106,10 @@ a.navbar-brand img{
 }
 
 .projeto .projectBackground{
-	filter:  contrast(1) brightness(0.2);
-	-webkit-filter: contrast(1) brightness(0.2);
-	-ms-filter: contrast(1) brightness(0.2);
-	-moz-filter: contrast(1) brightness(0.2);
+	filter:  contrast(1) brightness(0.3);
+	-webkit-filter: contrast(1) brightness(0.3);
+	-ms-filter: contrast(1) brightness(0.3);
+	-moz-filter: contrast(1) brightness(0.3);
 	width:25vw;
 	background-size:100% 100%;
 	height:25vw;
@@ -5121,10 +5121,10 @@ a.navbar-brand img{
 }
 
 .projeto:hover .projectBackground{
-	filter: contrast(1) brightness(0.4);
-	-webkit-filter:  contrast(1) brightness(0.4);
-	-ms-filter:  contrast(1) brightness(0.4);
-	-moz-filter:  contrast(1) brightness(0.4);
+	filter: contrast(1) brightness(0.6);
+	-webkit-filter:  contrast(1) brightness(0.6);
+	-ms-filter:  contrast(1) brightness(0.6);
+	-moz-filter:  contrast(1) brightness(0.6);
 	/*-webkit-filter:none;*/
 	/*margin-top:0;*/
 }
