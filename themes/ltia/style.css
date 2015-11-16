@@ -5240,7 +5240,26 @@ img.ver-mais{
 	margin:30px 50px 0 50px;
 	max-width:200px;
 	max-height:150px;
+	filter:grayscale(100%);
+	-webkit-filter:grayscale(100%);
+	-moz-filter:grayscale(100%);
+	-ms-filter:grayscale(100%);
+/*	filter:brightness(0%);
+	-webkit-filter:brightness(0%);
+	-moz-filter:brightness(0%);
+	-ms-filter:brightness(0%);
+*/	transition: 500ms;
 }
+
+.Parceiros_Widget:hover .parceiroImg{
+	-webkit-filter:grayscale(0%);
+	-moz-filter:grayscale(0%);
+	-ms-filter:grayscale(0%);
+/*	-webkit-filter:brightness(100%);
+	-moz-filter:brightness(100%);
+	-ms-filter:brightness(100%);
+*/}
+
 .container-parceiros{
 	width:100vw;
 	height:auto;
@@ -5694,3 +5713,4 @@ article .fb-like{
 .single-post .entry-content p{
 	text-align: left !important;
 }
+
