@@ -5714,3 +5714,11 @@ article .fb-like{
 	text-align: left !important;
 }
 
+.social-icons, .social-icons ul{
+	min-height:45px;
+}
+
+p.section-header-description{
+	text-align:left !important;
+	text-indent:3rem;
+}

@@ -109,11 +109,17 @@
 
 			//My functions
 			function listaUsuarios($users){
+				$cont = 0;
 				if(!is_array($users))
 					return "Parametro deve ser um array";
 				if(!empty($users))
 					foreach($users as $user){
 						$idade = MyUsersClass::getIdade($user);
+						if($cont == 0) :
+						?>
+							<div class="row">
+						<?php
+							endif;
 						?>
 						<!--<div class="users_block" style="background-image:url('<?php echo esc_url($user->get(MyUsersClass::USER_PROFILE_PHOTO)); ?>')">
 							<h3 class="users_title"><?php echo ($user->first_name);?></h3>
@@ -138,7 +144,7 @@
 								<a href="<?php echo get_author_posts_url($user->ID); ?>">
 									<h5 class="dark-text red-border-bottom"><?php echo $user->first_name . " " . $user->last_name;?></h5>
 								</a>	
-									<div class="position"><?php echo $user->get(MyUsersClass::USER_FUNCTION); ?><?php echo ($idade ? ", $idade": "");?></div>
+									<div class="position"><?php echo $user->get(MyUsersClass::USER_FUNCTION); ?><?php echo ($idade > 0 ? ", $idade": "");?></div>
 
 				                </div>
 
@@ -177,6 +183,14 @@
 				        </div>
 						<!-- Formato de exibição dos usuários aqui -->
 						<?php
+						if($cont == 3) :
+							$cont=0;
+						?>
+							</div>
+						<?php
+						else:
+							$cont++;
+						endif;
 					}
 				else
 					echo "Sem resultados encontrados";
