@@ -158,7 +158,7 @@ var ParallaxScroll = {
                     if(!properties[prop])properties[prop] = 0;
                     properties[prop] += val;
                     if (prev != properties[prop]) {
-                        if(prop.includes("opacity")){
+                        if(prop.indexOf("opacity") > -1){
                             properties["opacity"] = val;
                             $el.data("_" + prop, properties["prop"]);
                         }
