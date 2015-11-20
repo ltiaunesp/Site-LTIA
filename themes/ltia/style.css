@@ -450,6 +450,7 @@ thead th{
 }
 .white-text {
 	color: #FFFFFF;
+	text-shadow: 1px 1px 1px black;
 }
 /*---------------------------------------
  **   BORDER BOTTOMS                 -----
@@ -3135,7 +3136,7 @@ article .posted-on a:hover{
 	font-size: 1.35em;
 	font-weight: 200;
 	line-height: 1.5em;
-	text-indent: 1.5em;
+	/*text-indent: 1.5em;*/
 }
 
 .page404 p{
@@ -5703,7 +5704,7 @@ article .fb-like{
 	min-height:45px;
 }
 
-p.section-header-description{
+.focus p.section-header-description{
 	text-align:left !important;
 	text-indent:3rem;
 }
