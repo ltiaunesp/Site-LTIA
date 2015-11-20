@@ -5113,6 +5113,7 @@ a.navbar-brand img{
 	position:relative;
 	width:25vw;
 	height:25vw;
+	background-color:black;
 	display:block;
 	float:left;
 	cursor:pointer;
@@ -5120,25 +5121,27 @@ a.navbar-brand img{
 }
 
 .projeto .projectBackground{
-	filter:  contrast(1) brightness(0.3);
+	/*filter:  contrast(1) brightness(0.3);
 	-webkit-filter: contrast(1) brightness(0.3);
-	-ms-filter: contrast(1) brightness(0.3);
 	-moz-filter: contrast(1) brightness(0.3);
+	-ms-filter: alpha(opacity=30);*/
+	opacity: 0.3;
 	width:25vw;
 	background-size:100% 100%;
 	height:25vw;
 	position: absolute;
 	width:25vw;
 	height:25vw;
-	-webkit-transition: -webkit-filter 1s linear;
-	transition: filter 1s linear;
+	/*-webkit-transition: -webkit-filter 1s linear;*/
+	transition: 1s linear;
 }
 
 .projeto:hover .projectBackground{
-	filter: contrast(1) brightness(0.6);
-	-webkit-filter:  contrast(1) brightness(0.6);
-	-ms-filter:  contrast(1) brightness(0.6);
-	-moz-filter:  contrast(1) brightness(0.6);
+	/*-ms-filter: contrast(1) brightness(0.6);*/
+	/*-ms-filter: alpha(opacity=50);*/
+	opacity: 0.6;
+	/*-webkit-filter:  contrast(1) brightness(0.6);
+	-moz-filter:  contrast(1) brightness(0.6);*/
 	/*-webkit-filter:none;*/
 	/*margin-top:0;*/
 }
