@@ -290,7 +290,7 @@
 			<p>
 				<label for="<?php echo MyUsersClass::USER_PROFILE_PHOTO;?>">Foto do Usuario:</label>
 				<input readonly="readonly" name="<?php echo MyUsersClass::USER_PROFILE_PHOTO; ?>" id="<?php echo MyUsersClass::USER_PROFILE_PHOTO; ?>" class="widefat" type="text" size="36"  value="<?php echo esc_url(get_user_meta($user->ID,MyUsersClass::USER_PROFILE_PHOTO,true)); ?>" /><br /><br />
-				<img id="<?php echo MyUsersClass::USER_PROFILE_PHOTO;?>_image" <?php if(esc_url(get_user_meta($user->ID,MyUsersClass::USER_PROFILE_PHOTO,true)) == "") echo 'style="visibility:hidden"'?> src='<?php echo get_user_meta($user->ID,MyUsersClass::USER_PROFILE_PHOTO,true);?>' /><br />
+				<img width='300' id="<?php echo MyUsersClass::USER_PROFILE_PHOTO;?>_image" <?php if(esc_url(get_user_meta($user->ID,MyUsersClass::USER_PROFILE_PHOTO,true)) == "") echo 'style="visibility:hidden"'?> src='<?php echo get_user_meta($user->ID,MyUsersClass::USER_PROFILE_PHOTO,true);?>' /><br />
 				<input id="<?php echo MyUsersClass::USER_PROFILE_PHOTO;?>_button" name="<?php echo MyUsersClass::USER_PROFILE_PHOTO;?>" class="upload_image_button button button-primary" type="button" value="Escolher Imagem" />
 			</p>
 			<br /><br />
@@ -412,4 +412,12 @@
 			return $avatar;
 		}
 		add_filter( 'get_avatar', 'get_avatar_personalizado', 10, 3 );
+		
+		function permissao_upload() {
+			$contribuidor = get_role(‘contributor’);
+			$contribuidor->add_cap(‘upload_files’);
+		}
+
+		if ( current_user_can(‘contributor’) && !current_user_can(‘upload_files’) )
+			add_action(‘admin_init’, ‘permissao_upload’);
 ?>
