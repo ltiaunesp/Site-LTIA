@@ -89,12 +89,12 @@ if ( get_option( 'show_on_front' ) == 'page' ) {
 	</div><!-- .container -->
 	<?php
 }else {
-
+	// var_dump($_POST);exit;
 	if(isset($_POST['submitted'])) :
 
 
 			/* recaptcha */
-			
+			$hasError = false;
 			$zerif_contactus_sitekey = get_theme_mod('zerif_contactus_sitekey');
 
 			$zerif_contactus_secretkey = get_theme_mod('zerif_contactus_secretkey');
@@ -112,6 +112,7 @@ if ( get_option( 'show_on_front' ) == 'page' ) {
 		        }
 
 		        if( !$captcha ){
+
 
 		          $hasError = true;    
 		          
@@ -212,7 +213,6 @@ if ( get_option( 'show_on_front' ) == 'page' ) {
 
 				$hasError = true;
 
-
 			else:
 
 
@@ -228,20 +228,11 @@ if ( get_option( 'show_on_front' ) == 'page' ) {
 			/* send the email */
 
 
-			if(!isset($hasError)):
+			if(!$hasError):
 
 
-				$zerif_contactus_email = get_theme_mod('zerif_contactus_email');
+				$emailTo = "contato@ltia.fc.unesp.br";
 				
-				if( empty($zerif_contactus_email) ):
-				
-					$emailTo = get_theme_mod('zerif_email');
-				
-				else:
-					
-					$emailTo = $zerif_contactus_email;
-				
-				endif;
 
 
 				if(isset($emailTo) && $emailTo != ""):
@@ -250,14 +241,13 @@ if ( get_option( 'show_on_front' ) == 'page' ) {
 						$subject = 'From '.$name;
 					endif;
 
-					$body = "Name: $name \n\nEmail: $email \n\n Subject: $subject \n\n Message: $message";
+					$body = "Nome: $name \n\nE-Mail: $email \n\n Assunto: $subject \n\n Mensagem: $message";
 
 
 					$headers = 'From: '.$name.' <'.$emailTo.'>' . "\r\n" . 'Reply-To: ' . $email;
 
 
 					wp_mail($emailTo, $subject, $body, $headers);
-
 
 					$emailSent = true;
 
@@ -444,7 +434,7 @@ if ( get_option( 'show_on_front' ) == 'page' ) {
 
 					?>
 
-					<form role="form" method="POST" action="<?php echo $_SERVER['HTTP_REFERER'];?>#contato" onSubmit="this.scrollPosition.value=(document.body.scrollTop || document.documentElement.scrollTop)" class="contact-form">
+					<form role="form" method="POST" onSubmit="this.scrollPosition.value=(document.body.scrollTop || document.documentElement.scrollTop)" class="contact-form">
 
 						<input type="hidden" name="scrollPosition">
 

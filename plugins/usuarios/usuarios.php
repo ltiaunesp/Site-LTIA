@@ -31,6 +31,7 @@
 			const USER_PROFILE_PHOTO = 'user_profile_photo';
 			const USER_FUNCTION = "user_function";
 			const USER_BIRTHDAY = "user_birthday";
+			const USER_GENDER = "user_gender";
 			
 			const USER_FACEBOOK = "user_facebook";
 			const USER_GITHUB = "user_git_hub";
@@ -114,6 +115,8 @@
 					return "Parametro deve ser um array";
 				if(!empty($users))
 					foreach($users as $user){
+						if($user->ID == 1)
+							continue;
 						$idade = MyUsersClass::getIdade($user);
 						if($cont == 0) :
 						?>
@@ -284,8 +287,29 @@
 				<input name="<?php echo MyUsersClass::USER_BIRTHDAY; ?>" id="<?php echo MyUsersClass::USER_BIRTHDAY; ?>" class="widefat" type="date" size="36"  value="<?php echo get_user_meta($user->ID,MyUsersClass::USER_BIRTHDAY,true); ?>" />
 			</p>		
 			<p>
+				<?php $genero = get_user_meta($user->ID,MyUsersClass::USER_GENDER,true); ?>
+				<label for="<?php echo MyUsersClass::USER_GENDER;?>">Identidade de Genero:</label>
+				<select required name="<?php echo MyUsersClass::USER_GENDER; ?>" id="<?php echo MyUsersClass::USER_GENDER; ?>" class="widefat" size="36" >
+					<option value="1" <?php echo $genero == "1" ? "selected" : "" ?>>Mulher</option>
+					<option value="2" <?php echo $genero == "2" ? "selected" : "" ?>>Homem</option>
+				</select>
+			</p>		
+			<p>
+				<?php 
+					$cargo = get_user_meta($user->ID,MyUsersClass::USER_FUNCTION,true); 
+					$cargos = array("Coordenador Geral", "Coordenador de Aplicativos e Sistemas", "Coordenador de Jogos",
+						"Designer", "Desenvolvedor")
+				?>
 				<label for="<?php echo MyUsersClass::USER_FUNCTION;?>">Cargo do Usuario:</label>
-				<input required name="<?php echo MyUsersClass::USER_FUNCTION; ?>" id="<?php echo MyUsersClass::USER_FUNCTION; ?>" class="widefat" type="text" size="36"  value="<?php echo get_user_meta($user->ID,MyUsersClass::USER_FUNCTION,true); ?>" />
+				<select required name="<?php echo MyUsersClass::USER_FUNCTION; ?>" id="<?php echo MyUsersClass::USER_FUNCTION; ?>" class="widefat" size="36" >
+					<?php
+						foreach($cargos as $c){
+							?>
+								<option value="<?php echo $c; ?>" <?php echo $cargo == $c ? "selected" : "" ?>><?php echo $c; ?></option>
+							<?php
+						}
+					?>
+				</select>
 			</p>		
 			<p>
 				<label for="<?php echo MyUsersClass::USER_PROFILE_PHOTO;?>">Foto do Usuario:</label>
@@ -418,6 +442,6 @@
 			$contribuidor->add_cap(‘upload_files’);
 		}
 
-		if ( current_user_can(‘contributor’) && !current_user_can(‘upload_files’) )
+		if ( is_admin() )
 			add_action(‘admin_init’, ‘permissao_upload’);
 ?>

@@ -39,8 +39,10 @@ get_header();
 						<h2 class="dark-text">Equipe</h2>
 						<h6 class="dark-text">Quem faz parte do LTIA?</h6>
 					</div>
+					<p class="section-header-description">O LTIA atualmente é composto pelos seguintes integrantes.<!-- A relação de todos os membros que já passaram pelo LTIA pode ser encontrada <a href="#">nesta página</a>.--></p>
+					</p>
 					<div class="section-header-description"><?php
-						MyUsersClass::listaUsuarios((new WP_User_Query( array( 'meta_key' => MyUsersClass::USER_IS_ACTIVE, 'meta_value' => 'on' , "orderby" => 'name' ) ))->results);
+						MyUsersClass::listaUsuarios((new WP_User_Query( array('meta_key' => MyUsersClass::USER_IS_ACTIVE, 'meta_value' => 'on' , "orderby" => 'name' ) ))->results);
 					?>
 					</div>
 				</main><!-- #main -->

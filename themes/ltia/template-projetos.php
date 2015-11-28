@@ -68,7 +68,7 @@ get_header();
 					dynamic_sidebar('parceiros_sidebar');	
 			?>
 		</p>
-		<p style="font-size:0.6rem;margin-bottom:20;font-style:italic">Todas as logos e marcas são propriedade de suas respectivas empresas</p>
+		<p class="parceirosDireitos">Todas as logos e marcas são propriedade de suas respectivas empresas</p>
 	</div>
 	<?php			
 		wp_reset_postdata();				

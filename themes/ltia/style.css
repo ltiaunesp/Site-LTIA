@@ -5511,7 +5511,7 @@ img.ver-mais{
 		font-size: 2.5rem !important;
 	}
 
-	.latest-news p.section-header-description{
+	p.section-header-description{
 		font-size: 1.25rem !important;	
 	}
 	.header-content-wrap .intro-paragraph{
@@ -5704,10 +5704,6 @@ article .fb-like{
 	min-height:45px;
 }
 
-.focus p.section-header-description{
-	text-align:left !important;
-	text-indent:3rem;
-}
 @media (min-width:767px){
 	p.section-header-description{
 		padding:0 12vw;
@@ -5751,4 +5747,77 @@ article .fb-like{
 #socialFooter .fa-lock:hover:before{
 	color: rgba(252,238,158,0.70) !important;
 
+}
+
+
+/* MAPA */
+
+#local{
+  width:100vw;
+  height:105vh;
+  background:black;
+  padding:0 !important;
+}
+#local .section-header{
+  position:absolute;
+  width:100vw;
+  padding-top:100px;
+}
+#map {
+  width:100vw;
+  height:105vh;
+  position:absolute;
+  opacity: 0.7;
+}
+.gm-style-iw * {
+  display: block;
+  width: 100%;
+}
+.gm-style-iw h4, .gm-style-iw p {
+  margin: 0;
+  padding: 0;
+}
+.gm-style-iw a {
+  color: #4272db;
+}
+.map-desc{
+  font-size:1.5rem;
+  font-weight: 300;
+  font-weight: 400;
+}
+
+@media (max-width: 480px){
+	.map-desc{
+		font-size:1rem;
+	}
+}
+
+
+.home .header-content-wrap{
+	min-height: 100vh;
+}
+
+.parceirosDireitos{
+	font-size:0.8rem !important;
+	margin-bottom:0;
+	font-style:italic
+}
+
+/* PAGE SOBRE */
+
+.page-template-template-sobre p.section-header-description{
+	text-align: left !important;
+	text-indent: 2rem;
+}
+
+
+.focus .ver-mais{
+	margin-top:20px;
+}
+
+p.section-header-description a{
+	font-size:inherit !important;
+}
+p.section-header-description a:hover{
+	text-decoration: underline;
 }
