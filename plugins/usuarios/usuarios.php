@@ -289,7 +289,7 @@
 			<p>
 				<?php $genero = get_user_meta($user->ID,MyUsersClass::USER_GENDER,true); ?>
 				<label for="<?php echo MyUsersClass::USER_GENDER;?>">Identidade de Genero:</label>
-				<select required name="<?php echo MyUsersClass::USER_GENDER; ?>" id="<?php echo MyUsersClass::USER_GENDER; ?>" class="widefat" size="36" >
+				<select required name="<?php echo MyUsersClass::USER_GENDER; ?>" id="<?php echo MyUsersClass::USER_GENDER; ?>" size="36" >
 					<option value="1" <?php echo $genero == "1" ? "selected" : "" ?>>Mulher</option>
 					<option value="2" <?php echo $genero == "2" ? "selected" : "" ?>>Homem</option>
 				</select>

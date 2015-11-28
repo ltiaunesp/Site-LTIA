@@ -5800,7 +5800,8 @@ article .fb-like{
 .parceirosDireitos{
 	font-size:0.8rem !important;
 	margin-bottom:0;
-	font-style:italic
+	font-style:italic;
+	text-align:center;
 }
 
 /* PAGE SOBRE */
