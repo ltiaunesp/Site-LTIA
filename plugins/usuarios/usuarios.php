@@ -127,7 +127,7 @@
 						<!--<div class="users_block" style="background-image:url('<?php echo esc_url($user->get(MyUsersClass::USER_PROFILE_PHOTO)); ?>')">
 							<h3 class="users_title"><?php echo ($user->first_name);?></h3>
 								<p class="description"><?php echo ($idade ? "$idade anos." : "Idade desconhecida").'<br>';  echo (strlen(@$description)) ? $description : "Sem descri&ccedil;&atilde;o.";?></p>
-							<span class="users_see_more"><?php echo "Cargo: ".$user->get(MyUsersClass::USER_FUNCTION)?></span>
+							<span class="users_see_more"><?php echo "Cargo: ".str_replace($user->get(MyUsersClass::USER_FUNCTION));?></span>
 						</div>-->
 						<div class="col-lg-3 col-sm-3 team-box">
 
@@ -147,7 +147,7 @@
 								<a href="<?php echo get_author_posts_url($user->ID); ?>">
 									<h5 class="dark-text red-border-bottom"><?php echo $user->first_name . " " . $user->last_name;?></h5>
 								</a>	
-									<div class="position"><?php echo $user->get(MyUsersClass::USER_FUNCTION); ?><?php echo ($idade > 0 ? ", $idade": "");?></div>
+									<div class="position"><?php echo $user->get(MyUsersClass::USER_GENDER) == 1 ? str_replace(array("Desenvolvedor", "Coordenador"), array("Desenvolvedora","Coordenadora"), $user->get(MyUsersClass::USER_FUNCTION)) : $user->get(MyUsersClass::USER_FUNCTION); ?><?php echo ($idade > 0 ? ", $idade": "");?></div>
 
 				                </div>
 
@@ -336,6 +336,7 @@
 			
 			update_usermeta(absint($user_id),MyUsersClass::USER_PROFILE_PHOTO,esc_url($_POST[MyUsersClass::USER_PROFILE_PHOTO]));
 			update_usermeta(absint($user_id),MyUsersClass::USER_IS_ACTIVE,wp_kses_post($_POST[MyUsersClass::USER_IS_ACTIVE]));
+			update_usermeta(absint($user_id),MyUsersClass::USER_GENDER,wp_kses_post($_POST[MyUsersClass::USER_GENDER]));
 			update_usermeta(absint($user_id),MyUsersClass::USER_FUNCTION,wp_kses_post($_POST[MyUsersClass::USER_FUNCTION]));
 			update_usermeta(absint($user_id),MyUsersClass::USER_BIRTHDAY,wp_kses_post($_POST[MyUsersClass::USER_BIRTHDAY]));
 			update_usermeta(absint($user_id),MyUsersClass::USER_FACEBOOK,wp_kses_post($_POST[MyUsersClass::USER_FACEBOOK]));
