@@ -44,7 +44,7 @@ $sub_page = $post->post_parent;
 					</div>
 					<?php
 						if(!$sub_page) :?>
-							<p class="section-header-description">O LTIA atualmente é composto pelos seguintes integrantes. A relação de todos os membros que já passaram pelo LTIA pode ser encontrada <a href="#">nesta página</a>.</p>
+							<p class="section-header-description">O LTIA atualmente é composto pelos seguintes integrantes. A relação de todos os membros que já passaram pelo LTIA pode ser encontrada <a href="<?php echo get_site_url(); ?>/index.php/equipe/equipe-inteira">nesta página</a>.</p>
 						<?php endif; ?>
 					</p>
 					<div class="section-header-description"><?php
