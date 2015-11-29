@@ -3,7 +3,10 @@
 Template Name: Equipe
 */
 
+
 get_header();
+global $post;
+$sub_page = $post->post_parent;
 ?>
 <section style="background:rgba(0,0,0,0.4); width:100vw; height:80vh;"></section>
 <style>
@@ -39,10 +42,17 @@ get_header();
 						<h2 class="dark-text">Equipe</h2>
 						<h6 class="dark-text">Quem faz parte do LTIA?</h6>
 					</div>
-					<p class="section-header-description">O LTIA atualmente é composto pelos seguintes integrantes.<!-- A relação de todos os membros que já passaram pelo LTIA pode ser encontrada <a href="#">nesta página</a>.--></p>
+					<?php
+						if(!$sub_page) :?>
+							<p class="section-header-description">O LTIA atualmente é composto pelos seguintes integrantes. A relação de todos os membros que já passaram pelo LTIA pode ser encontrada <a href="#">nesta página</a>.</p>
+						<?php endif; ?>
 					</p>
 					<div class="section-header-description"><?php
-						MyUsersClass::listaUsuarios((new WP_User_Query( array('meta_key' => MyUsersClass::USER_IS_ACTIVE, 'meta_value' => 'on' , "orderby" => 'name' ) ))->results);
+						if($sub_page)
+							$args = array("orderby" => 'name' );
+						else
+							$args = array('meta_key' => MyUsersClass::USER_IS_ACTIVE, 'meta_value' => 'on' , "orderby" => 'name' );
+						MyUsersClass::listaUsuarios((new WP_User_Query( $args  ))->results);
 					?>
 					</div>
 				</main><!-- #main -->
@@ -50,7 +60,9 @@ get_header();
 			</div><!-- #primary -->
 
 		</div><!-- .content-left-wrap -->
-
+		<script>
+			paginaInicial = "equipe";
+		</script>
 	</div><!-- .container -->
 	<?php			
 		get_footer();
