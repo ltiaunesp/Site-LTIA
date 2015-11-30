@@ -168,18 +168,6 @@
 
 				                </div>
 
-
-								<?php if( !empty(@$instance['description']) ): ?>
-				                <div class="details">
-
-
-				                    <?php echo htmlspecialchars_decode(apply_filters('widget_title', $instance['description'])); ?>
-
-
-				                </div>
-								<?php endif; ?>
-
-
 		            </div>
 
 
@@ -438,11 +426,6 @@
 		}
 		add_filter( 'get_avatar', 'get_avatar_personalizado', 10, 3 );
 		
-		function permissao_upload() {
-			$contribuidor = get_role(‘contributor’);
-			$contribuidor->add_cap(‘upload_files’);
-		}
-
-		if ( is_admin() )
-			add_action(‘admin_init’, ‘permissao_upload’);
+		
+		
 ?>
