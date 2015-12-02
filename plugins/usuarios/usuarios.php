@@ -43,7 +43,7 @@
 			
 			function getIdade($user){
 				if(empty($idade = get_user_meta($user->ID,MyUsersClass::USER_BIRTHDAY,true)))
-					return false;
+					return 0;
 				return (new DateTime($idade))->diff(new DateTime())->y;
 			}
 			
@@ -117,7 +117,6 @@
 					foreach($users as $user){
 						if($user->ID == 1)
 							continue;
-						echo "<h1>{$user->ID}</h1>";
 						$idade = MyUsersClass::getIdade($user);
 						if($cont == 0) :
 						?>
@@ -140,7 +139,7 @@
 								<a href="<?php echo get_author_posts_url($user->ID); ?>">
 									<h5 class="dark-text red-border-bottom"><?php echo $user->first_name . " " . $user->last_name;?></h5>
 								</a>	
-									<div class="position"><?php echo $user->get(MyUsersClass::USER_GENDER) == 1 ? str_replace(array("Desenvolvedor", "Coordenador"), array("Desenvolvedora","Coordenadora"), $user->get(MyUsersClass::USER_FUNCTION)) : $user->get(MyUsersClass::USER_FUNCTION); ?><?php echo ($idade > 0 ? ", $idade": "");?></div>
+									<div class="position"><?php echo $user->get(MyUsersClass::USER_GENDER) == 1 ? str_replace(array("Desenvolvedor", "Coordenador"), array("Desenvolvedora","Coordenadora"), $user->get(MyUsersClass::USER_FUNCTION)) : $user->get(MyUsersClass::USER_FUNCTION); ?><?php echo (@$idade > 0 ? ", $idade": "");?></div>
 
 				                </div>
 
@@ -165,7 +164,7 @@
 
 
 				        </div>
-						<!-- Formato de exibição dos usuários aqui -->
+						<!-- Formato de exibi&ccedil;&atilde;o dos usuários aqui -->
 						<?php
 						if($cont == 3) :
 							$cont=0;
