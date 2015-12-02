@@ -117,6 +117,7 @@
 					foreach($users as $user){
 						if($user->ID == 1)
 							continue;
+						echo "<h1>{$user->ID}</h1>";
 						$idade = MyUsersClass::getIdade($user);
 						if($cont == 0) :
 						?>
@@ -124,11 +125,7 @@
 						<?php
 							endif;
 						?>
-						<!--<div class="users_block" style="background-image:url('<?php echo esc_url($user->get(MyUsersClass::USER_PROFILE_PHOTO)); ?>')">
-							<h3 class="users_title"><?php echo ($user->first_name);?></h3>
-								<p class="description"><?php echo ($idade ? "$idade anos." : "Idade desconhecida").'<br>';  echo (strlen(@$description)) ? $description : "Sem descri&ccedil;&atilde;o.";?></p>
-							<span class="users_see_more"><?php echo "Cargo: ".str_replace($user->get(MyUsersClass::USER_FUNCTION));?></span>
-						</div>-->
+
 						<div class="col-lg-3 col-sm-3 team-box">
 
 
@@ -136,11 +133,7 @@
 
 								<a href="<?php echo get_author_posts_url($user->ID); ?>">
 									<figure class="profile-pic">
-
-									<div class="profile-pic-image" style="background-image: url('<?php echo MyUsersClass::getUserProfilePhoto($user); ?>')"></div>
-										<!-- <img src="<?php echo MyUsersClass::getUserProfilePhoto($user); ?>" alt="<?php echo $user->first_name . " " . $user->last_name;?>"> -->
-
-
+										<div class="profile-pic-image" style="background-image: url('<?php echo MyUsersClass::getUserProfilePhoto($user); ?>')"></div>
 									</figure>
 								</a>
 								<div class="member-details">
