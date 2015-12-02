@@ -3020,7 +3020,7 @@ article .posted-on a:hover{
 	padding-top: 0;
 	margin-bottom: 20px;
 	text-align: center;
-	text-transform: capitalize;
+	text-transform: initial !important;
 	line-height: 0.9em;
 }
 .listpost-content-wrap .entry-content {
@@ -4751,9 +4751,6 @@ body.custom-background {
 		line-height: 8vh;
 		font-size: 6.5vw;
 	}
-    .header-content-wrap {
-    	padding-top: 30%;
-    }
 	.intro-text{
         font-size: 41px;
         line-height: 49px;
@@ -5452,6 +5449,9 @@ img.ver-mais{
 		overflow: hidden;
 	}
 
+  .header-content-wrap {
+  	padding-top: calc(50% - 148px);
+  }
 	.projeto .projectBackground{
 		width:50vw;
 		height:50vw;
@@ -5610,10 +5610,18 @@ article.hentry:last-child{
 
 
 article .entry-title{
-	margin-bottom: 0;
+	margin-bottom: 2rem;
 }
 
 article .entry-meta h1{
+}
+
+article .entry-meta h2{
+	margin-bottom: 1.5rem;
+}
+
+article .entry-meta{
+	margin-bottom: 1.2rem;
 }
 
 article .entry-meta h2, article .entry-meta h2 a{
