@@ -43,6 +43,7 @@ get_header();
 				?>
 				<h2 class="dark=text" data-scrollreveal="enter left after 0s over 1s"><?php the_title(); ?></h2>
 					</div>
+			
 			<?php 
 				if($sobre_conteudo[0] == ""){
 			?>
@@ -54,9 +55,6 @@ get_header();
 			<?php
 				}else foreach($sobre_conteudo as $paragrafo)
 					echo 	'<p class="section-header-description" data-scrollreveal="enter left after 0s over 1s">'.$paragrafo.'</p>';
-			?>
-			<?php 
-				// masterslider(1); 
 			?>
 				<div class="fb-like" data-href="https://www.facebook.com/LTIA.UNESP" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>
 			</main>

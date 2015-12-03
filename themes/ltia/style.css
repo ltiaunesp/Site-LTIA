@@ -5816,7 +5816,6 @@ article .fb-like{
 
 .page-template-template-sobre p.section-header-description{
 	text-align: left !important;
-	text-indent: 2rem;
 }
 
 
@@ -5829,4 +5828,9 @@ p.section-header-description a{
 }
 p.section-header-description a:hover{
 	text-decoration: underline;
+}
+
+#fb_widget{
+	box-shadow: 2px 2px 5px rgba(0,0,0,0.6);
+	margin-bottom: 30px;
 }

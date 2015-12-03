@@ -39,6 +39,16 @@
 	</div>
 </div> <!-- / END CONTAINER -->
 <div id="fb-root"></div>
+<!-- ESTILO PARA ANULAR A WPBAR -->
+<style>
+	html{
+		margin-top:0 !important; 
+	}
+	#wpadminbar{
+		height: 0 !important;
+		overflow: hidden;
+	}
+</style>
 <script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
   if (d.getElementById(id)) return;
@@ -92,7 +102,6 @@
 
 
 <?php wp_footer(); ?>
-
 
 
 </body>
