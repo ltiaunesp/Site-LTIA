@@ -5834,3 +5834,13 @@ p.section-header-description a:hover{
 	box-shadow: 2px 2px 5px rgba(0,0,0,0.6);
 	margin-bottom: 30px;
 }
+
+#pre-section-header-description{
+	margin-top: -60px !important;
+	display: block;
+}
+
+div.section-header-description{
+	font-size: 1.5rem;
+	line-height: 1.3rem;
+}
