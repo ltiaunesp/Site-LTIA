@@ -5283,6 +5283,10 @@ img.ver-mais{
 	background-position:20% center;
 }
 
+
+
+
+
 .our-team h6, .our-team h2{
 	color: white !important;
 }
@@ -5871,4 +5875,26 @@ div.section-header-description{
 	max-width:200px;
 	min-height:200px;
 	max-height:200px;
+}
+
+.our-team .white-text.section-header-description{
+	margin-top: 20px;
+}
+
+.our-team{
+	min-height: 600px;
+}
+
+.our-team .section-header{
+	position: absolute;
+	left: 0;
+}
+
+.our-team-bg{
+	width:100%;
+	height:100%;
+	position: absolute;
+	margin-top: -100px;
+	background-color: rgba(0, 0, 0, 0.4);
+	z-index:0;
 }

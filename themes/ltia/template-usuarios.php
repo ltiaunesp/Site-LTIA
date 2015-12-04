@@ -7,6 +7,7 @@ Template Name: Equipe
 get_header();
 global $post;
 $sub_page = $post->post_parent;
+the_post();
 ?>
 <section style="background:rgba(0,0,0,0.4); width:100vw; height:80vh;"></section>
 <style>
@@ -39,14 +40,11 @@ $sub_page = $post->post_parent;
 			<div id="primary" class="content-area">
 				<main id="main" class="site-main" role="main">
 					<div class="section-header">
-						<h2 class="dark-text">Equipe</h2>
+						<h2 class="dark-text"><?php the_title(); ?></h2>
 						<h6 class="dark-text">Quem faz parte do LTIA?</h6>
 					</div>
-					<?php
-						if(!$sub_page) :?>
-							<p class="section-header-description">O LTIA atualmente é composto pelos seguintes integrantes. A relação de todos os membros que já passaram pelo LTIA pode ser encontrada <a href="<?php echo get_site_url(); ?>/index.php/equipe/equipe-inteira">nesta página</a>.</p>
-						<?php endif; ?>
-					</p>
+					<p class="section-header-description"><?php echo get_the_content(); ?></p>
+					
 					<div class="section-header-description"><?php
 						if($sub_page)
 							$args = array("orderby" => 'name' );

@@ -4,6 +4,7 @@ Template Name: Projetos
 */
 
 get_header();
+the_post();
 ?>
 <section style="background:rgba(0,0,0,0.4); width:100vw; height:80vh;"></section>
 <style>
@@ -36,10 +37,10 @@ get_header();
 			<div id="primary" class="content-area">
 				<main id="main" class="site-main" role="main">
 					<div class="section-header">
-						<h2 class="dark-text">Projetos</h2>
+						<h2 class="dark-text"><?php the_title(); ?></h2>
 						<h6 class="dark-text">O que fazemos?</h6>
 					</div>
-					<p class="section-header-description">Nossos projetos tem como foco o aprofundamento técnico, profissional e/ou acadêmico de nossos integrantes, por meio de parcerias com empresas e organizações locais ou multinacionais, como Microsoft e Motorola. À seguir, alguns de nossos projetos e parceiros:</p>
+					<p class="section-header-description"><?php echo get_the_content(); ?></p>
 				</main><!-- #main -->
 
 			</div><!-- #primary -->
