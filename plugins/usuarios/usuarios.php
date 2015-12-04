@@ -431,10 +431,10 @@
 		add_filter( 'get_avatar', 'get_avatar_personalizado', 10, 3 );
 		function change_author_permalinks() {
 		    global $wp_rewrite;
-		    $wp_rewrite->author_base = 'membro';
-		    // $wp_rewrite->author_structure = '/' . $wp_rewrite->author_base. '/%author%';
+		    $wp_rewrite->author_base = get_option("author_base_url", "integrante");
+		    $wp_rewrite->flush_rules();
 		}
-		// add_action('init','change_author_permalinks');
+		add_action('init','change_author_permalinks');
 		
 		
 ?>

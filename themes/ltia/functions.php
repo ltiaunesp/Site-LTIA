@@ -1762,7 +1762,7 @@ new LocalConfig();*/
 	
 	// SOBRE SETTINGS
 	
-	class sobreSettings {
+	class userSettings {
 		
 		// ADICIONANDO FILTER PARA QUANDO INICIAR A PÁGINA
 		function __construct() {
@@ -1771,40 +1771,21 @@ new LocalConfig();*/
 		
 		// REGISTRANDO OS CAMPOS
 		function register_fields() {
-			// NOTIFICACAO DO SLACK
-			register_setting( 'general', 'sobre_title', 'esc_attr' ); // TITULO
-			register_setting( 'general', 'sobre_subtitle', 'esc_attr' ); // SUBTITULO
-			register_setting( 'general', 'sobre_content', 'esc_attr' ); // CAMPO DO CONTEUDO
-			add_settings_field('sobre', '<label for="sobre_title">Sobre: </label>' , array($this, 'fields_html') , 'general' );
+			register_setting( 'general', 'author_base_url', 'esc_attr' ); // TITULO
+			add_settings_field('sobre', '<label for="author_base_url">URL Usu&aacute;rios: </label>' , array($this, 'fields_html') , 'general' );
 		}
 		
 		// FUNCAO DOS CAMPOS
 		function fields_html() {
 			// TITULO
-			$value = get_option('sobre_title' , '');
-			echo "<input class='regular-text' type='text' id='sobre_title' name='sobre_title' value='{$value}' />";
-			echo '<p class="description" id="sobre_title-description">T&iacute;tulo da p&aacute;gina de Sobre</p>';
+			$value = get_option('author_base_url' , '');
+			echo "<input class='regular-text' type='text' id='author_base_url' name='author_base_url' value='{$value}' />";
+			echo '<p class="description" id="sobre_title-description">Url dos usuarios. Exemplo: '.get_site_url().'/~base~/admin</p>';
 			
-			echo "<br>";
-			
-			// SUBTITULO
-			// TITULO
-			$value = get_option('sobre_subtitle' , '');
-			echo "<input class='regular-text' type='text' id='sobre_subtitle' name='sobre_subtitle' value='{$value}' />";
-			echo '<p class="description" id="sobre_subtitle-description">Subt&iacute;tulo da p&aacute;gina de Sobre</p>';
-			
-			echo "<br>";
-			
-			// CONTEUDO
-			$value = get_option('sobre_content' , '');
-			$value = ($value == 'on' ? 'checked' : $value );
-			
-			echo "<textarea class='large-text' rows='15' id='sobre_content' name='sobre_content'>{$value}</textarea>";
-			echo '<p class="description" id="sobre_content-description">Conteudo da p&aacute;gina</p>';
 		}
 		
 	}
-	new sobreSettings();
+	new userSettings();
 	
 	
 	global $_redes;
