@@ -44,7 +44,7 @@ $cont = 0;
 <div class="sidebar-wrap col-md-3 content-left-wrap">
 	<div class="fotoUser" style="background-image: url('<?php echo $imageURL;?>');">
 	</div>
-	<h2 class="username"><?php echo @$user_meta["first_name"][0]." ".@$user_meta["last_name"][0];?>, <?php echo MyUsersClass::getIdade($user);?></h2>
+	<h2 class="username"><?php echo @$user_meta["first_name"][0]." ".@$user_meta["last_name"][0];?></h2>
 	<?php 
 		if(!empty(@$user_meta['user_function'][0])){?>
 		<h4 class="user_cargo"><?php echo (@$user_meta['user_function'][0]);?></h4>

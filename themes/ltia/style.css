@@ -5718,9 +5718,10 @@ article .fb-like{
 	}
 }
 
-@media (max-width:767){
+@media (max-width:767px){
 	p.section-header-description{
-		font-size:1rem !important;
+		font-size:1.3rem !important;
+		padding:0 3vw !important;
 	}	
 }
 
@@ -5846,4 +5847,24 @@ p.section-header-description a:hover{
 div.section-header-description{
 	font-size: 1.5rem;
 	line-height: 1.3rem;
+}
+
+.page-template-template-sobre .content-left-wrap{
+	padding-bottom: 60px;
+}
+
+.page-template-template-projetos .parceirosDireitos{
+	margin-bottom: 60px;
+}
+
+.list-post-top{
+	float:left;
+	width: calc(100% - 220px);
+}
+
+.post-img-wrap{
+	min-width:200px;
+	max-width:200px;
+	min-height:200px;
+	max-height:200px;
 }

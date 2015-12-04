@@ -117,7 +117,6 @@
 					foreach($users as $user){
 						if($user->ID == 1)
 							continue;
-						$idade = MyUsersClass::getIdade($user);
 						if($cont == 0) :
 						?>
 							<div class="row">
@@ -139,7 +138,7 @@
 								<a href="<?php echo get_author_posts_url($user->ID); ?>">
 									<h5 class="dark-text red-border-bottom"><?php echo $user->first_name . " " . $user->last_name;?></h5>
 								</a>	
-									<div class="position"><?php echo $user->get(MyUsersClass::USER_GENDER) == 1 ? str_replace(array("Desenvolvedor", "Coordenador"), array("Desenvolvedora","Coordenadora"), $user->get(MyUsersClass::USER_FUNCTION)) : $user->get(MyUsersClass::USER_FUNCTION); ?><?php echo (@$idade > 0 ? ", $idade" : "");?></div>
+									<div class="position"><?php echo $user->get(MyUsersClass::USER_GENDER) == 1 ? str_replace(array("Desenvolvedor", "Coordenador"), array("Desenvolvedora","Coordenadora"), $user->get(MyUsersClass::USER_FUNCTION)) : $user->get(MyUsersClass::USER_FUNCTION); ?></div>
 
 				                </div>
 
@@ -255,6 +254,9 @@
 			<br/>
 			<br/>
 			<h2>Informa&ccedil;&otilde;es Adicionais</h2>
+			<?php
+			if ( current_user_can( 'manage_options' ) ) :
+			?>
 			<p>
 				<label for="<?php echo MyUsersClass::USER_IS_ACTIVE;?>">Ainda &eacute; funcion&aacute;rio:</label>
 				<input type="checkbox" id="<?php echo MyUsersClass::USER_IS_ACTIVE;?>" name=<?php echo "'".MyUsersClass::USER_IS_ACTIVE."' ";
@@ -262,6 +264,16 @@
 						echo 'checked';
 				?>>
 			</p>
+			<?php
+			else :
+			?>
+				<input type="hidden" id="<?php echo MyUsersClass::USER_IS_ACTIVE;?>" name=<?php echo "'".MyUsersClass::USER_IS_ACTIVE."' ";?>
+				value="<?php 
+					echo get_user_meta($user->ID,MyUsersClass::USER_IS_ACTIVE,true);
+					?>">
+			<?php
+			endif;
+			?>
 			<p>
 				<label for="<?php echo MyUsersClass::USER_BIRTHDAY?>">Data de Nascimento:</label>
 				<input name="<?php echo MyUsersClass::USER_BIRTHDAY; ?>" id="<?php echo MyUsersClass::USER_BIRTHDAY; ?>" class="widefat" type="date" size="36"  value="<?php echo get_user_meta($user->ID,MyUsersClass::USER_BIRTHDAY,true); ?>" />
@@ -269,7 +281,7 @@
 			<p>
 				<?php $genero = get_user_meta($user->ID,MyUsersClass::USER_GENDER,true); ?>
 				<label for="<?php echo MyUsersClass::USER_GENDER;?>">Identidade de Genero:</label>
-				<select required name="<?php echo MyUsersClass::USER_GENDER; ?>" id="<?php echo MyUsersClass::USER_GENDER; ?>" size="36" >
+				<select required name="<?php echo MyUsersClass::USER_GENDER; ?>" id="<?php echo MyUsersClass::USER_GENDER; ?>" >
 					<option value="1" <?php echo $genero == "1" ? "selected" : "" ?>>Mulher</option>
 					<option value="2" <?php echo $genero == "2" ? "selected" : "" ?>>Homem</option>
 				</select>
@@ -281,7 +293,7 @@
 						"Designer", "Desenvolvedor")
 				?>
 				<label for="<?php echo MyUsersClass::USER_FUNCTION;?>">Cargo do Usuario:</label>
-				<select required name="<?php echo MyUsersClass::USER_FUNCTION; ?>" id="<?php echo MyUsersClass::USER_FUNCTION; ?>" class="widefat" size="36" >
+				<select required name="<?php echo MyUsersClass::USER_FUNCTION; ?>" id="<?php echo MyUsersClass::USER_FUNCTION; ?>" class="widefat">
 					<?php
 						foreach($cargos as $c){
 							?>
@@ -417,7 +429,12 @@
 			return $avatar;
 		}
 		add_filter( 'get_avatar', 'get_avatar_personalizado', 10, 3 );
-		
+		function change_author_permalinks() {
+		    global $wp_rewrite;
+		    $wp_rewrite->author_base = 'membro';
+		    // $wp_rewrite->author_structure = '/' . $wp_rewrite->author_base. '/%author%';
+		}
+		add_action('init','change_author_permalinks');
 		
 		
 ?>
