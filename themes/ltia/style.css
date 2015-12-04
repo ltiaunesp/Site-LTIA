@@ -5803,6 +5803,9 @@ article .fb-like{
 
 .home .header-content-wrap{
 	min-height: 100vh;
+	display: flex;
+	align-items: center;
+	padding: 50px !important;
 }
 
 .parceirosDireitos{
