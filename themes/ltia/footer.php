@@ -28,12 +28,10 @@
 		<span>Todos os direitos reservados</span>
 	</div>
 	<div class="col-md-2" id="socialFooter">
-		<a href="http://fb.com/LTIA.UNESP"><i class="fa fa-facebook-official"></i></a>
-		<a href="http://instagram.com/ltiaunesp"><i class="fa fa-instagram"></i></a>
-		<a href="https://github.com/ltiaunesp"><i class="fa fa-github"></i></a>
-		<a href="https://www.youtube.com/channel/UCSRT-la5hkhiUTuU6RlbhNw"><i class="fa fa-youtube-play"></i></a>
-		<a href="https://www.linkedin.com/company/ltia---laborat-rio-de-tecnologia-da-informa-o-aplicada"><i class="fa fa-linkedin"></i></a><br>
-		<a href="<?php echo admin_url();?>" alt="Painel de Controle"><i class="fa fa-lock"></i></a>
+		<?php
+			socialSettings::mostraRedes();
+		?>
+		<br><a href="<?php echo admin_url();?>" alt="Painel de Controle"><i class="fa fa-lock"></i></a>
 		<!--<a href="http://fb.com/LTIA.UNESP"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/facebook_rod.png"></a>
 		<a href="http://instagram.com/ltiaunesp"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/instagram_rod.png"></a>-->
 	</div>

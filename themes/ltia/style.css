@@ -5736,6 +5736,10 @@ article .fb-like{
 	color: rgba(175, 189, 212, 0.7) !important;
 }
 
+#socialFooter .fa-behance:hover:before{
+	color: rgba(200, 214, 237, 0.7) !important;
+}
+
 #socialFooter .fa-instagram:hover:before{
 	color: rgba(222, 209, 193, 0.7) !important;
 	color: rgba(208,180,168,0.70) !important;

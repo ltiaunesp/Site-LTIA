@@ -434,7 +434,7 @@
 		    $wp_rewrite->author_base = 'membro';
 		    // $wp_rewrite->author_structure = '/' . $wp_rewrite->author_base. '/%author%';
 		}
-		add_action('init','change_author_permalinks');
+		// add_action('init','change_author_permalinks');
 		
 		
 ?>

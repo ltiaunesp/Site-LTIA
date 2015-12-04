@@ -1808,9 +1808,48 @@ new LocalConfig();*/
 	
 	
 	global $_redes;
-	$_redes = array('facebook','twitter','instagram');
+	$_redes = array(
+        'facebook',
+        'instagram',
+        'github',
+        'youtube',
+        'linkedin',
+        'behance'
+        );
+
 	class socialSettings {
-		
+        function mostraRedes(){
+            if(($val = get_option('facebook_field','')) != ''){
+                ?>
+                <a href="<?php echo $val?>"><i class="fa fa-facebook-official"></i></a>
+                <?php
+            }
+            if(($val = get_option('instagram_field','')) != ''){
+                ?>
+                <a href="<?php echo $val?>"><i class="fa fa-instagram"></i></a>
+                <?php
+            }
+            if(($val = get_option('behance_field','')) != ''){
+                ?>
+                <a href="<?php echo $val?>"><i class="fa fa-behance"></i></a>
+                <?php
+            }
+            if(($val = get_option('github_field','')) != ''){
+                ?>
+                <a href="<?php echo $val?>"><i class="fa fa-github"></i></a>
+                <?php
+            }
+            if(($val = get_option('youtube_field','')) != ''){
+                ?>
+                <a href="<?php echo $val?>"><i class="fa fa-youtube-play"></i></a>
+                <?php
+            }
+            if(($val = get_option('linkedin_field','')) != ''){
+                ?>
+                <a href="<?php echo $val?>"><i class="fa fa-linkedin"></i></a>
+                <?php
+            }
+        }		
 		// ADICIONANDO FILTER PARA QUANDO INICIAR A PÁGINA
 		function __construct() {
 			add_filter( 'admin_init' , array( $this , 'register_fields' ) );
