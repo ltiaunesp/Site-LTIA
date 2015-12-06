@@ -12,7 +12,7 @@ get_header();
 		$image_url_big = wp_get_attachment_image_src($image_id,'post-thumbnail-large', true);
 	?>
 	body{
-		background-image: url("<?php echo get_template_directory_uri(); ?>/images/bg.jpg") ;
+		background-image: url("<?php echo $image_url_big; ?>") ;
 		background-size: 120vw ;
 		background-position: center center;
 		background-attachment: fixed !important;
