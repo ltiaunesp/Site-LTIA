@@ -42,10 +42,8 @@ $pathWordpress = get_site_url();
 <?php wp_head(); ?>
 
 </head>
-<?php if(isset($_POST['scrollPosition'])): ?><body <?php body_class("custom-background"); ?> onLoad="window.scrollTo(0,<?php echo intval($_POST['scrollPosition']); ?>)">
-<?php else: ?><body <?php body_class("custom-background"); ?> >
 
-<?php endif; ?>
+<body <?php body_class(is_front_page() ? array("custom-background", "overflowHidden") : array("custom-background"));?>  >
 
 
 

@@ -673,16 +673,18 @@ input:focus {
  /*---------------------------------------
  **   5.1 Links                 -----
 -----------------------------------------*/
-a {
-	color: #1898B5;
-}
+
 a:visited {
-	color: #ABD25F;
+	color: #62BF90;
+	transition: 250ms;
+	-webkit-transition: 250ms;
+	-moz-transition: 250ms;
+	-ms-transition: 250ms;
 }
 a:hover,
 a:focus,
 a:active {
-	color: #62BF90;
+	color: #1898B5;
 }
 /*---------------------------------------
  **   5.2 Menus                  -----
@@ -5897,4 +5899,22 @@ div.section-header-description{
 	margin-top: -100px;
 	background-color: rgba(0, 0, 0, 0.4);
 	z-index:0;
+}
+
+
+@media (max-width: 767px){
+	.home .header-content-wrap{
+		padding: 0 !important;
+	}
+}
+
+@media (max-width: 520px){
+	.home .header-content-wrap .container{
+		padding: 0 5vw !important;
+	}
+}
+
+.overflowHidden{
+	height: 100vh;
+	overflow: hidden !important;
 }

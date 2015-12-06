@@ -203,7 +203,7 @@ jQuery(document).ready(function(){
 jQuery(document).ready(function(){
     var headerHeight;
     jQuery('.current').removeClass('current');
-    jQuery('#site-navigation a[href$="' + window.location.hash + '"]').parent('li').addClass('current');
+    jQuery('#site-navigation a[href$="' + window.location.hash + '"]').parent('li').addClass('currentItem');
     // if ( jQuery(window).width() >= 751 ) {
       headerHeight = jQuery('#main-nav').height();
     // } else {
@@ -218,8 +218,11 @@ jQuery(document).ready(function(){
         return false;
       }
     }
-    if((location.hash === "" && $(window).scrollTop() < $("#inicio").offset().top / 2) || location.hash === "#inicio"){
-      $("#main-nav").addClass("fonteBranca");
+    if(location.hash === ""){ 
+      if(($(window).scrollTop() < $("#inicio").offset().top / 2) || location.hash === "#inicio") {
+        $("#main-nav").addClass("fonteBranca");
+      }
+      scrolled();
     }
 });
 
@@ -532,3 +535,13 @@ if( isMobile.any() ) {
   });
     
 }
+
+// OVERFLOW HIDDEN
+
+jQuery(document).ready(function(){
+  setTimeout(function(){
+    jQuery(".overflowHidden").each(function(){
+      jQuery(this).removeClass("overflowHidden");
+    })
+  }, 1000)
+})
