@@ -1869,17 +1869,4 @@ new LocalConfig();*/
 		return $template;
 	}
 	add_filter('single_template', 'getTemplate');
-    // add_action( 'phpmailer_init', function( $phpmailer ) {
-    //     $phpmailer->isSMTP();     
-    //     $phpmailer->Host = 'smtp.example.com';
-    //     $phpmailer->SMTPAuth = true; // Force it to use Username and Password to authenticate
-    //     $phpmailer->Port = 25;
-    //     $phpmailer->Username = 'yourusername';
-    //     $phpmailer->Password = 'yourpassword';
-
-    //     // Additional settings…
-    //     //$phpmailer->SMTPSecure = "tls"; // Choose SSL or TLS, if necessary for your server
-    //     //$phpmailer->From = "you@yourdomail.com";
-    //     //$phpmailer->FromName = "Your Name";
-    // } );
 ?>

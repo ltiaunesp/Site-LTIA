@@ -231,7 +231,8 @@ if ( get_option( 'show_on_front' ) == 'page' ) {
 			if(!$hasError):
 
 
-				$emailTo = "contato@ltia.fc.unesp.br";
+				$emailTo = "vinicius.figueiredo@ltia.fc.unesp.br";
+				$emailTo = "vinifig@hotmail.com";
 				
 
 
@@ -247,10 +248,9 @@ if ( get_option( 'show_on_front' ) == 'page' ) {
 					$headers = 'From: '.$name.' <'.$emailTo.'>' . "\r\n" . 'Reply-To: ' . $email;
 
 
-					wp_mail($emailTo, $subject, $body, $headers);
+					$emailSent = wp_mail($emailTo, $subject, $body, $headers);
 
-					$emailSent = true;
-
+					// exit;
 
 				else:
 

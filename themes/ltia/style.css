@@ -5118,6 +5118,10 @@ a.navbar-brand img{
 	float:left;
 	cursor:pointer;
 	overflow: hidden;
+	transition: 0s !important;
+	-webkit-transition: 0s !important;
+	-moz-transition: 0s !important;
+	-ms-transition: 0s !important;
 }
 
 .projeto .projectBackground{
@@ -5914,4 +5918,9 @@ div.section-header-description{
 .overflowHidden{
 	height: 100vh;
 	overflow: hidden !important;
+}
+
+
+#inicio .container{
+	max-width: 100vw;
 }
