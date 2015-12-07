@@ -143,6 +143,13 @@ endif; ?>
 						);
 						?>
 						<script language="javascript" class="remover">
+							jQuery(document).ready(function(){
+							  setTimeout(function(){
+							    jQuery(".overflowHidden").each(function(){
+							      jQuery(this).removeClass("overflowHidden");
+							    })
+							  }, 1000)
+							})
 							var paginaInicial = <?php
 								global $post;
 								if(is_front_page())

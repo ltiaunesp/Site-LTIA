@@ -538,10 +538,3 @@ if( isMobile.any() ) {
 
 // OVERFLOW HIDDEN
 
-jQuery(document).ready(function(){
-  setTimeout(function(){
-    jQuery(".overflowHidden").each(function(){
-      jQuery(this).removeClass("overflowHidden");
-    })
-  }, 1000)
-})
