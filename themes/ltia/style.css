@@ -3021,7 +3021,7 @@ article .posted-on a:hover{
 	min-height: 1px;
 }
 .entry-title{
-	font-size: 3.25em;
+	font-size: 3.25rem;
 	margin-top: 0;
 	padding-top: 0;
 	margin-bottom: 20px;
@@ -5819,6 +5819,10 @@ article .fb-like{
 	.map-desc{
 		font-size:1rem;
 	}
+
+	.single h1.entry-title{
+		font-size:2.25rem;
+	}
 }
 
 
@@ -5932,3 +5936,9 @@ div.section-header-description{
 .author{
 	padding-bottom:3rem;
 }
+
+@media (min-width:767px){
+	.single h1.entry-title{
+		font-size:2.75rem;
+	}
+}	
