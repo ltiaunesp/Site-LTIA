@@ -1786,7 +1786,7 @@ new LocalConfig();*/
 		
 	}
 	new userSettings();
-	
+
 	
 	global $_redes;
 	$_redes = array(

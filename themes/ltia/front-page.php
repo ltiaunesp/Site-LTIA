@@ -230,9 +230,11 @@ if ( get_option( 'show_on_front' ) == 'page' ) {
 
 			if(!$hasError):
 
+				$admin = (new WP_User_Query( array( 'ID' => 1 ) ))->get_results()[0];
 
-				$emailTo = "contato@ltia.fc.unesp.br";
+				$emailTo = $admin->user_email != "" ? $admin->user_email : "ltiaunesp@gmail.com";
 				
+				$admin = "";
 
 
 				if(isset($emailTo) && $emailTo != ""):
@@ -430,7 +432,7 @@ if ( get_option( 'show_on_front' ) == 'page' ) {
 							echo '<div class="notification error"><p>'.esc_html($messageError).'</p></div>';
 
 						endif;
-
+						var_dump($emailTo);
 					?>
 
 					<form role="form" method="POST" onSubmit="this.scrollPosition.value=(document.body.scrollTop || document.documentElement.scrollTop)" class="contact-form">
