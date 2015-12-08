@@ -142,7 +142,7 @@ padding-left: 0 !important;
 	color: #FFF;
 }
 a {
-	color: #e96656;
+	color: #62BF90;
 	-webkit-transition: all 700ms;
 	transition: all 700ms;
 }
@@ -5927,4 +5927,8 @@ div.section-header-description{
 
 #inicio .container{
 	max-width: 100vw;
+}
+
+.author{
+	padding-bottom:3rem;
 }
