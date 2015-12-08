@@ -341,7 +341,33 @@
 		// ADICIONANDO CONFIGURA합ES
 		
 		
-		
+		class userDefaultSettings {
+			
+			// ADICIONANDO FILTER PARA QUANDO INICIAR A P핯INA
+			function __construct() {
+				add_filter( 'admin_init' , array( $this , 'register_fields' ) );
+			}
+			
+			// REGISTRANDO OS CAMPOS
+			function register_fields() {
+				// NOTIFICACAO DO SLACK
+				register_setting( 'general', 'default_avatar', 'esc_attr' ); // CAMPO DA URL
+				register_setting( 'general', 'default_avatar', 'esc_attr' ); // CAMPO DA PERMISSAO
+				add_settings_field('default_avatar', '<label for="default_avatar">Avatar Geral: </label>' , array($this, 'fields_html') , 'general' );
+			}
+			
+			// FUNCAO DOS CAMPOS
+			function fields_html() {
+				?>
+				<input readonly="readonly" name="default_avatar" id="default_avatar" class="large-text" type="text" size="36"  value="<?php echo esc_url(get_option('default_avatar','')); ?>" /><br /><br />
+				<input id="default_avatar_button" name="default_avatar_button" class="upload_image_button button button-primary" type="button" value="Escolher Imagem" />
+				<?php
+			}
+			
+		}
+		new userDefaultSettings();
+
+
 		class notifySettings {
 			
 			// ADICIONANDO FILTER PARA QUANDO INICIAR A P핯INA
@@ -408,27 +434,40 @@
 		
 		function get_avatar_personalizado( $avatar, $id_or_email, $size = 96 ) {
 			// INSER플O DE BUSCA DE IMAGENS DE USUARIOS PERSONALIZADAS
+			$url = "";
+			$name = "default";
 			if(class_exists("MyUsersClass")){
 				if(!(($consulta = MyUsersClass::consultaAvatarUsuario($id_or_email)) === false)){
-					$url = $url2x = $consulta;
+					$url = $consulta;
 					$args = MyUsersClass::consultaUsuarios($id_or_email)[0];
-					$avatar = sprintf(
-						"<img alt='%s' src='%s' srcset='%s'  height='%d' width='%d' class='%s'/>",
-						esc_attr( $args->data->display_name ),
-						esc_url( $url ),
-						esc_attr( "{$url2x} 2x" ),
-						(int) $size,
-						(int) $size,
-						esc_attr('avatar avatar-64 photo')
-					);
+					$name = $args->data->display_name;
 				}		
+				else 
+					$url = get_option("default_avatar", "");
 			}
+			else
+				$url = get_option("default_avatar", "");
 			
+			if($url != ""){
+				$avatar = sprintf(
+					"<img alt='%s' src='%s' srcset='%s'  height='%d' width='%d' class='%s'/>",
+					esc_attr( $name ),
+					esc_url( $url ),
+					esc_attr( "{$url} 2x" ),
+					(int) $size,
+					(int) $size,
+					esc_attr('avatar avatar-64 photo')
+				);
+			}
+
 			// FIM DA BUSCA DE USUARIOS
 			
 			return $avatar;
 		}
 		add_filter( 'get_avatar', 'get_avatar_personalizado', 10, 3 );
+
+
+
 		function change_author_permalinks() {
 		    global $wp_rewrite;
 		    $wp_rewrite->author_base = get_option("author_base_url", "integrante");
