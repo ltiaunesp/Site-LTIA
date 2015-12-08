@@ -432,7 +432,6 @@ if ( get_option( 'show_on_front' ) == 'page' ) {
 							echo '<div class="notification error"><p>'.esc_html($messageError).'</p></div>';
 
 						endif;
-						var_dump($emailTo);
 					?>
 
 					<form role="form" method="POST" onSubmit="this.scrollPosition.value=(document.body.scrollTop || document.documentElement.scrollTop)" class="contact-form">
