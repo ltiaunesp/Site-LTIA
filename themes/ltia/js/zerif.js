@@ -212,16 +212,20 @@ jQuery(document).ready(function(){
     if (location.pathname.replace(/^\//,'') == window.location.pathname.replace(/^\//,'') && location.hostname == window.location.hostname) {
       var target = jQuery(window.location.hash);
       if (target.length) {
-        jQuery('html,body').animate({
-          scrollTop: window.location.hash == "#inicio" ? 0 : (target.offset().top - (window.location.hash == "#sobre" ? 0 : -5))
-        }, 1200);
+        setTimeout(function(){
+          jQuery('html,body').animate({
+            scrollTop: window.location.hash == "#inicio" ? 0 : (target.offset().top - (window.location.hash == "#sobre" ? 0 : -5))
+          }, 1200);
+        },1000);
         return false;
       }
     }
-    if(location.hash === ""){ 
+    if(location.hash === ""){
+      console.log("null hash");
       if(($(window).scrollTop() < $("#inicio").offset().top / 2) || location.hash === "#inicio") {
         $("#main-nav").addClass("fonteBranca");
       }
+      console.log("start scroll");
       scrolled();
     }
 });
