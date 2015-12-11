@@ -475,5 +475,9 @@
 		}
 		add_action('init','change_author_permalinks');
 		
+		function change_colab_cap(){
+			get_role('contributor')->add_cap('upload_files');
+		}
+		add_action("admin_init",change_colab_cap);
 		
 ?>
