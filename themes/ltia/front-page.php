@@ -227,8 +227,7 @@ if ( get_option( 'show_on_front' ) == 'page' ) {
 
 			if(!$hasError):
 
-				$admin = (new WP_User_Query( array( 'ID' => 1 ) ))->get_results()[0];
-
+				$admin = get_user_by("id", 1);
 				$emailTo = $admin->user_email != "" ? $admin->user_email : "ltiaunesp@gmail.com";
 				
 				$admin = "";
@@ -442,7 +441,6 @@ if ( get_option( 'show_on_front' ) == 'page' ) {
 						
 
 					</form>
-
 				</div>
 
 				<!-- / END CONTACT FORM-->
