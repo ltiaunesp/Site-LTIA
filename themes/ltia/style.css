@@ -2787,7 +2787,6 @@ width: -webkit-calc(100% / 4);
 }
 .g-recaptcha {
 	margin-left: 15px;
-	display: none;
 }
 .contact-us .notification p {
 	border-radius: 3px;

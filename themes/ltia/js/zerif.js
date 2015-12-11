@@ -221,11 +221,9 @@ jQuery(document).ready(function(){
       }
     }
     if(location.hash === ""){
-      console.log("null hash");
       if(($(window).scrollTop() < $("#inicio").offset().top / 2) || location.hash === "#inicio") {
         $("#main-nav").addClass("fonteBranca");
       }
-      console.log("start scroll");
       scrolled();
     }
 });

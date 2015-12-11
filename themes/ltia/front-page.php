@@ -9,7 +9,6 @@ if ( get_option( 'show_on_front' ) == 'page' ) {
 	</header> <!-- / END HOME SECTION  -->
 
 
-
 		<div id="content" class="site-content">
 
 	<div class="container">
@@ -101,32 +100,30 @@ if ( get_option( 'show_on_front' ) == 'page' ) {
 			
 			$zerif_contactus_recaptcha_show = get_theme_mod('zerif_contactus_recaptcha_show');
 
-			if( isset($zerif_contactus_recaptcha_show) && $zerif_contactus_recaptcha_show != 1 && !empty($zerif_contactus_sitekey) && !empty($zerif_contactus_secretkey) ) :
+		
 
-		        $captcha;
+      $captcha;
 
-		        if( isset($_POST['g-recaptcha-response']) ){
+      if( isset($_POST['g-recaptcha-response']) ){
 
-		          $captcha=$_POST['g-recaptcha-response'];
+        $captcha=$_POST['g-recaptcha-response'];
 
-		        }
+      }
 
-		        if( !$captcha ){
+      if( !$captcha ){
 
 
-		          $hasError = true;    
-		          
-		        }
+        $hasError = true;    
+      	$nameError = "recaptcha";
+        
+      }
 
-		        $response = wp_remote_get( "https://www.google.com/recaptcha/api/siteverify?secret=".$zerif_contactus_secretkey."&response=".$captcha."&remoteip=".$_SERVER['REMOTE_ADDR'] );
+      $response = wp_remote_get( "https://www.google.com/recaptcha/api/siteverify?secret=".$zerif_contactus_secretkey."&response=".$captcha."&remoteip=".$_SERVER['REMOTE_ADDR'] );
 
-		        if($response['body'].success==false) {
+      if($response['body'].success==false) {
 
-		        	$hasError = true;
-
-		        }
-
-	        endif;
+      	$hasError = true;
+      }
 
 
 
@@ -394,46 +391,21 @@ if ( get_option( 'show_on_front' ) == 'page' ) {
 
 				<!-- CONTACT FORM-->
 				<div class="row">
-
 					<?php
 
 						if(isset($emailSent) && $emailSent == true) :
 
-							echo '<div class="notification success"><p>'.__('Thanks, your email was sent successfully!','zerif-lite').'</p></div>';
+							echo '<div class="notification success"><p>Obrigado, seu email foi enviado com sucesso!</p></div>';
 
 						elseif(isset($_POST['submitted'])):
-
-							echo '<div class="notification error"><p>'.__('Sorry, an error occured.','zerif-lite').'</p></div>';
-
-						endif;
-
-
-
-						if(isset($nameError) && $nameError != '') :
-
-							echo '<div class="notification error"><p>'.esc_html($nameError).'</p></div>';
-
-						endif;
-
-						if(isset($emailError) && $emailError != '') :
-
-							echo '<div class="notification error"><p>'.esc_html($emailError).'</p></div>';
-
-						endif;
-
-						if(isset($subjectError) && $subjectError != '') :
-
-							echo '<div class="notification error"><p>'.esc_html($subjectError).'</p></div>';
-
-						endif;
-
-						if(isset($messageError) && $messageError != '') :
-
-							echo '<div class="notification error"><p>'.esc_html($messageError).'</p></div>';
+							if(@$nameError == "recaptcha")
+								echo '<div class="notification error"><p>Por favor, assinale o reCaptcha.</p></div>';
+							else
+								echo '<div class="notification error"><p>Desculpe, aconteceu um erro. Tente novamente mais tarde.</p></div>';
 
 						endif;
 					?>
-
+					<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 					<form role="form" method="POST" onSubmit="this.scrollPosition.value=(document.body.scrollTop || document.documentElement.scrollTop)" class="contact-form">
 
 						<input type="hidden" name="scrollPosition">
@@ -463,22 +435,11 @@ if ( get_option( 'show_on_front' ) == 'page' ) {
 							<textarea name="mymessage" class="form-control textarea-box" placeholder="Digite aqui sua mensagem"><?php if(isset($_POST['mymessage'])) { echo esc_html($_POST['mymessage']); } ?></textarea>
 
 						</div>
+						
+						<div class="g-recaptcha" data-sitekey="<?php echo get_option('recaptcha_key', '6Les2Q8TAAAAAGEv_Ve7z2GIGKvS0epGoFqOQE4k');?>"></div>
 	
 						<button class="btn btn-primary custom-button red-btn" type="submit" data-scrollreveal="enter left after 0s over 1s">Enviar</button>
 						
-						<?php 
-
-							$zerif_contactus_sitekey = get_theme_mod('zerif_contactus_sitekey');
-							$zerif_contactus_secretkey = get_theme_mod('zerif_contactus_secretkey');
-							$zerif_contactus_recaptcha_show = get_theme_mod('zerif_contactus_recaptcha_show');
-
-							if( isset($zerif_contactus_recaptcha_show) && $zerif_contactus_recaptcha_show != 1 && !empty($zerif_contactus_sitekey) && !empty($zerif_contactus_secretkey) ) :
-
-								echo '<div class="g-recaptcha" data-sitekey="' . $zerif_contactus_sitekey . '"></div>';
-
-							endif;
-
-						?>
 
 					</form>
 
