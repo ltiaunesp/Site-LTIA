@@ -435,7 +435,7 @@ if ( get_option( 'show_on_front' ) == 'page' ) {
 
 						</div>
 						
-						<div class="g-recaptcha" data-sitekey="<?php echo get_option('recaptcha_key', '6Les2Q8TAAAAAGEv_Ve7z2GIGKvS0epGoFqOQE4k');?>"></div>
+						<div class="g-recaptcha" data-scrollreveal="enter left after 0s over 1s" data-sitekey="<?php echo get_option('recaptcha_key', '6Les2Q8TAAAAAGEv_Ve7z2GIGKvS0epGoFqOQE4k');?>"></div>
 	
 						<button class="btn btn-primary custom-button red-btn" type="submit" data-scrollreveal="enter left after 0s over 1s">Enviar</button>
 						
