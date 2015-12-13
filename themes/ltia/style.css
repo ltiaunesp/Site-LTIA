@@ -4502,7 +4502,7 @@ body.home.page {
 }
 
 body.custom-background {
-	background-position: top center !important;
+	background-position: center center !important;
 	background-attachment: fixed !important;
 	background-repeat: no-repeat !important;
 }
