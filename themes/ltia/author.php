@@ -57,7 +57,7 @@ $cont = 0;
 	<?php
 		}
 	?>
-	<div class="user_socials">
+	<div class="user_socials social_icons">
 		<ul>
 			<?php MyUsersClass::listaRedesSociais($user); ?>
 		</ul>

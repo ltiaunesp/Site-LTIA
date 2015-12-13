@@ -5941,3 +5941,24 @@ div.section-header-description{
 		font-size:2.75rem;
 	}
 }	
+
+.fa-lattes{
+	width:13px;
+	height:16px;
+	background-image: url("images/lattes.png");
+	background-size: 100% 100%;
+}
+
+.fa-lattes:hover{
+	background-image: url("images/lattes_hover.png");
+	
+}
+
+.user_socials li i:hover:before{
+	color: #404040;
+	
+}
+
+.user_socials li i:before{
+	color: #808080;
+}

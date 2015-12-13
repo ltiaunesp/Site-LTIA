@@ -38,6 +38,7 @@
 			const USER_BEHANCE = "user_behance";
 			const USER_LINKEDIN = "user_linkedin";
 			const USER_TWITTER = "user_twitter";
+			const USER_LATTES = "user_lattes";
 
 			const SLACK_URL_JSONP = 'url_slack_jsonp';
 			
@@ -103,6 +104,14 @@
             <li>
             	<a href="<?php echo $fb_link; ?>">
             		<i class="fa fa-behance"></i>
+          		</a>
+        		</li>
+				<?php endif;
+
+				if ( !empty(($fb_link = $user->get(MyUsersClass::USER_LATTES))  )): ?>
+            <li>
+            	<a href="<?php echo $fb_link; ?>">
+            		<i class="fa fa-lattes"></i>
           		</a>
         		</li>
 				<?php endif;
@@ -245,8 +254,9 @@
 			
 		}
 		
+		
 		function my_user_fields($user){
-			$socialNetworks = array( "Facebook" => MyUsersClass::USER_FACEBOOK, "GitHub" => MyUsersClass::USER_GITHUB, "Behance" => MyUsersClass::USER_BEHANCE, "LinkedIn" => MyUsersClass::USER_LINKEDIN, "Twitter" => MyUsersClass::USER_TWITTER );
+			$socialNetworks = array( "Facebook" => MyUsersClass::USER_FACEBOOK, "GitHub" => MyUsersClass::USER_GITHUB, "Behance" => MyUsersClass::USER_BEHANCE, "LinkedIn" => MyUsersClass::USER_LINKEDIN, "Twitter" => MyUsersClass::USER_TWITTER, "Lattes" => MyUsersClass::USER_LATTES );
 			?>
 			<input type="submit" name="submit" id="submit" class="button button-primary" value="Atualizar perfil">
 			<br/>
@@ -325,17 +335,17 @@
 		function my_user_save($user_id){
 			if(!current_user_can('edit_user',$user_id))
 				return false;
+			$socialNetworks = array( "Facebook" => MyUsersClass::USER_FACEBOOK, "GitHub" => MyUsersClass::USER_GITHUB, "Behance" => MyUsersClass::USER_BEHANCE, "LinkedIn" => MyUsersClass::USER_LINKEDIN, "Twitter" => MyUsersClass::USER_TWITTER, "Lattes" => MyUsersClass::USER_LATTES );
 			
 			update_usermeta(absint($user_id),MyUsersClass::USER_PROFILE_PHOTO,esc_url($_POST[MyUsersClass::USER_PROFILE_PHOTO]));
 			update_usermeta(absint($user_id),MyUsersClass::USER_IS_ACTIVE,wp_kses_post($_POST[MyUsersClass::USER_IS_ACTIVE]));
 			update_usermeta(absint($user_id),MyUsersClass::USER_GENDER,wp_kses_post($_POST[MyUsersClass::USER_GENDER]));
 			update_usermeta(absint($user_id),MyUsersClass::USER_FUNCTION,wp_kses_post($_POST[MyUsersClass::USER_FUNCTION]));
 			update_usermeta(absint($user_id),MyUsersClass::USER_BIRTHDAY,wp_kses_post($_POST[MyUsersClass::USER_BIRTHDAY]));
-			update_usermeta(absint($user_id),MyUsersClass::USER_FACEBOOK,wp_kses_post($_POST[MyUsersClass::USER_FACEBOOK]));
-			update_usermeta(absint($user_id),MyUsersClass::USER_GITHUB,wp_kses_post($_POST[MyUsersClass::USER_GITHUB]));
-			update_usermeta(absint($user_id),MyUsersClass::USER_BEHANCE,wp_kses_post($_POST[MyUsersClass::USER_BEHANCE]));
-			update_usermeta(absint($user_id),MyUsersClass::USER_LINKEDIN,wp_kses_post($_POST[MyUsersClass::USER_LINKEDIN]));
-			update_usermeta(absint($user_id),MyUsersClass::USER_TWITTER,wp_kses_post($_POST[MyUsersClass::USER_TWITTER]));
+			
+			foreach($socialNetworks as $socialNetwork)
+				update_usermeta(absint($user_id), $socialNetwork, wp_kses_post($_POST[$socialNetwork]));
+			
 		}
 		
 		// ADICIONANDO CONFIGURAÇÕES
