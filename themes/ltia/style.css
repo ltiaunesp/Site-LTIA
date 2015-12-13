@@ -5834,7 +5834,6 @@ article .fb-like{
 
 .parceirosDireitos{
 	font-size:0.8rem !important;
-	margin-bottom:0;
 	font-style:italic;
 	text-align:center;
 }
@@ -5880,11 +5879,17 @@ div.section-header-description{
 	margin-bottom: 60px;
 }
 
-.post-img-wrap{
-	min-width:200px;
-	max-width:200px;
-	min-height:200px;
-	max-height:200px;
+.single .parceirosDireitos{
+	margin-top: 24px !important;
+}
+
+@media (min-width: 480px){
+	.post-img-wrap{
+		min-width:200px;
+		max-width:200px;
+		min-height:200px;
+		max-height:200px;
+	}
 }
 
 .our-team .white-text.section-header-description{
@@ -5973,3 +5978,4 @@ div.section-header-description{
 	display:inline-block !important;
 	float: left;
 }
+
