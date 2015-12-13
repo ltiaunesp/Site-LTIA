@@ -5943,7 +5943,7 @@ div.section-header-description{
 }	
 
 .fa:before{
-	transition: 1s !important;
+	transition: 700ms !important;
 }
 
 .fa-lattes{
