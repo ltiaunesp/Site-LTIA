@@ -684,7 +684,7 @@ a:visited {
 a:hover,
 a:focus,
 a:active {
-	color: #1898B5;
+	color: #ABD25F;
 }
 /*---------------------------------------
  **   5.2 Menus                  -----
@@ -5942,16 +5942,22 @@ div.section-header-description{
 	}
 }	
 
+.fa:before{
+	transition: 1s !important;
+}
+
 .fa-lattes{
 	width:13px;
 	height:16px;
-	background-image: url("images/lattes.png");
+	background-image: url("images/lattes_hover.png");
+	opacity:0.6;
+	transition:1s;
+	/*background-image: url("images/lattes.png");*/
 	background-size: 100% 100%;
 }
 
 .fa-lattes:hover{
-	background-image: url("images/lattes_hover.png");
-	
+	opacity: 1;
 }
 
 .user_socials li i:hover:before{
@@ -5961,4 +5967,9 @@ div.section-header-description{
 
 .user_socials li i:before{
 	color: #808080;
+}
+
+.g-recaptcha{
+	display:inline-block !important;
+	float: left;
 }
