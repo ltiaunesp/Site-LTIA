@@ -147,7 +147,7 @@
 								<a href="<?php echo get_author_posts_url($user->ID); ?>">
 									<h5 class="dark-text red-border-bottom"><?php echo $user->first_name . " " . $user->last_name;?></h5>
 								</a>	
-									<div class="position"><?php echo $user->get(MyUsersClass::USER_GENDER) == 1 ? str_replace(array("Desenvolvedor", "Coordenador"), array("Desenvolvedora","Coordenadora"), $user->get(MyUsersClass::USER_FUNCTION)) : $user->get(MyUsersClass::USER_FUNCTION); ?></div>
+									<div class="position"><?php echo $user->get(MyUsersClass::USER_GENDER) == 1 ? str_replace(array("Desenvolvedor", "Coordenador", "Professor"), array("Desenvolvedora","Coordenadora", "Professora"), $user->get(MyUsersClass::USER_FUNCTION)) : $user->get(MyUsersClass::USER_FUNCTION); ?></div>
 
 				                </div>
 
@@ -300,7 +300,7 @@
 				<?php 
 					$cargo = get_user_meta($user->ID,MyUsersClass::USER_FUNCTION,true); 
 					$cargos = array("Coordenador Geral", "Coordenador de Aplicativos e Sistemas", "Coordenador de Jogos",
-						"Designer", "Desenvolvedor")
+						"Designer", "Desenvolvedor", "Professor Coordenador");
 				?>
 				<label for="<?php echo MyUsersClass::USER_FUNCTION;?>">Cargo do Usuario:</label>
 				<select required name="<?php echo MyUsersClass::USER_FUNCTION; ?>" id="<?php echo MyUsersClass::USER_FUNCTION; ?>" class="widefat">
