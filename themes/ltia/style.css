@@ -5979,3 +5979,6 @@ div.section-header-description{
 	float: left;
 }
 
+p a{
+	font-size: inherit;
+}
