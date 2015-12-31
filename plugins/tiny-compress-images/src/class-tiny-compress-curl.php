@@ -45,13 +45,12 @@ class Tiny_Compress_Curl extends Tiny_Compress {
         $request = curl_init();
         curl_setopt_array($request, $this->shrink_options($input));
 
-        $output_url = null;
         $response = curl_exec($request);
         if ($response === false || $response === null) {
             return array(array(
                 'error' => 'CurlError',
                 'message' => sprintf("cURL: %s [%d]", curl_error($request), curl_errno($request))
-              ), null
+              ), null, null
             );
         }
 
@@ -63,30 +62,26 @@ class Tiny_Compress_Curl extends Tiny_Compress {
         return array(self::decode(substr($response, $header_size)), $headers, $status_code);
     }
 
-    protected function output_options($url) {
-        return array(
+    protected function output_options($url, $resize) {
+        $options = array(
             CURLOPT_URL => $url,
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_HEADER => true,
             CURLOPT_CAINFO => self::get_ca_file(),
-            CURLOPT_SSL_VERIFYPEER => true
+            CURLOPT_SSL_VERIFYPEER => true,
+            CURLOPT_USERAGENT => Tiny_WP_Base::plugin_identification() . ' cURL'
         );
-    }
-
-    protected function resize_options($resize) {
-        if (!$resize) {
-            return array();
+        if ($resize) {
+            $options[CURLOPT_USERPWD] = 'api:' . $this->api_key;
+            $options[CURLOPT_HTTPHEADER] = array('Content-Type: application/json');
+            $options[CURLOPT_POSTFIELDS] = json_encode(array('resize' => $resize));
         }
-        return array(
-            CURLOPT_USERPWD => 'api:' . $this->api_key,
-            CURLOPT_HTTPHEADER => array('Content-Type: application/json'),
-            CURLOPT_POSTFIELDS => json_encode(array('resize' => $resize))
-        );
+        return $options;
     }
 
     protected function output($url, $resize) {
         $request = curl_init();
-        $options = array_replace_recursive($this->output_options($url), $this->resize_options($resize));
+        $options = $this->output_options($url, $resize);
         curl_setopt_array($request, $options);
 
         $response = curl_exec($request);

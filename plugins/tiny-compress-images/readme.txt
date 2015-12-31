@@ -4,7 +4,7 @@ Donate link: https://tinypng.com/
 Tags: compress, optimize, shrink, resize, fit, scale, improve, images, tinypng, tinyjpg, jpeg, jpg, png, lossy, jpegmini, crunch, minify, smush, save, bandwidth, website, speed, faster, performance, panda, wordpress app
 Requires at least: 3.0.6
 Tested up to: 4.4
-Stable tag: 1.5.0
+Stable tag: 1.6.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -16,18 +16,17 @@ Make your website faster by compressing your JPEG and PNG images. This plugin au
 
 = Features =
 
-* Automatically compress new images.
-* Optionally resize original image to fit a lower resolution.
-* Easy bulk compression of your existing media library.
+* Automatically compress new images on upload.
+* Resize large original images by setting a maximum width and/or height.
 * Compress individual images already in your media library.
+* Easy bulk compression of your existing media library.
+* Select which thumbnail sizes of an image may be compressed.
 * Multisite support with a single API key.
 * Color profiles are translated to the standard RGB color space.
 * See your usage directly from the media settings and during bulk compression.
-* Select which thumbnail sizes of an image may be compressed.
-* Converts from CMYK to RGB to save more space and maximize compatibility.
-* Automatic detection of images that can be recompressed.
-* Compress and resize uploads from the Wordpress mobile app.
-* No file size limit.
+* Convert CMYK to RGB to save more space and maximize compatibility.
+* Compress and resize uploads with the WordPress mobile app.
+* No file size limits.
 
 = How does it work? =
 
@@ -84,7 +83,7 @@ The API key can also be configured in wp-config.php. You can add a TINY_API_KEY 
 == Frequently Asked Questions ==
 
 = Q: I don't recall uploading 500 photos this month but my limit is already reached. How is this number calculated? =
-A: When you upload an image to your website, Wordpress will create different sized versions of it (see Settings > Media). The plugin will compress each of these sizes, so when you have 100 images and 5 different sizes you will do 500 compressions.
+A: When you upload an image to your website, WordPress will create different sized versions of it (see Settings > Media). The plugin will compress each of these sizes, so when you have 100 images and 5 different sizes you will do 500 compressions.
 
 = Q: What happens to the compressed images when I uninstall the plugin? =
 A: When you remove the TinyPNG plugin all your compressed images will remain compressed.
@@ -96,42 +95,49 @@ A: No. There are no limitations on the size of the images you want to compress.
 A: Everything will keep on working, but newly uploaded images will not be compressed. Of course we encourage everyone to sign up for a full subscription.
 
 = Q: Can I compress all existing images in my media library? =
-A: Yes! After installing the plugin, go to Tools > Compress JPEG & PNG images, and click on "Compress all images" to compress all uncompressed images in your media library.
+A: Yes! After installing the plugin, go to Media > Compress All Images, and click on the button to compress all uncompressed images in your media library.
 
 == Changelog ==
 
+= 1.6.0 =
+* Improved compression status in the Media Library with new details window.
+* Show total compression savings on the Media Settings page with link to bulk compression page when no images have been compressed yet.
+* Moved Compress All Images from the Tools to the Media menu.
+
 = 1.5.0 =
-* Resize original images automatically when compressing, using the TinyPNG API. Set a maximum width and/or height and the original image will be scaled to fit your maximum resolution.
-* Added support for compressing and resizing uploads from the mobile Wordpress app (thanks to contributor Pale Purple!).
+* Resize original images by specifying a maximum width and/or height. During compression your original images will also be scaled down if they are bigger.
+* Support for the mobile WordPress app (thanks to David Goodwin).
 
 = 1.4.0 =
-* Added indication of number of images you can compress for free each month.
-* Added link to settings page from the plugin listing.
-* Added clarification that by checking the original image size your original images will be overwritten.
+* Indication of the number of images you can compress for free each month.
+* Link to the Media Settings page from the plugin listing.
+* Clarification that original images will be overwritten when compressed.
 
 = 1.3.2 =
-* In some cases a user would have different file sizes defined in Settings > Media which have the exact same pixel dimensions. Compressing images could then occasionally result in compressing the same image multiple times without being seen as 'compressed'. We now detect duplicate file sizes and don't compress them again.
+* Detect different thumbnail sizes with the same dimensions so they will not be compressed again.
 
 = 1.3.1 =
-* Media library now shows when files are in the process of being compressed.
+* Media library shows files that are in the process of compression.
 
 = 1.3.0 =
-* Improved bulk compressions from media library. You can now also bulk compress your whole media library in one step.
-* Intelligent detection if file is already compressed or was altered by another plugin and should be recompressed.
+* Improved bulk compression from media library. Bulk compress your whole media library in one step.
+* Better indication of image sizes that have been compressed.
+* Detection of image sizes modified after compression by other plugins.
 
 = 1.2.1 =
-* Bugfix that prevents recompressing the original when no additional image sizes can be found in the metadata. (introduced in 1.2.0)
+* Prevent compressing the original image if it is the only selected image size.
 
 = 1.2.0 =
-* Display connection status and number of compressions this month on the settings page. This also allows you to check if you entered a valid API key.
-* Show a notice to administrators when reaching the monthly compression limit (in case you're on a fixed or free plan).
-* The plugin will now work when php's parse_ini_file is disabled on your host.
-* Bugfix that avoids a warning when no additional image sizes can be found in the metadata.
+* Show if you entered a valid API key.
+* Display connection status and number of compressions this month.
+* Show a notice to administrators when the free compression limit is reached.
+* The plugin now works when php's parse_ini_file is disabled on your host.
+* Avoid warnings when no image thumbnail sizes have been selected.
 
 = 1.1.0 =
 * The API key can now be set with the TINY_API_KEY constant in wp-config.php. This will work for normal and multisite WordPress installations.
-* You can now enable or disable compression of the original uploaded image. If you upgrade the plugin from version 1.0 you may need to go to media settings to include it for compression.
-* Improved display of original sizes and compressed sizes showing the total size of all compressed images in media library list view.
+* Enable or disable compression of the original uploaded image.
+* Improved display of original sizes and compressed sizes showing the total compression size in the Media Library list view.
 
 = 1.0.0 =
 * Initial version.

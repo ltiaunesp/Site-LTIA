@@ -10,7 +10,7 @@ my $dir = dirname($0);
 
 my $hostip;
 if (`which docker-machine`) {
-  $hostip = `docker-machine ip default`;
+  $hostip = `docker-machine ip $ENV{'DOCKER_MACHINE_NAME'}`;
 } else {
   $hostip = `boot2docker ip`;
 }
@@ -34,7 +34,7 @@ my $from = $ARGV[0] || 42;
 my $to = $ARGV[1] || $from;
 
 for (my $version = $from; $version <= $to; $version++) {
-    printf("==================== Wordpress %d ====================\n", $version);
+    printf("==================== WordPress %d ====================\n", $version);
     print(" - Running\n");
     my $ret = system("$dir/run-wordpress $version > /dev/null 2>&1");
     if ($ret) {
