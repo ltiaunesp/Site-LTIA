@@ -92,7 +92,7 @@
 				if(!class_exists("MyUsersClass") || !self::is_project($post))
 					return;
 				global $current_user;get_currentuserinfo();
-				MyUsersClass::slackMessage($current_user->ID, "O usuário: ". $current_user->display_name .", postou um novo projeto no site.\nVerifique aqui: <". get_permalink($id) .">");
+				MyUsersClass::slackMessage($current_user->ID, "O usuï¿½rio: ". $current_user->display_name .", postou um novo projeto no site.\nVerifique aqui: <". get_permalink($id) .">");
 			}
 			
 		}
@@ -148,7 +148,7 @@
 		
 		class MyProjectClass{
 			const POST_PROJECT_CONFS_BOX_ID = 'post_project_confs_meta_box';
-			const POST_PROJECT_CONFS_REFERENCE = 'project__confs_reference';
+			const POST_PROJECT_CONFS_ACTIVE_BOX_ID = 'project__confs_active';
 			
 			public function __construct() {
 				
@@ -163,7 +163,7 @@
 			}	
 			
 			//INSERINDO A BOX DE USUARIOS
-			
+            
 			function projects_confs_box($post){
 				$val = get_post_custom($post->ID);
 				$tecnologias = isset($val["tecnologias"]) ? $val['tecnologias'][0] : "";
@@ -174,6 +174,13 @@
 					<input alt='Separadas por ";"' type="text" name="tecnologias" value="<?php echo $tecnologias; ?>">
 				</p>
 				<?php
+				$ativo = isset($val["ativo"]) ? $val['ativo'][0] : 'off';
+				?>
+				<p style="clear:both;">
+					<label>Projeto Conclu&iacute;do: </label>
+					<input alt='Separadas por ";"' type="checkbox" name="ativo" <?php echo $ativo === 'on' ? "checked" : ""; ?>>
+				</p>
+				<?php
 			}
 			
 			//SALVANDO A BOX DOS USUARIOS
@@ -181,6 +188,7 @@
 			function project_box_save($post_id){
 				if(isset($_POST['tecnologias']))
 					update_post_meta( $post_id, 'tecnologias', $_POST['tecnologias'] );
+				update_post_meta( $post_id, 'ativo', @$_POST['ativo'] === 'on' ? 'on' : 'off' );
 			}
 		}
 
