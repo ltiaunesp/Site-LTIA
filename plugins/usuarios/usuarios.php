@@ -235,7 +235,7 @@
             function consultaUsuariosCoronel($args){ // TODOS COM O CORONEL PRIMEIRO
                 $idMorgado = -1;
                 $argsAux = $args;
-                $argsAux['search'] = MyUsersClass::USER_IS_ACTIVE;
+                $argsAux['search'] = get_option('default_morgado_search', 'morgado');
                 $argsAux['search_colums'] = array( 
                     'user_login',
                     'user_nicename',
@@ -248,8 +248,8 @@
                 $argsAux = $args;
                 $argsAux['exclude'] = array($idMorgado);
                 $query = ( new WP_User_Query($argsAux))->results;
-                array_unshift($query,$morgado);
-                return ($morgado);
+                array_unshift($query,$morgado[0]);
+                return ($query);
             }
 			
 			function slackMessage($id, $message, $icon = ":ghost:") {
@@ -382,7 +382,6 @@
 			function register_fields() {
 				// NOTIFICACAO DO SLACK
 				register_setting( 'general', 'default_avatar', 'esc_attr' ); // CAMPO DA URL
-				register_setting( 'general', 'default_avatar', 'esc_attr' ); // CAMPO DA PERMISSAO
 				add_settings_field('default_avatar', '<label for="default_avatar">Avatar Geral: </label>' , array($this, 'fields_html') , 'general' );
 			}
 			
@@ -396,7 +395,30 @@
 			
 		}
 		new userDefaultSettings();
-
+        
+        class morgadoSearchSettings {
+			
+			// ADICIONANDO FILTER PARA QUANDO INICIAR A P�GINA
+			function __construct() {
+				add_filter( 'admin_init' , array( $this , 'register_fields' ) );
+			}
+			
+			// REGISTRANDO OS CAMPOS
+			function register_fields() {
+				// NOTIFICACAO DO SLACK
+				register_setting( 'general', 'default_morgado_search' ); // CAMPO DA URL
+				add_settings_field('default_morgado_search', '<label for="default_morgado_search">Palavra-chave para o Coronel: </label>' , array($this, 'fields_html') , 'general' );
+			}
+			
+			// FUNCAO DOS CAMPOS
+			function fields_html() {
+				?>
+				<input name="default_morgado_search" id="default_morgado_search" type="text" size="36"  value="<?php echo get_option('default_morgado_search','morgado'); ?>" /><br /><br />
+				<?php
+			}
+			
+		}
+		new morgadoSearchSettings();
 
 		class notifySettings {
 			
