@@ -8,7 +8,7 @@
 	Author URI:*/		
 	
 	
-		//Adicionando ações
+		//Adicionando aï¿½ï¿½es
 		add_action('show_user_profile','my_user_fields');
 		add_action('edit_user_profile','my_user_fields');
 		add_action('personal_options_update','my_user_save');
@@ -172,7 +172,7 @@
 
 
 				        </div>
-						<!-- Formato de exibi&ccedil;&atilde;o dos usuários aqui -->
+						<!-- Formato de exibi&ccedil;&atilde;o dos usuï¿½rios aqui -->
 						<?php
 						if($cont == 3) :
 							$cont=0;
@@ -231,6 +231,26 @@
 					$ids = array($ids + 0);
 				return ( new WP_User_Query( array( 'include' => $ids ) ) )->results;
 			}
+            
+            function consultaUsuariosCoronel($args){ // TODOS COM O CORONEL PRIMEIRO
+                $idMorgado = -1;
+                $argsAux = $args;
+                $argsAux['search'] = MyUsersClass::USER_IS_ACTIVE;
+                $argsAux['search_colums'] = array( 
+                    'user_login',
+                    'user_nicename',
+                    'user_email',
+                );
+                $morgado = ( new WP_User_Query($argsAux) )->results;
+                if(count($morgado) != 0){
+                    $idMorgado = $morgado[0]->ID;
+                }
+                $argsAux = $args;
+                $argsAux['exclude'] = array($idMorgado);
+                $query = ( new WP_User_Query($argsAux))->results;
+                array_unshift($query,$morgado);
+                return ($morgado);
+            }
 			
 			function slackMessage($id, $message, $icon = ":ghost:") {
 				$permission = get_option( 'slack_notify', '' );
@@ -348,12 +368,12 @@
 			
 		}
 		
-		// ADICIONANDO CONFIGURAÇÕES
+		// ADICIONANDO CONFIGURAï¿½ï¿½ES
 		
 		
 		class userDefaultSettings {
 			
-			// ADICIONANDO FILTER PARA QUANDO INICIAR A PÁGINA
+			// ADICIONANDO FILTER PARA QUANDO INICIAR A Pï¿½GINA
 			function __construct() {
 				add_filter( 'admin_init' , array( $this , 'register_fields' ) );
 			}
@@ -380,7 +400,7 @@
 
 		class notifySettings {
 			
-			// ADICIONANDO FILTER PARA QUANDO INICIAR A PÁGINA
+			// ADICIONANDO FILTER PARA QUANDO INICIAR A Pï¿½GINA
 			function __construct() {
 				add_filter( 'admin_init' , array( $this , 'register_fields' ) );
 			}
@@ -417,7 +437,7 @@
 		
 		class listagemDeUsuarios {
 			
-			// ADICIONANDO FILTER PARA QUANDO INICIAR A PÁGINA
+			// ADICIONANDO FILTER PARA QUANDO INICIAR A Pï¿½GINA
 			function __construct() {
 				add_filter( 'admin_init' , array( $this , 'register_fields' ) );
 			}
@@ -443,7 +463,7 @@
 		// ADICIONANDO SISTEMA DE FILTRAGEM DE IMAGEM DE USUARIO
 		
 		function get_avatar_personalizado( $avatar, $id_or_email, $size = 96 ) {
-			// INSERÇÃO DE BUSCA DE IMAGENS DE USUARIOS PERSONALIZADAS
+			// INSERï¿½ï¿½O DE BUSCA DE IMAGENS DE USUARIOS PERSONALIZADAS
 			$url = "";
 			$name = "default";
 			if(class_exists("MyUsersClass")){

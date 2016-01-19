@@ -50,7 +50,8 @@ the_post();
 							$args = array("orderby" => 'name' );
 						else
 							$args = array('meta_key' => MyUsersClass::USER_IS_ACTIVE, 'meta_value' => 'on' , "orderby" => 'name' );
-						MyUsersClass::listaUsuarios((new WP_User_Query( $args  ))->results);
+                        MyUsersClass::listaUsuarios(MyUsersClass::consultaUsuariosCoronel($args));
+                        
 					?>
 					</div>
 				</main><!-- #main -->
