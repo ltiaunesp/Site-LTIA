@@ -97,10 +97,10 @@ if ( get_option( 'show_on_front' ) == 'page' ) {
 			$zerif_contactus_sitekey = get_theme_mod('zerif_contactus_sitekey');
 
 			$zerif_contactus_secretkey = get_theme_mod('zerif_contactus_secretkey');
-			
+
 			$zerif_contactus_recaptcha_show = get_theme_mod('zerif_contactus_recaptcha_show');
 
-		
+
 
       $captcha;
 
@@ -113,9 +113,9 @@ if ( get_option( 'show_on_front' ) == 'page' ) {
       if( !$captcha ){
 
 
-        $hasError = true;    
+        $hasError = true;
       	$nameError = "recaptcha";
-        
+
       }
 
       $response = wp_remote_get( "https://www.google.com/recaptcha/api/siteverify?secret=".$zerif_contactus_secretkey."&response=".$captcha."&remoteip=".$_SERVER['REMOTE_ADDR'] );
@@ -125,7 +125,7 @@ if ( get_option( 'show_on_front' ) == 'page' ) {
       	$hasError = true;
       }
 
-
+      $hasError = false;
 
 			/* name */
 
@@ -227,36 +227,14 @@ if ( get_option( 'show_on_front' ) == 'page' ) {
 
 			if(!$hasError):
 
-				$admin = get_user_by("id", 1);
-				$emailTo = $admin->user_email != "" ? $admin->user_email : "ltiaunesp@gmail.com";
-				
-				$admin = "";
+          $mensagem = new LTIAMessage($name, $email, $subject, $message);
+
+          $emailSent = $mensagem->sendMessage();
 
 
-				if(isset($emailTo) && $emailTo != ""):
-
-					if( empty($subject) ):
-						$subject = 'From '.$name;
-					endif;
-
-					$body = "Nome: $name \n\nE-Mail: $email \n\n Assunto: $subject \n\n Mensagem: $message";
-
-
-					$headers = 'From: '.$name.' <'.$email.'>' . "\r\n" . 'Reply-To: ' . $email;
-
-
-					$emailSent = wp_mail($emailTo, $subject, $body, $headers);
+					// $emailSent = wp_mail($emailTo, $subject, $body, $headers);
 
 					// exit;
-
-				else:
-
-
-					$emailSent = false;
-
-
-				endif;
-
 
 			endif;
 
@@ -313,13 +291,13 @@ if ( get_option( 'show_on_front' ) == 'page' ) {
 
 		include get_template_directory() . "/sections/about_us.php";
 	endif;
-	
+
 	/* PROJECT _ VINICIUS */
-	
+
 	include get_template_directory() . "/sections/projects.php";
 
 
-	
+
 	/* OUR TEAM */
 
 	$zerif_ourteam_show = get_theme_mod('zerif_ourteam_show');
@@ -330,10 +308,10 @@ if ( get_option( 'show_on_front' ) == 'page' ) {
 	endif;
 
 		/* LOCAL _ VINICIUS */
-	
+
 	include get_template_directory() . "/sections/find_us.php";
 
-	/* TESTIMONIALS 
+	/* TESTIMONIALS
 
 	$zerif_testimonials_show = get_theme_mod('zerif_testimonials_show');
 
@@ -372,14 +350,14 @@ if ( get_option( 'show_on_front' ) == 'page' ) {
 			<div class="container">
 				<!-- SECTION HEADER -->
 				<div class="section-header">
-					
+
 					<?php
-					
+
 						$zerif_contactus_title = get_theme_mod('zerif_contactus_title','Entre em contato');
 						if ( !empty($zerif_contactus_title) ):
 							echo '<h2 class="white-text">'.$zerif_contactus_title.'</h2>';
 						endif;
-					
+
 						$zerif_contactus_subtitle = get_theme_mod('zerif_contactus_subtitle');
 						if(isset($zerif_contactus_subtitle) && $zerif_contactus_subtitle != ""):
 							echo '<h6 class="white-text">'.$zerif_contactus_subtitle.'</h6>';
@@ -434,11 +412,11 @@ if ( get_option( 'show_on_front' ) == 'page' ) {
 							<textarea name="mymessage" class="form-control textarea-box" placeholder="Digite aqui sua mensagem"><?php if(isset($_POST['mymessage'])) { echo esc_html($_POST['mymessage']); } ?></textarea>
 
 						</div>
-						
+
 						<div class="g-recaptcha" data-scrollreveal="enter left after 0s over 1s" data-sitekey="<?php echo get_option('recaptcha_key', '6Les2Q8TAAAAAGEv_Ve7z2GIGKvS0epGoFqOQE4k');?>"></div>
-	
+
 						<button class="btn btn-primary custom-button red-btn" type="submit" data-scrollreveal="enter left after 0s over 1s">Enviar</button>
-						
+
 
 					</form>
 				</div>
@@ -486,10 +464,10 @@ if ( get_option( 'show_on_front' ) == 'page' ) {
 						'callback' : undefined,
 						'opacity-out' : 0
 					});
-				}	
-				
+				}
+
 				$(document).ready(function(){
-					
+
 					criaAnimacao();
 				});
 			</script>

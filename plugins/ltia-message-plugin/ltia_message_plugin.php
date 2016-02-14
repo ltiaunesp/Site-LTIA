@@ -8,13 +8,43 @@
   include 'config.php';
 
 
-  abstract class MessagePlugin{
+  class LTIAMessage{
+
+    // PRIVATE PROPERTIES
 
     private $name, $email, $subject, $content;
     private $template;
     private $messageStatus;
 
+    // PUBLIC PROPERTIES
+
+    public $post_id;
+
+    // CONSTRUTOR
+    function __construct($name = '', $email = '', $subject = '', $content = '', $template = ''){
+      $this->name    = $name;
+      $this->email   = $email;
+      $this->subject = $subject;
+      $this->content = $content;
+
+      if($template == '')
+        $template = "{{name}} <{{email}}> enviou uma mensagem com o assunto \"{{subject}}\".\n\n{{content}}";
+
+      $this->template = $template;
+
+      $this->messageStatus = false;
+      $this->post_id = -1;
+    }
+
     // PRIVATE METHODS
+
+    private function buildTitle(){
+      return $this->subject . " - " . $this->name;
+    }
+
+    private function buildSlug(){ // Subject slug + data
+      return str_replace(" ", "-", $this->subject) . "-" . date("j-n-y--H-i-s");
+    }
 
     private function buildMessage(){
       return str_replace(
@@ -24,42 +54,33 @@
       );
     }
 
-    private function getSlug(){ // Subject slug + data
-      return str_replace(" ", "-", $this->subject) . "-" . date("j-n-y--H-i-s");
-    }
 
     // PUBLIC METHODS
 
     public function sendMessage(){
-      $postid = -1;
-      $postid = array(
+      $this->post_id = wp_insert_post(array(
       	'comment_status'	=>	'closed',
       	'ping_status'		  =>	'closed',
         'post_author'		  =>	1,                  // ADMIN ID
-      	'post_name'		    =>	$this->getSlug(),
-      	'post_title'	  	=>	$this->subject,
-        'post_content'    =>  $this->content,
+      	'post_name'		    =>	$this->buildSlug(),
+      	'post_title'	  	=>	$this->buildTitle(),
+        'post_content'    =>  $this->buildMessage(),
       	'post_status'	  	=>	'publish',
       	'post_type'		    =>	'message'
-      );
-
-      return ($this->messageStatus = $postid != -1);
+      ));
+      $this->messageStatus =  ($this->post_id != -1);
+      return $this->messageStatus;
     }
 
-  }
+    // GET SET
 
-  class LTIAMessage extends MessagePlugin{
-    function __construct($name = '', $email = '', $subject = '', $content = '', $template = ''){
-      $this->name    = $nome;
-      $this->email   = $email;
-      $this->subject = $subject;
-      $this->content = $content;
-
-      if($template == '')
-        $template = file_get_contents('ltia_message_template.tpl');
-
-      $this->messageStatus = false;
+    public function getStatus(){
+      return $this->messageStatus;
     }
+
+    // ...
+
+
   }
 
 ?>
