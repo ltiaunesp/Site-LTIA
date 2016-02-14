@@ -118,13 +118,6 @@ if ( get_option( 'show_on_front' ) == 'page' ) {
 
       }
 
-      $response = wp_remote_get( "https://www.google.com/recaptcha/api/siteverify?secret=".$zerif_contactus_secretkey."&response=".$captcha."&remoteip=".$_SERVER['REMOTE_ADDR'] );
-
-      if($response['body'].success==false) {
-
-      	$hasError = true;
-      }
-
 			/* name */
 
 
