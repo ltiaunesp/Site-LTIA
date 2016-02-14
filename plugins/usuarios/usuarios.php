@@ -1,38 +1,38 @@
 <?php
 	/*
 	Plugin Name: Usu&aacute;rios
-	Plugin URI: 
+	Plugin URI:
 	Description:  Plugin necess&aacute;rio para funcionamento do sistema de usu&aacute;rios e de projetos assim como para a foto de perfil de usu&aacute;rio.
 	Version: 1.0
 	Author: Vinicius Figueiredo Rodrigues
-	Author URI:*/		
-	
-	
+	Author URI:*/
+
+
 		//Adicionando a��es
 		add_action('show_user_profile','my_user_fields');
 		add_action('edit_user_profile','my_user_fields');
 		add_action('personal_options_update','my_user_save');
 		add_action('edit_user_profile_update','my_user_save');
-		
+
 		//Carregando Scripts
 		function load_admin_usuarios_plugin_scripts(){
-			wp_enqueue_media();		
+			wp_enqueue_media();
 			wp_enqueue_script('media-upload');
 			wp_enqueue_script('upload_media_widget', plugin_dir_url(__FILE__) . 'js/upload-media.js', array('jquery'));
 		}
 		add_action('admin_enqueue_scripts','load_admin_usuarios_plugin_scripts');
 		wp_enqueue_style('plugin_styles',plugin_dir_url(__FILE__) . 'css/style.css');
-		
+
 		//CLASSES
-		
+
 		class MyUsersClass{
-			
+
 			const USER_IS_ACTIVE = 'user_active_or_no';
 			const USER_PROFILE_PHOTO = 'user_profile_photo';
 			const USER_FUNCTION = "user_function";
 			const USER_BIRTHDAY = "user_birthday";
 			const USER_GENDER = "user_gender";
-			
+
 			const USER_FACEBOOK = "user_facebook";
 			const USER_GITHUB = "user_git_hub";
 			const USER_BEHANCE = "user_behance";
@@ -41,13 +41,13 @@
 			const USER_LATTES = "user_lattes";
 
 			const SLACK_URL_JSONP = 'url_slack_jsonp';
-			
+
 			function getIdade($user){
 				if(empty($idade = get_user_meta($user->ID,MyUsersClass::USER_BIRTHDAY,true)))
 					return 0;
 				return (new DateTime($idade))->diff(new DateTime())->y;
 			}
-			
+
 			function getUserProfilePhoto($user){
 			    $avatar_url = get_avatar($user->ID);
 			    return explode("'", explode("src", $avatar_url)[1])[1];
@@ -146,7 +146,7 @@
 								<div class="member-details">
 								<a href="<?php echo get_author_posts_url($user->ID); ?>">
 									<h5 class="dark-text red-border-bottom"><?php echo $user->first_name . " " . $user->last_name;?></h5>
-								</a>	
+								</a>
 									<div class="position"><?php echo $user->get(MyUsersClass::USER_GENDER) == 1 ? str_replace(array("Desenvolvedor", "Coordenador", "Professor"), array("Desenvolvedora","Coordenadora", "Professora"), $user->get(MyUsersClass::USER_FUNCTION)) : $user->get(MyUsersClass::USER_FUNCTION); ?></div>
 
 				                </div>
@@ -160,7 +160,7 @@
 
 				                        <?php MyUsersClass::listaRedesSociais($user); ?>
 
-				                        
+
 
 
 				                    </ul>
@@ -186,7 +186,7 @@
 				else
 					echo "Sem resultados encontrados";
 			}
-			
+
 
 			function listaUsuariosParaConfs($users){
 				if(!(is_array($users) && is_array($users[0]) && !empty($users)))
@@ -199,7 +199,7 @@
 					<?php
 				}
 			}
-			
+
 			function consultaNomeUsuarios($ids){
 				$users = array();
 				$aux = self::consultaUsuarios($ids);
@@ -213,7 +213,7 @@
 				return $users;
 				// return $aux;
 			}
-			
+
 			function consultaAvatarUsuario($id){
 				$id += 0;
 				if($id == 0){
@@ -225,18 +225,18 @@
 				$url = esc_url(get_user_meta($id,self::USER_PROFILE_PHOTO,true));
 				return $url == "" ? false : $url;
 			}
-			
+
 			function consultaUsuarios($ids){
 				if(!is_array($ids))
 					$ids = array($ids + 0);
 				return ( new WP_User_Query( array( 'include' => $ids ) ) )->results;
 			}
-            
+
             function consultaUsuariosCoronel($args){ // TODOS COM O CORONEL PRIMEIRO
                 $idMorgado = -1;
                 $argsAux = $args;
                 $argsAux['search'] = get_option('default_morgado_search', 'morgado');
-                $argsAux['search_colums'] = array( 
+                $argsAux['search_colums'] = array(
                     'user_login',
                     'user_nicename',
                     'user_email',
@@ -251,30 +251,10 @@
                 array_unshift($query,$morgado[0]);
                 return ($query);
             }
-			
-			function slackMessage($id, $message, $icon = ":ghost:") {
-				$permission = get_option( 'slack_notify', '' );
-				$url = get_option(self::SLACK_URL_JSONP, '');
-				if($permission == '' || $url == '')
-					return false;
-				$data = "payload=" . json_encode(array(                
-                "text"          =>  utf8_encode($message),
-                "icon_emoji"    =>  $icon
-            ));
-	
-				$curl = curl_init(esc_url($url));
-				curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "POST");
-				curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
-				curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-				curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
-				$result = curl_exec($curl);
-				curl_close($curl);
-				return $result;
-			}
-			
+
 		}
-		
-		
+
+
 		function my_user_fields($user){
 			$socialNetworks = array( "Facebook" => MyUsersClass::USER_FACEBOOK, "GitHub" => MyUsersClass::USER_GITHUB, "Behance" => MyUsersClass::USER_BEHANCE, "LinkedIn" => MyUsersClass::USER_LINKEDIN, "Twitter" => MyUsersClass::USER_TWITTER, "Lattes" => MyUsersClass::USER_LATTES );
 			?>
@@ -298,7 +278,7 @@
 			else :
 			?>
 				<input type="hidden" id="<?php echo MyUsersClass::USER_IS_ACTIVE;?>" name=<?php echo "'".MyUsersClass::USER_IS_ACTIVE."' ";?>
-				value="<?php 
+				value="<?php
 					echo get_user_meta($user->ID,MyUsersClass::USER_IS_ACTIVE,true);
 					?>">
 			<?php
@@ -307,7 +287,7 @@
 			<p>
 				<label for="<?php echo MyUsersClass::USER_BIRTHDAY?>">Data de Nascimento:</label>
 				<input name="<?php echo MyUsersClass::USER_BIRTHDAY; ?>" id="<?php echo MyUsersClass::USER_BIRTHDAY; ?>" class="widefat" type="date" size="36"  value="<?php echo get_user_meta($user->ID,MyUsersClass::USER_BIRTHDAY,true); ?>" />
-			</p>		
+			</p>
 			<p>
 				<?php $genero = get_user_meta($user->ID,MyUsersClass::USER_GENDER,true); ?>
 				<label for="<?php echo MyUsersClass::USER_GENDER;?>">Identidade de Genero:</label>
@@ -315,10 +295,10 @@
 					<option value="1" <?php echo $genero == "1" ? "selected" : "" ?>>Mulher</option>
 					<option value="2" <?php echo $genero == "2" ? "selected" : "" ?>>Homem</option>
 				</select>
-			</p>		
+			</p>
 			<p>
-				<?php 
-					$cargo = get_user_meta($user->ID,MyUsersClass::USER_FUNCTION,true); 
+				<?php
+					$cargo = get_user_meta($user->ID,MyUsersClass::USER_FUNCTION,true);
 					$cargos = array("Coordenador Geral", "Coordenador de Aplicativos e Sistemas", "Coordenador de Jogos",
 						"Designer", "Desenvolvedor", "Professor Coordenador");
 				?>
@@ -332,7 +312,7 @@
 						}
 					?>
 				</select>
-			</p>		
+			</p>
 			<p>
 				<label for="<?php echo MyUsersClass::USER_PROFILE_PHOTO;?>">Foto do Usuario:</label>
 				<input readonly="readonly" name="<?php echo MyUsersClass::USER_PROFILE_PHOTO; ?>" id="<?php echo MyUsersClass::USER_PROFILE_PHOTO; ?>" class="widefat" type="text" size="36"  value="<?php echo esc_url(get_user_meta($user->ID,MyUsersClass::USER_PROFILE_PHOTO,true)); ?>" /><br /><br />
@@ -351,40 +331,40 @@
 					<?php
 				}
 		}
-		
+
 		function my_user_save($user_id){
 			if(!current_user_can('edit_user',$user_id))
 				return false;
 			$socialNetworks = array( "Facebook" => MyUsersClass::USER_FACEBOOK, "GitHub" => MyUsersClass::USER_GITHUB, "Behance" => MyUsersClass::USER_BEHANCE, "LinkedIn" => MyUsersClass::USER_LINKEDIN, "Twitter" => MyUsersClass::USER_TWITTER, "Lattes" => MyUsersClass::USER_LATTES );
-			
+
 			update_usermeta(absint($user_id),MyUsersClass::USER_PROFILE_PHOTO,esc_url($_POST[MyUsersClass::USER_PROFILE_PHOTO]));
 			update_usermeta(absint($user_id),MyUsersClass::USER_IS_ACTIVE,wp_kses_post($_POST[MyUsersClass::USER_IS_ACTIVE]));
 			update_usermeta(absint($user_id),MyUsersClass::USER_GENDER,wp_kses_post($_POST[MyUsersClass::USER_GENDER]));
 			update_usermeta(absint($user_id),MyUsersClass::USER_FUNCTION,wp_kses_post($_POST[MyUsersClass::USER_FUNCTION]));
 			update_usermeta(absint($user_id),MyUsersClass::USER_BIRTHDAY,wp_kses_post($_POST[MyUsersClass::USER_BIRTHDAY]));
-			
+
 			foreach($socialNetworks as $socialNetwork)
 				update_usermeta(absint($user_id), $socialNetwork, wp_kses_post($_POST[$socialNetwork]));
-			
+
 		}
-		
+
 		// ADICIONANDO CONFIGURA��ES
-		
-		
+
+
 		class userDefaultSettings {
-			
+
 			// ADICIONANDO FILTER PARA QUANDO INICIAR A P�GINA
 			function __construct() {
 				add_filter( 'admin_init' , array( $this , 'register_fields' ) );
 			}
-			
+
 			// REGISTRANDO OS CAMPOS
 			function register_fields() {
 				// NOTIFICACAO DO SLACK
 				register_setting( 'general', 'default_avatar', 'esc_attr' ); // CAMPO DA URL
 				add_settings_field('default_avatar', '<label for="default_avatar">Avatar Geral: </label>' , array($this, 'fields_html') , 'general' );
 			}
-			
+
 			// FUNCAO DOS CAMPOS
 			function fields_html() {
 				?>
@@ -392,85 +372,50 @@
 				<input id="default_avatar_button" name="default_avatar_button" class="upload_image_button button button-primary" type="button" value="Escolher Imagem" />
 				<?php
 			}
-			
+
 		}
 		new userDefaultSettings();
-        
+
         class morgadoSearchSettings {
-			
+
 			// ADICIONANDO FILTER PARA QUANDO INICIAR A P�GINA
 			function __construct() {
 				add_filter( 'admin_init' , array( $this , 'register_fields' ) );
 			}
-			
+
 			// REGISTRANDO OS CAMPOS
 			function register_fields() {
 				// NOTIFICACAO DO SLACK
 				register_setting( 'general', 'default_morgado_search' ); // CAMPO DA URL
 				add_settings_field('default_morgado_search', '<label for="default_morgado_search">Palavra-chave para o Coronel: </label>' , array($this, 'fields_html') , 'general' );
 			}
-			
+
 			// FUNCAO DOS CAMPOS
 			function fields_html() {
 				?>
 				<input name="default_morgado_search" id="default_morgado_search" type="text" size="36"  value="<?php echo get_option('default_morgado_search','morgado'); ?>" /><br /><br />
 				<?php
 			}
-			
+
 		}
 		new morgadoSearchSettings();
 
-		class notifySettings {
-			
-			// ADICIONANDO FILTER PARA QUANDO INICIAR A P�GINA
-			function __construct() {
-				add_filter( 'admin_init' , array( $this , 'register_fields' ) );
-			}
-			
-			// REGISTRANDO OS CAMPOS
-			function register_fields() {
-				// NOTIFICACAO DO SLACK
-				register_setting( 'general', MyUsersClass::SLACK_URL_JSONP, 'esc_attr' ); // CAMPO DA URL
-				register_setting( 'general', 'slack_notify', 'esc_attr' ); // CAMPO DA PERMISSAO
-				add_settings_field('slack', '<label for="slack_notify">Slack: </label>' , array($this, 'fields_html') , 'general' );
-			}
-			
-			// FUNCAO DOS CAMPOS
-			function fields_html() {
-				//CAMPO DA URL
-				$value = get_option(MyUsersClass::SLACK_URL_JSONP , '');
-				echo "<input class='large-text' type='url' id='". MyUsersClass::SLACK_URL_JSONP ."' name='". MyUsersClass::SLACK_URL_JSONP ."' value='{$value}' />";
-				echo '<p class="description" id="slack_notify_url-description">URL disponibilizada na configura&ccedil;&atilde;o da IncomingWebHook.</p>';
-				
-				echo "<br>";
-				//CAMPO DA PERMISSAO
-				$value = get_option( 'slack_notify', '' );
-				$value = ($value == 'on' ? 'checked' : $value );
-				
-				echo "<input type='checkbox' id='slack_notify' name='slack_notify' {$value} />";
-				echo '<label for="slack_notify">Enviar mensagens ao canal do Slack.</label>';
-			}
-			
-		}
-		new notifySettings();
-
-		
 		// MAXIMO DE USUARIOS NA PAGINA INICIAL
-		
+
 		class listagemDeUsuarios {
-			
+
 			// ADICIONANDO FILTER PARA QUANDO INICIAR A P�GINA
 			function __construct() {
 				add_filter( 'admin_init' , array( $this , 'register_fields' ) );
 			}
-			
+
 			// REGISTRANDO OS CAMPOS
 			function register_fields() {
 				// NOTIFICACAO DO SLACK
 				register_setting( 'general', 'number_users', 'esc_attr' ); // CAMPO DA PERMISSAO
 				add_settings_field('users', '<label for="number_users">Usu&aacute;rios: </label>' , array($this, 'fields_html') , 'general' );
 			}
-			
+
 			// FUNCAO DOS CAMPOS
 			function fields_html() {
 				//CAMPO DA URL
@@ -478,12 +423,12 @@
 				echo "<input class='small-text' type='number' id='number_users' name='number_users' value='{$value}' />";
 				echo '<p class="description" id="number_users-description">Numero m&aacute;ximo de Usu&aacute;rios na P&aacute;gina Inicial.</p>';
 			}
-			
+
 		}
 		new listagemDeUsuarios();
-		
+
 		// ADICIONANDO SISTEMA DE FILTRAGEM DE IMAGEM DE USUARIO
-		
+
 		function get_avatar_personalizado( $avatar, $id_or_email, $size = 96 ) {
 			// INSER��O DE BUSCA DE IMAGENS DE USUARIOS PERSONALIZADAS
 			$url = "";
@@ -493,13 +438,13 @@
 					$url = $consulta;
 					$args = MyUsersClass::consultaUsuarios($id_or_email)[0];
 					$name = $args->data->display_name;
-				}		
-				else 
+				}
+				else
 					$url = get_option("default_avatar", "");
 			}
 			else
 				$url = get_option("default_avatar", "");
-			
+
 			if($url != ""){
 				$avatar = sprintf(
 					"<img alt='%s' src='%s' srcset='%s'  height='%d' width='%d' class='%s'/>",
@@ -513,7 +458,7 @@
 			}
 
 			// FIM DA BUSCA DE USUARIOS
-			
+
 			return $avatar;
 		}
 		add_filter( 'get_avatar', 'get_avatar_personalizado', 10, 3 );
@@ -526,10 +471,10 @@
 		    $wp_rewrite->flush_rules();
 		}
 		add_action('init','change_author_permalinks');
-		
+
 		function change_colab_cap(){
 			get_role('contributor')->add_cap('upload_files');
 		}
 		add_action("admin_init",change_colab_cap);
-		
+
 ?>
