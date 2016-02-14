@@ -119,7 +119,11 @@ if ( get_option( 'show_on_front' ) == 'page' ) {
       }
 
       $response = wp_remote_get( "https://www.google.com/recaptcha/api/siteverify?secret=".$zerif_contactus_secretkey."&response=".$captcha."&remoteip=".$_SERVER['REMOTE_ADDR'] );
-      if(!is_wp_error($response) && $response['body'].success==false)
+
+      if(is_wp_error($response))
+        $response = wp_remote_get( "https://www.google.com/recaptcha/api/siteverify?secret=".$zerif_contactus_secretkey."&response=".$captcha."&remoteip=".$_SERVER['REMOTE_ADDR'], array('sslverify' => false) );
+
+      if($response['body'].success==false)
       	$hasError = true;
 
 			/* name */
