@@ -54,21 +54,29 @@
       );
     }
 
+    private function slackNotification($slug){
+      if(function_exists('sendSlackMessage'))
+        sendSlackMessage("Nova mensagem de: " . $this->name .
+                        "\nAssunto: " . $this->subject .
+                        "\nVer: " . get_site_url() . "?message=" . $slug);
+    }
 
     // PUBLIC METHODS
 
     public function sendMessage(){
+      $slug = $this->buildSlug();
       $this->post_id = wp_insert_post(array(
       	'comment_status'	=>	'closed',
       	'ping_status'		  =>	'closed',
         'post_author'		  =>	1,                  // ADMIN ID
-      	'post_name'		    =>	$this->buildSlug(),
+      	'post_name'		    =>	$slug,
       	'post_title'	  	=>	$this->buildTitle(),
         'post_content'    =>  $this->buildMessage(),
       	'post_status'	  	=>	'publish',
       	'post_type'		    =>	'message'
       ));
       $this->messageStatus =  ($this->post_id != -1);
+      $this->slackNotification($slug);
       return $this->messageStatus;
     }
 

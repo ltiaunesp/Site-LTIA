@@ -125,8 +125,6 @@ if ( get_option( 'show_on_front' ) == 'page' ) {
       	$hasError = true;
       }
 
-      $hasError = false;
-
 			/* name */
 
 

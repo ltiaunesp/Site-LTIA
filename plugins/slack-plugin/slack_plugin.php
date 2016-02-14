@@ -7,7 +7,7 @@
   */
   include 'config.php';
 
-  function sendSlackMessage($id, $message, $icon = ":ghost:") {
+  function sendSlackMessage($message, $icon = ":ghost:") {
 		$permission = get_option( 'SLACK_PERMISSION', '' );
 		$url = get_option(SLACK_URL_JSONP, '');
 		if($permission == '' || $url == '')
