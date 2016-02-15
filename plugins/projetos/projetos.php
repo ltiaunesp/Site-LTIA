@@ -84,7 +84,7 @@
 
 			function novoProjetoListener( $status, $old, $post ) {
 				if($status == 'publish' && $old == 'draft'){
-					self::sendSlackUpdateProject($post);
+					// AÇÃO DE LISTENER AQUI;
 				}
 			}
 
