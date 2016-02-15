@@ -15,7 +15,7 @@
  */
  // var_dump($_SERVER); exit;
  // var_dump(explode('/', $_SERVER["REDIRECT_URL"])[1]); exit;
- 
+
  // $pathWordpress = $_SERVER['REQUEST_SCHEME'] . "://" . $_SERVER['SERVER_ADDR'] . ":" . $_SERVER['SERVER_PORT'] . $_SERVER["REQUEST_URI"];
 $pathWordpress = get_site_url();
 ?><!DOCTYPE html>
@@ -54,13 +54,13 @@ $pathWordpress = get_site_url();
 
 ============================== -->
 <?php
-	
+
  global $wp_customize;
 
- if(is_front_page() && !isset( $wp_customize ) && get_option( 'show_on_front' ) != 'page' ): 
- 
+ if(is_front_page() && !isset( $wp_customize ) && get_option( 'show_on_front' ) != 'page' ):
+
 	$zerif_disable_preloader = get_theme_mod('zerif_disable_preloader');
-	
+
 	if( isset($zerif_disable_preloader) && ($zerif_disable_preloader != 1)):
 		?>
 		<script src="<?php echo get_template_directory_uri(); ?>/js/jquery.parallax-scroll.js"></script>
@@ -69,12 +69,12 @@ $pathWordpress = get_site_url();
 		<div class="status">&nbsp;</div>
 		</div>
 		<?php
-	endif;	
+	endif;
 
 endif; ?>
 
 <header id="inicio" class="header blockSection">
-	
+
 	<div id="main-nav" class="navbar navbar-inverse bs-docs-nav" role="banner">
 
 		<div class="container">
@@ -110,15 +110,15 @@ endif; ?>
 					else:
 
 						echo '<a href="'.esc_url( home_url( '/' ) ).'" class="navbar-brand">';
-						
+
 							if( file_exists(get_stylesheet_directory()."/images/logoCinza.png")):
-							
+
 								echo '<img id="logoLtia" src="'.get_stylesheet_directory_uri().'/images/logoCinza.png" alt="'.get_bloginfo('title').'">';
-							
+
 							else:
-								
+
 								echo '<img id="logoLtia" src="'.get_template_directory_uri().'/images/logoCinza.png" alt="'.get_bloginfo('title').'">';
-								
+
 							endif;
 
 						echo '</a>';
@@ -133,9 +133,9 @@ endif; ?>
 
 			<nav class="navbar-collapse bs-navbar-collapse collapse" role="navigation"   id="site-navigation">
 				<?php
-						wp_nav_menu( 
+						wp_nav_menu(
 							array(
-								'theme_location' => 'primary',
+								'theme_location' => is_user_logged_in() ? 'logged-nav' : 'primary',
 								'container' => false,
 								'menu_class' => 'nav navbar-nav navbar-right responsive-nav main-nav-list',
 								'fallback_cb'     => 'zerif_wp_page_menu'
@@ -174,17 +174,6 @@ endif; ?>
 							var x = document.querySelector(".remover");
 							x.remove();
 						</script>
-						<?php
-					if(!(is_user_logged_in() && class_exists( 'WP_Idea_Stream_Idea' ))){ // REMOCAO DO ITEM CASO NAO EXISTA
-						?>
-						<script language="javascript" class="remover">
-							var x = document.querySelectorAll(".remover, .main-nav-list > li:last-child");
-							for(var i=0;i< x.length; i++)
-								x[i].remove();
-						</script>
-						<?php
-					}
-				?>
 			</nav>
 
 		</div>
