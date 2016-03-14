@@ -22,7 +22,7 @@ the_post();
 	.site-content{
 		background:transparent;
 	}
-	
+
 </style>
 
 </header> <!-- / END HOME SECTION  -->
@@ -49,8 +49,8 @@ the_post();
 
 	</div><!-- .container -->
 	<div class="container-projetos projs-full-width">
-		<?php 
-				$args = array( 'post_type' => 'post', 'cat' => get_category_by_slug('projetos')->term_id,'order' => 'DESC');
+		<?php
+				$args = array( 'post_type' => 'post', 'cat' => get_category_by_slug('projetos')->term_id,'order' => 'DESC', 'post_per_page' => -1);
 				$loop = new WP_Query( $args );
 				$i= 0;
 				while ( $loop->have_posts() ) : $loop->the_post(); ?>
@@ -66,12 +66,12 @@ the_post();
 		<p class="section-header-description" style="margin-bottom:2px;">
 			<?php
 				if(is_active_sidebar('parceiros_sidebar'))
-					dynamic_sidebar('parceiros_sidebar');	
+					dynamic_sidebar('parceiros_sidebar');
 			?>
 		</p>
 		<p class="parceirosDireitos">Todas as logos e marcas são propriedade de suas respectivas empresas</p>
 	</div>
-	<?php			
-		wp_reset_postdata();				
+	<?php
+		wp_reset_postdata();
 		get_footer();
 	?>
