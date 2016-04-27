@@ -28,7 +28,7 @@
       $this->content = $content;
 
       if($template == '')
-        $template = "{{name}} <{{email}}> enviou uma mensagem com o assunto \"{{subject}}\".\n\n{{content}}";
+        $template = "{{name}} [<a href=\"mailto:{{email}}\">{{email}}</a>] enviou uma mensagem com o assunto \"{{subject}}\".\n\n{{content}}";
 
       $this->template = $template;
 
@@ -47,11 +47,12 @@
     }
 
     private function buildMessage(){
-      return str_replace(
+      $message = str_replace(
         array('{{name}}', '{{email}}', '{{subject}}', '{{content}}'),
         array($this->name, $this->email, $this->subject, $this->content),
         $this->template
       );
+      return $message;
     }
 
     private function slackNotification($slug){
