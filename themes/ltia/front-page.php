@@ -158,16 +158,6 @@ if ( get_option( 'show_on_front' ) == 'page' ) {
 
 				$hasError = true;
 
-
-			elseif (!preg_match("/^[[:alnum:]][a-z0-9_.-]*@[a-z0-9.-]+\.[a-z]{2,4}$/i", trim($_POST['myemail']))) :
-
-
-				$emailError = __('* You entered an invalid email address.','zerif-lite');
-
-
-				$hasError = true;
-
-
 			else:
 
 
